@@ -1,0 +1,5 @@
+# globs
+package.json
+package-lock.json
+settings_data.json
+*.json
