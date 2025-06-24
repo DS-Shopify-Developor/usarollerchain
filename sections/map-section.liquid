@@ -1,0 +1,67 @@
+{{ 'section-map.css' | asset_url |  stylesheet_tag }}
+{% if section.settings.map != blank%}
+<div class="block__map_section map-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="block__map-main">
+    <div class="block__map_block">{{ section.settings.map }}</div>
+    </div> 
+  </div>
+</div>
+{% endif %}
+{%- style -%}
+  .map-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top  }}px;
+    padding-bottom: {{ section.settings.padding_bottom  }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .map-{{ section.id }}-padding {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Map Section",
+  "class": "map-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "map",
+      "label": "Map Link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Map Section"
+    }
+  ]
+}
+{% endschema %}

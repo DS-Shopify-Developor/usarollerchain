@@ -1,0 +1,129 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<script> 
+if (window.location.pathname === '/pages/quote-order') {
+    localStorage.removeItem('redirectToQuote');
+}
+</script>
+
+<div class="customer account-quotes page-width block__account-row section-{{ section.id }}-padding block_main_account-section" data-customerid="{{ customer.id }}">
+  {% render "account-tab" %}
+  <div class="block__account-info">
+
+    <div class="block__account-content">
+      <div class="main_account_tabcontentwrapper">
+        <div class="main_account_tabcontentwrap main_account_quotetab-content" data-accounttabcontent="{{ 'customer.account_tab.quotes' | t | handle }}">
+          <span class="quote-content-loader no-js-hidden">
+            {%- render 'loading-spinner', class: 'loading__spinner loader-open' -%}
+          </span>
+          {% comment %} Activated Quotes {% endcomment %}
+          <div
+            class="block__quote-ordercontentwrap"
+            style="display:none;"
+            data-quotefilter="{{ 'customer.tab_quote_contenttxt.active_quote' | t | handle }}">
+            <h2 class="block__account-content-title h4">{{ 'customer.tab_quote_contenttxt.active_quote_order' | t }}</h2>
+            <div class="main__account_ordercontent">
+              <div id="quote-activated-container" class="quote-order-container quote-order-activated"></div>
+            </div>
+          </div>
+          {% comment %} Submitted Quotes {% endcomment %}
+          <div
+            class="block__quote-ordercontentwrap"
+            style="display:none;"
+            data-quotefilter="{{ 'customer.tab_quote_contenttxt.submitted_quote' | t | handle }}">
+            <h2 class="block__account-content-title h4">{{ 'customer.tab_quote_contenttxt.submitted_quote' | t }}</h2>
+            <div class="main__account_ordercontent">
+              <div id="quote-submitted-container" class="quote-order-container quote-order-submitted"></div>
+            </div>
+          </div>
+  
+          {% comment %} Closed Quote {% endcomment %}
+          <div
+            class="block__quote-ordercontentwrap"
+            style="display:none;"
+            data-quotefilter="{{ 'customer.tab_quote_contenttxt.closed_quote' | t | handle }}">
+            <h2 class="block__account-content-title h4">{{ 'customer.tab_quote_contenttxt.expired_quote' | t }}</h2>
+            <div class="main__account_ordercontent">
+              <div id="quote-closed-container" class="quote-order-container quote-order-closed"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+ {% if customer.orders.size > 0 %}
+    {% for order in customer.orders %}
+      {% for line_item in order.line_items %}
+        {% if line_item.properties._draftid != blank %}
+          {% assign draftorderId = line_item.properties._draftid %}
+          <script>
+            var draftorderId = "{{ draftorderId }}";
+            customerOrderQuoteId.push(draftorderId);
+          </script>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %} 
+</div>
+
+
+{%  render 'remove-quote-popup' %} 
+
+
+
+<script>
+  window.addEventListener('load', () => {
+    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+  });
+</script>
+ <script src="{{ 'main-account-quote.js' | asset_url }}" defer></script>
+
+
+ 
+
+{% schema %}
+{
+  "name": "t:sections.main-account.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

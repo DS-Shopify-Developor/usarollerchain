@@ -1,0 +1,141 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{{ 'main-collection-banner.css' | asset_url | stylesheet_tag }}
+{{ 'main-collection-banner-image.css' | asset_url | stylesheet_tag }}
+
+
+
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+    }
+  }
+  .template-collection{
+    position:relative;
+  }
+{%- endstyle -%}
+
+
+{% if collection.metafields.custom.collection_banner_image_checkbox != blank %}
+  <div class="block__main-collection-banner-image section_{{ section.id }} ">
+      <div class="page-width">
+          <style>
+              
+              {% if collection.metafields.custom.collection_banner_image != blank %}
+              .section_{{ section.id }} .block__page-banner-image {
+                  background-image:url({{ collection.metafields.custom.collection_banner_image | img_url: 'master' }});
+                  background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+              }
+              {% endif %}
+          </style>
+          <div class="block__page-banner-image-box">
+              <div class="block__page-banner-image">
+                  <div class="block__main-collection-banner-content">
+                    {% if template.name == 'collection' %}
+                        <div class="block__page-banner-image-heading-div"><h1 class="block__page-banner-image-heading h3">{{ collection.title }}</h1></div>
+                    {% endif %}
+                      {% if section.settings.show_breadcrumb == true %}
+                      <div class="block__page-banner-image-breadcrumb">
+                          <div class="block__page-banner-image-breadcrumb-icon">{% render 'icon-home' %} / </div>
+                          {% if template.name == "page" %}
+                          <div class="block__page-banner-image-breadcrumb-heading">{{ page.title }}</div>
+                          {% endif %}
+                          {% if template.name == "cart" or template.name == "account" or template.name == "addresses"  or template.name == "order" %}
+                          <div class="block__page-banner-image-breadcrumb-heading">{{ template.name }}</div>
+                          {% endif %}
+                      </div>
+                      {% endif %}
+                  </div>
+              </div>
+          </div>
+          {% if section.settings.breadcrumb_checkbox %}
+            <div class="block_breadcrumbs">
+              {% render "breadcrumb" %}
+            </div>
+          {% endif %}
+      </div>
+  </div>
+  {% else %}
+  <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+    <div class="collection-hero__inner  block_collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {% if section.settings.breadcrumb_checkbox %}
+        <div class="block_breadcrumbs">
+          {% render "breadcrumb" %}
+        </div>
+      {% endif %}
+        <div class="collection-hero__text-wrapper {% if collection.image != blank %} collection-description-col2 {% else %} collection-description-col {% endif %}">
+          <h1 class="collection-hero__title">
+            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+            {{- collection.title | escape -}}
+          </h1>
+        </div>
+      </div>
+  </div>
+
+{% endif %}
+
+
+{% render 'main-collection-banner-description' %}
+
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Breadcrumb"
+    },
+    {
+      "type": "checkbox",
+      "id": "breadcrumb_checkbox",
+      "label": "Breadcrumb Enable !",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "home_text",
+      "label": "Homepage",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "Collection_txt",
+      "label": "Collection Title",
+      "default":"Collection"
+    },
+    {
+      "type": "url",
+      "id": "Collection_url",
+      "label": "List collection Url"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}

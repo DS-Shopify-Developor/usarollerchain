@@ -1,0 +1,178 @@
+{{ 'section-landing-pag.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% if page.title contains 'How To Identify Leaf Chain' %}
+   <h1 style="display:none;">{{ page.title }}</h1>
+{% endif %}
+<div class="page-width page-landing-content section-{{ section.id }}-padding">
+  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {{ page.content }}
+  </div>
+  {% if page.metafields.custom.landing_page_form %}
+  <div class="landing-page-form-content">
+    <div class="globo-formbuilder" data-id="{{ page.metafields.custom.landing_page_form.value }}="></div>
+  </div>
+  {% endif %}
+  <div class="landing-page-list-of-collection">
+    {% if page.metafields.custom.landing_page_list_of_collection != blank %}
+      {% assign collection_category = page.metafields.custom.landing_page_list_of_collection.value %}
+      <div class="landing-page-list-of-collection-categories">
+          <ul
+          id="product-grid"
+          data-id="{{ section.id }}"
+          class="grid product-grid landing-page-list-of-collection-categories-grid-col4">
+            {%- for collection  in collection_category -%}
+              <li
+                class="landing-page-list-of-collection-griditem {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+              <div class="collection-griditem-inner">
+                <div class="collection-griditem-image">
+                  <a href="{{ collection.url }}">
+                  {% if collection.featured_image != blank %}
+                    <img src="{{ collection.featured_image | img_url: 'master' }}" alt="{{ collection.featured_image.alt | escape }}" loading="lazy">
+                  {% else %}
+                  <img src="{{ settings.card_collection_placeholder_image |  img_url: 'master' }}" class="placeholder__image ">
+                    {% comment %} {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }} {% endcomment %}
+                  {% endif %}
+                  </a>
+                </div>
+                <div class="collection-griditem-content">
+                  <div class="collection__information">
+                    <h3 class="collection__heading">
+                      <a
+                        {% if collection == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ collection.url }}"
+                        {% endif %}
+                        class="full-unstyled-link"
+                      >
+                        {%- if collection.title != blank -%}
+                          {{- collection.title | escape -}}
+                        {%- else -%}
+                          {{ 'onboarding.collection_title' | t }}
+                        {%- endif -%}
+                      </a>
+                    </h3>
+                    <a href="{{ collection.url }}" class="card-more-info-btn">{{ 'templates.card-collection.more-info' | t }}</a>
+                  </div>
+                </div>
+              </div>
+            
+              </li>
+            {%- endfor -%}
+          </ul>
+      </div>
+    {% endif %}
+  </div>
+  <div class="landing-page-list-of-product">
+    {% if page.metafields.custom.landing_page_list_of_product != blank %}
+      {% assign product_category = page.metafields.custom.landing_page_list_of_product.value %}
+      <div class="landing-page-list-of-collection-categories">
+          <ul
+          id="product-grid"
+          data-id="{{ section.id }}"
+          class="grid product-grid landing-page-list-of-collection-categories-grid-col4">
+            {% comment %} {%- for collection  in collection_category -%} {% endcomment %}
+              {% for product in product_category.products %}
+              <li
+                class="landing-page-list-of-collection-griditem {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+              <div class="collection-griditem-inner">
+                <div class="collection-griditem-image">
+                  <a href="{{ product.url }}">
+                  {% if product.image != blank %}
+                    <img src="{{ product.image | img_url: 'master' }}" alt="{{ product.image.alt | escape }}" loading="lazy">
+                  {% elsif collection.featured_image != blank %}
+                    <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+                  {% else %}
+                    {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                  </a>
+                </div>
+                <div class="collection-griditem-content">
+                  <div class="collection__information">
+                    <h3 class="collection__heading">
+                      <a
+                        {% if product == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ product.url }}"
+                        {% endif %}
+                        class="full-unstyled-link"
+                      >
+                        {%- if product.title != blank -%}
+                          {{- product.title | escape -}}
+                        {%- else -%}
+                          {{ 'onboarding.collection_title' | t }}
+                        {%- endif -%}
+                      </a>
+                    </h3>
+                    <a href="{{ product.url }}" class="card-more-info-btn">{{ 'templates.card-collection.more-info' | t }}</a>
+                  </div>
+                </div>
+              </div>
+            
+              </li>
+            {%- endfor -%}
+          </ul>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "landing Test",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

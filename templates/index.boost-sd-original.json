@@ -1,0 +1,465 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_aDmprQ": {
+      "type": "hero-banner",
+      "blocks": {
+        "image_LLKdcP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_51.webp",
+            "mobile_image": "shopify:\/\/shop_images\/mobile-image.webp",
+            "heading_label": "Best Sellers",
+            "color_heading_label": "#d5001f",
+            "heading": "CHAIN <span>SPROCKETS<\/span>",
+            "color_heading": "#ffffff",
+            "btn_text": "Shop Now",
+            "btn_url": "shopify:\/\/collections\/coated-roller-chain",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000"
+          }
+        },
+        "image_kYGT7t": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner-image2.png",
+            "mobile_image": "shopify:\/\/shop_images\/banner-image2.png",
+            "heading_label": "Best Sellers",
+            "color_heading_label": "",
+            "heading": "Mounted <span>Bearings<\/span>",
+            "color_heading": "",
+            "btn_text": "Shop Now",
+            "btn_url": "shopify:\/\/collections\/mounted-bearings",
+            "button_bg_color": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_LLKdcP",
+        "image_kYGT7t"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Frame_54.webp",
+        "heading_label": "New Arrivals",
+        "heading": "81XHH Roller\nChain",
+        "btn_text": "Shop Now",
+        "btn_url": "shopify:\/\/collections\/81xhh-roller-chain",
+        "image_2": "shopify:\/\/shop_images\/Frame_10729.webp",
+        "heading_2": "Rolling<br>Bearings",
+        "btn_text_2": "Shop Now",
+        "btn_url_2": "shopify:\/\/collections\/bearings",
+        "image_3": "shopify:\/\/shop_images\/Frame_10730.webp",
+        "heading_3": "Gear<br><span>Reducers<\/span>",
+        "btn_text_3": "Shop Now",
+        "btn_url_3": "shopify:\/\/collections\/gear-reducers"
+      }
+    },
+    "image_with_icon_dX3cW6": {
+      "type": "image-with-icon",
+      "blocks": {
+        "image_AaHjUQ": {
+          "type": "image",
+          "settings": {
+            "collection": "100-roller-chain",
+            "image": "shopify:\/\/shop_images\/Roller_Chain.svg",
+            "heading": "Roller Chain"
+          }
+        },
+        "image_nXKcTw": {
+          "type": "image",
+          "settings": {
+            "collection": "100-q-type-sprockets",
+            "image": "shopify:\/\/shop_images\/Sprockets.svg",
+            "heading": "Sprockets"
+          }
+        },
+        "image_HLGRAW": {
+          "type": "image",
+          "settings": {
+            "collection": "223-series-spherical-roller-bearings",
+            "image": "shopify:\/\/shop_images\/Sprockets.svg",
+            "heading": "Bearings"
+          }
+        },
+        "image_pmCwDQ": {
+          "type": "image",
+          "settings": {
+            "collection": "10b-qd-bushed-pulleys",
+            "image": "shopify:\/\/shop_images\/V-Belt_Pulleys.svg",
+            "heading": "V-Belt Pulleys"
+          }
+        },
+        "image_e8dpix": {
+          "type": "image",
+          "settings": {
+            "collection": "10-band-5v-series-v-belts",
+            "image": "shopify:\/\/shop_images\/V-Belts.svg",
+            "heading": "V-Belts"
+          }
+        },
+        "image_mYXtH7": {
+          "type": "image",
+          "settings": {
+            "collection": "102-tooth-sprocket",
+            "image": "shopify:\/\/shop_images\/Shafting.svg",
+            "heading": "Shafting"
+          }
+        }
+      },
+      "block_order": [
+        "image_AaHjUQ",
+        "image_nXKcTw",
+        "image_HLGRAW",
+        "image_pmCwDQ",
+        "image_e8dpix",
+        "image_mYXtH7"
+      ],
+      "settings": {
+        "background_color": "#f3f3f3"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "16-tooth-sprocket",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 80
+      }
+    },
+    "shop_by_department_rRrRw8": {
+      "type": "shop-by-department",
+      "blocks": {
+        "shopbycategory_RebcHL": {
+          "type": "shopbycategory",
+          "settings": {
+            "heading": "Roller Chain",
+            "menu": "company",
+            "image": "shopify:\/\/shop_images\/cate-roller-chain.png"
+          }
+        },
+        "shopbycategory_GgdPt8": {
+          "type": "shopbycategory",
+          "settings": {
+            "heading": "Sprockets",
+            "menu": "sprockets",
+            "image": "shopify:\/\/shop_images\/cate-shprockets.png"
+          }
+        },
+        "shopbycategory_qhABV9": {
+          "type": "shopbycategory",
+          "settings": {
+            "heading": "Bearings",
+            "menu": "bearings",
+            "image": "shopify:\/\/shop_images\/cate-bearings.png"
+          }
+        },
+        "shopbycollection_YfbYRU": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "roller-chain",
+            "heading": "Roller Chain",
+            "image": "shopify:\/\/shop_images\/d72d9910e938beeaabef6b4ee5540f12.png"
+          }
+        },
+        "shopbycollection_bGF8Rf": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "shafting",
+            "heading": "Shafting",
+            "image": "shopify:\/\/shop_images\/93c0a728d5f0c87676c52c70a5f81561.png"
+          }
+        },
+        "shopbycollection_NBQwjR": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "ansi-leaf-chains",
+            "heading": "ANSI Leaf Chains",
+            "image": "shopify:\/\/shop_images\/78d6d7d772add0bace9119ab5accfeff.png"
+          }
+        },
+        "shopbycollection_dxKDF3": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "screw-conveyors-parts",
+            "heading": "Screw Conveyors",
+            "image": "shopify:\/\/shop_images\/5957f43759fdb54e5a8567b75c7dcf4a.png"
+          }
+        },
+        "shopbycollection_MPMLHE": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "v-belt-pulleys",
+            "heading": "V-Belt Pulleys",
+            "image": "shopify:\/\/shop_images\/39eba11a53826d178171bfc0aac19668.png"
+          }
+        },
+        "shopbycollection_akwxtQ": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "electric-motors",
+            "heading": "Electric Motors",
+            "image": "shopify:\/\/shop_images\/be5590942184be78e1a19822ba66a93e.png"
+          }
+        },
+        "shopbycollection_BfYaxi": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "non-standard-roller-chains",
+            "heading": "Non-Standard",
+            "image": "shopify:\/\/shop_images\/3f028ca3880b9f952ec1c20a9fb140db.png"
+          }
+        },
+        "shopbycollection_VLE9g6": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "corrosion-resistant-metric-roller-chain",
+            "heading": "Corrosion Resistant",
+            "image": "shopify:\/\/shop_images\/86342bbbd4dd9bca35b8b4756b4a1992.png"
+          }
+        },
+        "shopbycollection_bXzLyC": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "pintle-chain",
+            "heading": "Pintle Chain",
+            "image": "shopify:\/\/shop_images\/5bc37bcac2a956abbc69a055836f1c2e.png"
+          }
+        },
+        "shopbycollection_X3PG6w": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "gear-reducers",
+            "heading": "Gear Reducers",
+            "image": "shopify:\/\/shop_images\/4b17f2dee88fe60006269cac24646ca9.png"
+          }
+        },
+        "shopbycollection_hTC4tE": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "roller-chain",
+            "heading": "Roller Chain",
+            "image": "shopify:\/\/shop_images\/ad672aa604d57c1e78ec5b828fe329f2_ec6ea53b-df17-4f33-a46c-d66825d2ad99.png"
+          }
+        },
+        "shopbycollection_hRtPet": {
+          "type": "shopbycollection",
+          "settings": {
+            "collection": "engineering-class-chains",
+            "heading": "Engineering Class",
+            "image": "shopify:\/\/shop_images\/b7727299e50f3b9153240d14d16821f7.png"
+          }
+        }
+      },
+      "block_order": [
+        "shopbycategory_RebcHL",
+        "shopbycategory_GgdPt8",
+        "shopbycategory_qhABV9",
+        "shopbycollection_YfbYRU",
+        "shopbycollection_bGF8Rf",
+        "shopbycollection_NBQwjR",
+        "shopbycollection_dxKDF3",
+        "shopbycollection_MPMLHE",
+        "shopbycollection_akwxtQ",
+        "shopbycollection_BfYaxi",
+        "shopbycollection_VLE9g6",
+        "shopbycollection_bXzLyC",
+        "shopbycollection_X3PG6w",
+        "shopbycollection_hTC4tE",
+        "shopbycollection_hRtPet"
+      ],
+      "settings": {
+        "background_color": "#f3f3f3",
+        "content_background_color": "#ffffff",
+        "heading": "Shop By Department"
+      }
+    },
+    "images_with_text_qt4ctk": {
+      "type": "images-with-text",
+      "blocks": {
+        "text_DVcVx9": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/member-icon-1.svg",
+            "description": "<p>Family owned and operated<\/p>"
+          }
+        },
+        "text_BEELRR": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/member-icon-2.svg",
+            "description": "<p>Unparalleled customer service<\/p>"
+          }
+        },
+        "text_y9a3DA": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/member-icon-3.svg",
+            "description": "<p>Fast shipping, from the warehouse nearest you<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_DVcVx9",
+        "text_BEELRR",
+        "text_y9a3DA"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/member.png",
+        "mobile_main_image": "shopify:\/\/shop_images\/winner-mobile-image.png",
+        "heading": "We sell you what you need, Not what we need to sell.",
+        "description": "<p>We are a family-owned and operated medium-sized industrial power transmission supplier that has made a point to become one of the industry's most knowledgeable and effective PT distributors.<\/p><p>Having a supplier is one thing; having the USA Roller Chain & Sprockets team on your side is a different ball game! We source and buy parts as if we were using them on our own equipment. <\/p>",
+        "heading_member": "Proud Members",
+        "image_member": "shopify:\/\/shop_images\/7733d38c76a1ad0f72d452eccc9098db.png",
+        "heading_consultants": "BBB A+ Accredited Consultants",
+        "image_consultants": "shopify:\/\/shop_images\/1a0755f3831964ba86e9188a8386d7cc.png"
+      }
+    },
+    "shop_by_application_xHj4KT": {
+      "type": "shop-by-application",
+      "blocks": {
+        "collection_w94tmR": {
+          "type": "collection",
+          "settings": {
+            "collection": "cotton-module-truck-chains",
+            "image": "shopify:\/\/shop_images\/application-1.png",
+            "heading": "Cotton Module Truck Chain"
+          }
+        },
+        "collection_m8Meb3": {
+          "type": "collection",
+          "settings": {
+            "collection": "bar-loop-chains",
+            "image": "shopify:\/\/shop_images\/application-2.png",
+            "heading": "Sugar Mill Chains"
+          }
+        },
+        "collection_CaBxQt": {
+          "type": "collection",
+          "settings": {
+            "collection": "agricultural-products",
+            "image": "shopify:\/\/shop_images\/application-3.png",
+            "heading": "Agricultural Products"
+          }
+        },
+        "collection_3rGckt": {
+          "type": "collection",
+          "settings": {
+            "collection": "cotton-module-truck-chains",
+            "image": "shopify:\/\/shop_images\/application-4.png",
+            "heading": "Cotton Module Truck Chain"
+          }
+        },
+        "collection_KtG9wz": {
+          "type": "collection",
+          "settings": {
+            "collection": "peanut-elevator-chain",
+            "image": "shopify:\/\/shop_images\/application-5.png",
+            "heading": "Peanut Elevator Chain"
+          }
+        },
+        "collection_bGkDdn": {
+          "type": "collection",
+          "settings": {
+            "collection": "grain-handling-products",
+            "image": "shopify:\/\/shop_images\/application-6.png",
+            "heading": "Grain Handling Products"
+          }
+        },
+        "collection_BXA3im": {
+          "type": "collection",
+          "settings": {
+            "collection": "sawmill-lumber-industry",
+            "image": "shopify:\/\/shop_images\/application-7.png",
+            "heading": "Sawmill & Lumber"
+          }
+        },
+        "collection_i6hMNQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "pipe-wrench-chain",
+            "image": "shopify:\/\/shop_images\/application-8.png",
+            "heading": "Pipe Wrench Chain"
+          }
+        },
+        "collection_RpYFDt": {
+          "type": "collection",
+          "settings": {
+            "collection": "wash-box-chain",
+            "image": "shopify:\/\/shop_images\/application-9.png",
+            "heading": "Wash Box Chain"
+          }
+        },
+        "collection_by3C7J": {
+          "type": "collection",
+          "settings": {
+            "collection": "specialty-chain",
+            "image": "shopify:\/\/shop_images\/application-10.png",
+            "heading": "Specialty Chain"
+          }
+        }
+      },
+      "block_order": [
+        "collection_w94tmR",
+        "collection_m8Meb3",
+        "collection_CaBxQt",
+        "collection_3rGckt",
+        "collection_KtG9wz",
+        "collection_bGkDdn",
+        "collection_BXA3im",
+        "collection_i6hMNQ",
+        "collection_RpYFDt",
+        "collection_by3C7J"
+      ],
+      "settings": {
+        "background_color": "#f3f3f3",
+        "heading": "Shop By Application"
+      }
+    },
+    "section_recently_product_YyUmBx": {
+      "type": "section-recently-product",
+      "settings": {
+        "heading": "Recently Viewed",
+        "btn_txt": "",
+        "btn_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero_banner_aDmprQ",
+    "image_with_icon_dX3cW6",
+    "featured_collection",
+    "shop_by_department_rRrRw8",
+    "images_with_text_qt4ctk",
+    "shop_by_application_xHj4KT",
+    "section_recently_product_YyUmBx"
+  ]
+}

@@ -1,0 +1,135 @@
+.block__who_we_are_title {
+  margin: 0 0 28px;
+  font-weight: 600;
+  color: var(--tertiary-color);
+}
+.block__who_we_are_caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 60px;
+}
+
+.block__who_we_are_caption > div {
+  width: 47.2%;
+}
+
+.block__who_we_are_caption > div p {
+  margin: 0 0 15px;
+  line-height: 1.88;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+.block__who_we_are_caption > div p:last-child {
+  margin: 0;
+}
+
+.block__who_we_are_video {
+  position: relative;
+  padding-top: 48.6%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.block__who_we_are_video > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.block__who_we_are_logo_title {
+  text-align: center;
+  margin: 60px 0 16px;
+  color: var(--primary-color);
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.block__who_we_are_logo {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.block__who_we_are {
+  position: relative;
+  z-index: 1;
+}
+
+.block__who_we_are:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 34.8%;
+  background: #f7f7f7;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.block__who_we_are_logo_img {
+  max-width: 240px;
+  height: auto;
+  display: block;
+}
+
+
+@media (max-width:1400px){
+  .block__who_we_are_caption>div {
+    width: calc(50% - 10px);
+  }
+}
+@media (max-width:1199px){
+  .block__who_we_are_logo_img {
+    max-width: 200px;
+  }
+  .block__who_we_are_title {
+    margin: 0 0 20px;
+  }
+}
+@media (max-width:991px){
+  .block__who_we_are_caption>div {
+    width: 100%;
+  }
+  .block__who_we_are_caption {
+    gap: 15px;
+    margin: 0 0 50px;
+  }
+  .block__who_we_are_logo_title {
+    margin: 50px 0 16px;
+    font-size: 18px;
+  }
+  .block__who_we_are_logo {
+    gap: 12px;
+  }
+  .block__who_we_are_logo_img {
+    max-width: 165px;
+  }
+}
+@media (max-width:767px){
+  .block__who_we_are_caption>div p{
+    line-height: 26px;
+    font-size: 14px;
+  }
+  .block__who_we_are_video {
+    padding-top: 84.3%;
+  }
+  .block__who_we_are:after {
+    height: 32.05%;
+  } 
+}
+@media (max-width:575px){
+  .block__who_we_are_logo_img {
+    max-width: calc(33.33% - 4px);
+  }
+  .block__who_we_are_logo_title {
+    font-size: 16px;
+  }
+}

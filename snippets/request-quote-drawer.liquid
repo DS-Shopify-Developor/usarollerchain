@@ -1,0 +1,479 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{{ 'request-quote-drawer.css' | asset_url | stylesheet_tag }}
+
+<quote-drawer class="requestquote-drawer">
+  <div id="QuoteDrawer" class="quote-drawer">
+    <div class="quotedrawer__header">
+      {% if customer %}
+        <h2 class="quotedrawer-product-mainheading extra_heading_size_2">{{ 'request_quote.quote_drawer.drawer_heading' | t }}</h2>
+      {% endif %}
+      <button
+        class="quotedrawer__close"
+        type="button"
+        aria-label="{{ 'accessibility.close' | t }}">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+    <div class="requestquote-inner-drawer">
+      {% unless customer %}
+        <div class="requestquote-customerform-wrapper">
+          <div id="quote-login" class="requestquote-login-formwrap block__main_login-box">
+            <h2
+              id="quotelogin"
+              tabindex="-1"
+              class="block_main_login-heading">
+              {{ 'request_quote.quote_drawer.login_heading' | t }}
+            </h2>
+
+            <div class="block__main_login-form customer">
+              <div class="hidden">
+                {%- form 'customer_login', novalidate: 'novalidate' -%}
+                  {%- if form.errors -%}
+                    <h2
+                      class="form__message"
+                      tabindex="-1"
+                      autofocus>
+                      <span class="visually-hidden">{{ 'accessibility.error' | t }}
+                      </span>
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        viewBox="0 0 13 13">
+                        <circle
+                          cx="6.5"
+                          cy="6.50049"
+                          r="5.5"
+                          stroke="white"
+                          stroke-width="2" />
+                        <circle
+                          cx="6.5"
+                          cy="6.5"
+                          r="5.5"
+                          fill="#EB001B"
+                          stroke="#EB001B"
+                          stroke-width="0.7" />
+                        <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
+                        <path
+                          d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+                          fill="white"
+                          stroke="#EB001B"
+                          stroke-width="0.7">
+                      </svg>
+                      {{ 'templates.contact.form.error_heading' | t }}
+                    </h2>
+                    {{ form.errors | default_errors }}
+                  {%- endif -%}
+                  <input
+                    type="hidden"
+                    name="return_to"
+                    value="{% if template.name == 'index' %}{{ routes.root_url }}{% else %}{{ canonical_url }}/{% endif %}?showDrawer=true">
+
+                  <div class="field">
+                    <div class="input_field">
+                      <input
+                        type="email"
+                        name="customer[email]"
+                        id="CustomerEmail"
+                        autocomplete="email"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        {% if form.errors contains 'form' %}
+                        aria-invalid="true"
+                        {% endif %}
+                        placeholder="{{ 'customer.login_page.email' | t }}">
+                    </div>
+                    <label for="CustomerEmail">
+                      {{ 'customer.login_page.email_label' | t }}
+                    </label>
+                  </div>
+
+                  {%- if form.password_needed -%}
+                    <div class="field password_field">
+                      <div class="input_field">
+                        <input
+                          type="password"
+                          value=""
+                          name="customer[password]"
+                          id="CustomerPassword"
+                          autocomplete="current-password"
+                          {% if form.errors contains 'form' %}
+                          aria-invalid="true"
+                          {% endif %}
+                          placeholder="{{ 'customer.login_page.password' | t }}"
+                          class="password_input">
+                      </div>
+                      <label for="CustomerPassword">
+                        {{ 'customer.login_page.password' | t }}
+                      </label>
+                    </div>
+                  {%- endif -%}
+
+                  <button type="submit" class="custom_btn black_btn">
+                    {{ 'request_quote.quote_drawer.sign_in' | t }}
+                  </button>
+
+                  <div class="quote_guestaccount_linkblock">
+                    <a href="#quote-register" class="quote_guestaccount_formlink">{{ 'request_quote.quote_drawer.guest_login' | t }}</a>
+                  </div>
+
+
+                {%- endform -%}
+              </div>
+
+              <div class="quote_createaccount_btnblock">
+                <span class="quote_createaccount_txt">{{ 'request_quote.quote_drawer.createaccount_normaltxt' | t }}</span>
+                <a href="{{ routes.account_register_url }}" class="quote_createaccount_linktxt">{{ 'request_quote.quote_drawer.createaccount_linktxt' | t }}</a>
+              </div>
+            </div>
+
+            <div class="quote-login-loyaltyinfowrap">
+              <div class="quote-login-loyaltyinfo">
+                <h4 class="quote-loginloyalty-earnaccounttxt">{{ 'request_quote.quote_drawer.loyalty_accounttxt' | t }}</h4>
+                <h3 class="quote-loginloyalty-earntxt">{{ 'request_quote.quote_drawer.loyalty_earntxt' | t }}</h3>
+              </div>
+              <div class="quote-login-loyaltysubtxt extra_small_body14">{{ 'request_quote.quote_drawer.loyalty_loginsubtxt' | t }}</div>
+            </div>
+          </div>
+
+          {% comment %}
+              <div
+              id="quote-register"
+              class="requestquote-register-formwrap"
+              style="display: none;">
+              <h2
+              id="quoteguestregister"
+              tabindex="-1"
+              class="block_main_guestregister-heading">
+              {{ 'request_quote.quote_drawer.register_heading' | t }}
+              </h2>
+              <div class="block__main_register-form customer register">
+
+              {%- form 'create_customer' -%}
+
+              <input
+              type="hidden"
+              name="return_to"
+              value="{% if template.name == 'index' %}{{ routes.root_url }}{% else %}{{ canonical_url }}/{% endif %}?showDrawer=true">
+              {%- if form.posted_successfully? -%}
+              <script>
+              var productsquoteDrawer = document.querySelector('.requestquote-drawer');
+              if (productsquoteDrawer) {
+              productsquoteDrawer.classList.add('quotedrawer_active');
+              document.body.classList.add('body_quotedrawer_active');
+              } else {}
+              </script>
+              {%- endif -%}
+
+              {%- if form.errors -%}
+              <h2
+              class="form__message"
+              tabindex="-1"
+              autofocus>
+              <svg aria-hidden="true" focusable="false">
+              <use href="#icon-error" />
+              </svg>
+              {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+              <ul>
+              {%- for field in form.errors -%}
+              <li>
+              {%- if field == 'form' -%}
+              {{ form.errors.messages[field] }}
+              {%- else -%}
+              <a href="#RegisterForm-{{ field }}">
+              {{ form.errors.translated_fields[field] | capitalize }}
+              {{ form.errors.messages[field] }}
+              </a>
+              {%- endif -%}
+              </li>
+              {%- endfor -%}
+              </ul>
+              {%- endif -%}
+
+              <div class="block__main_register-field-wrap">
+              <div class="field">
+              <input
+              type="text"
+              name="customer[first_name]"
+              id="RegisterForm-FirstName"
+              {% if form.first_name %}
+              value="{{ form.first_name }}"
+              {% endif %}
+              autocomplete="given-name"
+              placeholder="{{ 'request_quote.quote_register.your_name' | t }}"
+              required="required"
+              maxlength="30">
+              <label for="RegisterForm-FirstName">
+              {{ 'request_quote.quote_register.your_name' | t }}
+              </label>
+              </div>
+              </div>
+
+              <div class="block__main_register-field-wrap">
+              <div class="field">
+              <input
+              type="email"
+              name="customer[email]"
+              id="RegisterForm-email"
+              {% if form.email %}
+              value="{{ form.email }}"
+              {% endif %}
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="email"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-email-error"
+              {% endif %}
+              placeholder="{{ 'request_quote.quote_register.email' | t }}"
+              required>
+              <label for="RegisterForm-email">
+              {{ 'request_quote.quote_register.email' | t }}
+              </label>
+              {%- if form.errors contains 'email' -%}
+              <span id="RegisterForm-email-error" class="form__message">
+              <svg aria-hidden="true" focusable="false">
+              <use href="#icon-error" />
+              </svg>
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}.
+              </span>
+              {%- endif -%}
+              </div>
+              <div class="field">
+              <input
+              type="password"
+              name="customer[password]"
+              id="RegisterForm-password"
+              aria-required="true"
+              {% if form.errors contains 'password' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-password-error"
+              {% endif %}
+              placeholder="{{ 'customer.register.password' | t }}"
+              class="password_input"
+              required>
+              <label for="RegisterForm-password">
+              {{ 'customer.register.password' | t }}
+              </label>
+              </div>
+              {%- if form.errors contains 'password' -%}
+              <span id="RegisterForm-password-error" class="form__message">
+              <svg aria-hidden="true" focusable="false">
+              <use href="#icon-error" />
+              </svg>
+              {{ form.errors.translated_fields.password | capitalize }}
+              {{ form.errors.messages.password }}.
+              </span>
+              {%- endif -%}
+              </div>
+
+              <div class="block__main_register-field-wrap">
+              <div class="field select_field_wrap">
+              <select
+              id="RegisterForm-Country"
+              name="customer[country]"
+              data-default="{{ form.Country }}"
+              class="select_field form-control country-dynamic"
+              placeholder="{{ 'request_quote.quote_register.country' | t }}"
+              aria-required="true"
+              required></select>
+              <label for="country">
+              {{ 'request_quote.quote_register.country' | t }}
+              </label>
+              </div>
+              <div class="field select_field_wrap">
+              <select
+              id="RegisterForm-State"
+              name="customer[state]"
+              data-default="{{ form.State }}"
+              class="select_field form-control state-dynamic"
+              placeholder="{{ 'request_quote.quote_register.state' | t }}"
+              aria-required="true"
+              required>
+              <option value="">{{ 'request_quote.quote_register.state' | t }}</option>
+              </select>
+              <label for="RegisterForm-State">
+              {{ 'request_quote.quote_register.state' | t }}
+              </label>
+              </div>
+              </div>
+
+              <div class="block__main_register-field-wrap">
+              <div class="field">
+              <input
+              type="text"
+              name="customer[zip]"
+              id="RegisterForm-Zipcode"
+              autocomplete="zipcode"
+              placeholder="{{ 'request_quote.quote_register.zipcode' | t }}"
+              value="{{ form.Zip }}"
+              required
+              maxlength="6"
+              oninput="validateZipNumber(event)">
+              <label for="RegisterForm-Zipcode">
+              {{ 'request_quote.quote_register.zipcode' | t }}
+              </label>
+              </div>
+              <div class="field">
+              <input
+              type="text"
+              name="customer[note][Phone]"
+              id="RegisterForm-PhoneNumber"
+              autocomplete="phone-number"
+              class="inputphone-number"
+              placeholder="{{ 'request_quote.quote_register.phone_number' | t }}"
+              value="{{ form.Phone }}"
+              required
+              maxlength="11"
+              oninput="validateNumericInput(event)">
+              <label for="RegisterForm-PhoneNumber">
+              {{ 'request_quote.quote_register.phone_number' | t }}
+              </label>
+              </div>
+              </div>
+              <div class="block__main_register-field-wrap">
+              <div class="field">
+              <textarea
+              name="customer[note][Note]"
+              id="RegisterForm-note"
+              rows="5"
+              value=""
+              class="requestquote_register_note"
+              placeholder="{{ 'request_quote.quote_register.note' | t }}"></textarea>
+              <label for="RegisterForm-note">
+              {{ 'request_quote.quote_register.note' | t }}
+              </label>
+              </div>
+              <input
+              type="hidden"
+              name="customer[city]"
+              id="RegisterForm-City"
+              autocomplete="city"
+              placeholder="{{ 'customer.register.city' | t }}"
+              value="{{ form.City }}"
+              required
+              maxlength="30">
+              </div>
+              <input
+              type="hidden"
+              id="customer_tags"
+              name="customer[tags]"
+              value="">
+
+              <div class="block__mainregister-btnwrap btn_wrap">
+              <button class="block__mainregister-btn custom_btn black_btn h-50">
+              {{ 'request_quote.quote_register.submit' | t }}
+              </button>
+              </div>
+
+              <div class="quote_createaccount_btnblock">
+              <span class="quote_createaccount_txt">{{ 'request_quote.quote_drawer.login_normaltxt' | t }}</span>
+              <a href="#quote-login" class="quote_loginaccount_linktxt">{{ 'request_quote.quote_drawer.sign_in' | t }}</a>
+              </div>
+
+              {%- endform -%}
+              </div>
+              </div>
+          {% endcomment %}
+        </div>
+      {% else %}
+        <div class="quoteproduct-list-wrapper">
+
+          <form id="quoteproduct-listform">
+            <div class="quotedrawer-product-wrapper"></div>
+            <div class="hidden customer_orderinfo">
+              <input
+                type="hidden"
+                name="tags"
+                value="Unissued">
+              <input
+                type="hidden"
+                name="salesperson"
+                value="Jimena Quartieri">
+              <input
+                type="hidden"
+                class="form-control"
+                name="customerName"
+                value="{{ customer.first_name }}">
+              <input
+                type="hidden"
+                class="form-control"
+                name="customerEmail"
+                value="{{ customer.email }}">
+              <input
+                type="hidden"
+                class="form-control"
+                name="customerCountry"
+                value="{{ customer.Country }}">
+              <input
+                type="hidden"
+                class="form-control"
+                name="customerZipcode"
+                value="{{ customer.zip }}">
+              <input
+                type="hidden"
+                class="form-control"
+                name="customerPhoneNumber"
+                value="{{ customer.phone }}">
+              <input
+                type="hidden"
+                class="form-control"
+                name="days"
+                value="">
+                <input type="hidden"  class="form-control" name="fileimage[]" multiple>
+            </div>
+            
+            <div class="quotedrawer-product-submitbtnwrap">
+              <button class="quotedrawer-product-submitbtn custom_btn black_btn body_heading">
+                <span class="quotedrawer-product-submitbtn-txt">{{ 'request_quote.quote_drawer.quote_btn_txt' | t }}</span>
+                <span class="quotedrawer-product-submitbtn-loading hidden">
+                  {%- render 'loading-spinner', class: 'loading__spinner loader-open' -%}
+                </span>
+              </button>
+            </div>
+          </form>
+          <div class="quotedrawer-product-submittedcontent">
+            <div class="quotedrawer-product-submit-topcotent">
+              <div class="quotedrawer-product-successicon">
+                {% render 'icon-quote-submitted' %}
+              </div>
+              <div class="quotedrawer-product-successmessage">
+                <h3 class="quotedrawer-product-success-heading extra_heading_size_2">{{ 'request_quote.quote_drawer.quote_success_msgtop' | t }}</h3>
+                <div class="quotedrawer-product-success-desc">{{ 'request_quote.quote_drawer.quote_success_msgbottom' | t }}</div>
+              </div>
+            </div>
+            <div class="quotedrawer-productlist-submitted"></div>
+            <div class="quotedrawer-successproduct-btnwrap">
+              <a href="/collections/all" class="custom_btn border_btn quotedrawer-successproduct-btn">{{ 'request_quote.quote_drawer.continue_browsing' | t }}</a>
+              <a href="/pages/quote-order" class="quotedrawer-successproduct-reviewbtn">{{ 'request_quote.quote_drawer.review_quotetxt' | t }}</a>
+            </div>
+          </div>
+        </div>
+      {% endunless %}
+    </div>
+
+  </div>
+</quote-drawer>
+<script>
+  function validateNumericInput(event) {
+
+    const input = event.target;
+    const sanitizedValue = input.value.replace(/[^0-9\+\-\(\)\s]/g, ''); // Allow digits, +, -, (, ), and space
+
+    if (input.value !== sanitizedValue) {
+      input.value = sanitizedValue; // Update the input field with valid characters only
+    } else {}
+
+  }
+
+  function validateZipNumber(event) {
+    const input = event.target;
+    const sanitizedValue = input.value.replace(/[^0-9\+\-\(\)\s]/g, ''); // Allow digits, +, -, (, ), and space
+
+    if (input.value !== sanitizedValue) {
+      input.value = sanitizedValue; // Update the input field with valid characters only
+    }
+  }
+</script>

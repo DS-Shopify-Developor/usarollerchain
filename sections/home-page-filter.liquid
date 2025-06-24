@@ -1,0 +1,202 @@
+{{ 'home-page-filter.css' | asset_url | stylesheet_tag }}
+<script src="{{ "home-page-filter.js" | asset_url}}" defer="defer"></script>
+
+<div class="block__home-page-filter-section section_{{ section.id }} header-search-filter" data-collection="{{section.settings.collection.handle}}">
+  <div class="page-width">
+    <style>
+      .section_{{ section.id }}{
+        background: {{ section.settings.background_color }}
+      }
+    </style>
+    <div class="block__home-page-filter">
+      <div class="block__home-page-filter-box home-filterbox-desktop">
+        <div class="block__home-page-filter-left">
+          <div class="block__homepage-filtertop block__homepage-filtertop-leftcontent">
+            {% if section.settings.filter_left_label1 != blank %}
+              <div class="block__home-page-filter-heading-box">
+                {% render 'icon-lines' %}
+                <span class="block__home-page-filter-heading h3">{{ section.settings.filter_left_label1 }}</span>
+                <span class="block_homepage-filter-mobarrow">{% render 'down_arrow' %}</span>
+              </div>
+            {% endif %}
+            <div class="block__home-page-filter-listing-box">
+              <div class="block__home-page-filter-listing">
+                {% for block in section.blocks %}
+                  {% if block.type == 'filter_sprocket_content' %}
+                    <div class="block__home-page-filter-list">
+                      <select class="block__home-page-filter-list-select select-{{forloop.index}} ">
+                        <option value="{{ block.settings.filter_opt_label | handle }}" disabled selected>{{ block.settings.filter_opt_label }}</option>
+                        {% assign grp_split = block.settings.filter_opt_val | split: '|' %}
+                        {% for group in grp_split %}
+                          {% assign group = group | strip %}
+                          {% if group contains 'New_filter_' %}
+                            {% assign group_parts = group | split: ', ' %}
+                            {% for opt_val_tag in group_parts %}
+                              {% assign opt_tag = opt_val_tag | split: ':' %}
+                              {% if opt_tag.size == 2 %}
+                                {% assign filter_key = opt_tag[0] | strip %}
+                                {% assign filter_value = opt_tag[1] | strip %}
+                                {% assign url_safe_value = filter_key | append: '-' | append: filter_value | replace: ' ', '-' | replace: ':', '' %}
+                                <option value="{{ url_safe_value }}">{{ filter_value }}</option>
+                              {% endif %}
+                            {% endfor %}
+                          {% elsif group != '' %}
+                            {% unless forloop.first %}
+                              </optgroup>
+                            {% endunless %}
+                            <optgroup label="{{ group }}">
+                          {% endif %}
+                        {% endfor %}
+                        {% if grp_split.size > 0 %}
+                          </optgroup>
+                        {% endif %}
+                      </select>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="block__homepage-filterbottom block__homepage-filtertop-leftcontent">
+            {% if section.settings.filter_left_label2 != blank %}
+              <div class="block__home-page-filter-heading-box">
+                {% render 'icon-lines' %}
+                <span class="block__home-page-filter-heading h3">{{ section.settings.filter_left_label2 }}</span>
+                <span class="block_homepage-filter-mobarrow">{% render 'down_arrow' %}</span>
+              </div>
+            {% endif %}
+            <div class="block__home-page-filter-listing-box">
+              <div class="block__home-page-filter-listing">
+                {% for block in section.blocks %}
+                  {% if block.type == 'filter_chain_content' %}
+                    <div class="block__home-page-filter-list">
+                      <select class="block__home-page-filter-list-select select-{{forloop.index}} ">
+                        <option value="{{ block.settings.filter_opt_label | handle }}" disabled selected>{{ block.settings.filter_opt_label }}</option>
+                        {% assign grp_split = block.settings.filter_opt_val | split: '|' %}
+                        {% for group in grp_split %}
+                          {% assign group = group | strip %}
+                          {% if group contains 'New_filter_' %}
+                            {% assign group_parts = group | split: ', ' %}
+                            {% for opt_val_tag in group_parts %}
+                              {% assign opt_tag = opt_val_tag | split: ':' %}
+                              {% if opt_tag.size == 2 %}
+                                {% assign filter_key = opt_tag[0] | strip %}
+                                {% assign filter_value = opt_tag[1] | strip %}
+                                {% assign url_safe_value = filter_key | append: '-' | append: filter_value | replace: ' ', '-' | replace: ':', '' %}
+                                <option value="{{ url_safe_value }}">{{ filter_value }}</option>
+                              {% endif %}
+                            {% endfor %}
+                          {% elsif group != '' %}
+                            {% unless forloop.first %}
+                              </optgroup>
+                            {% endunless %}
+                            <optgroup label="{{ group }}">
+                          {% endif %}
+                        {% endfor %}
+                        {% if grp_split.size > 0 %}
+                          </optgroup>
+                        {% endif %}
+                      </select>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block__home-page-filter-right">
+          <div class="block__home-page-filter-find-button">
+            <button type="button" class="block__home-page-filter-button">{{ section.settings.filter_btn_txt }}</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home page Filter",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color"
+      }, {
+        "type": "text",
+        "id": "filter_left_label1",
+        "label": "Filter Left label1",
+        "default": "Sprocket Finder"
+      }, 
+      {
+        "type": "text",
+        "id": "filter_left_label2",
+        "label": "Filter Left label2",
+        "default": "Chain Finder"
+      },{
+        "type": "text",
+        "id": "filter_btn_txt",
+        "label": "Filter button text",
+        "default": "Find"
+      },
+      {
+        "type" : "collection",
+        "id" : "collection",
+        "label" : "Select collection",
+        "info" : "Select collection on which you want to filter"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "filter_sprocket_content",
+        "name": "Filter Sprocket content",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "select box sub heading value add with pipsign(|)&(,) sepratore i.e. |ANSI Standard|, New_filter_chain size: 25, New_filter_chain size: 35, |Double-Pitch|, New_filter_chain size: 2040"
+          },
+          {
+            "type": "text",
+            "id": "filter_opt_label",
+            "label": "Filter option label"
+          }, {
+            "type": "textarea",
+            "id": "filter_opt_val",
+            "label": "Add filter option tags value",
+            "info": "Add current filter tags with prefix and comma(, ) separator i.e Tooth Count_100, Chain Size_03B, Bore Size_14mm, Sprocket Type_A-plate"
+          }
+        ]
+      },
+      {
+        "type": "filter_chain_content",
+        "name": "Filter Chain content",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "select box sub heading value add with pipsign(|)&(,) sepratore i.e. |ANSI Standard|, New_filter_chain size: 25, New_filter_chain size: 35, |Double-Pitch|, New_filter_chain size: 2040"
+          },
+          {
+            "type": "text",
+            "id": "filter_opt_label",
+            "label": "Filter option label"
+          }, {
+            "type": "textarea",
+            "id": "filter_opt_val",
+            "label": "Add filter option tags value",
+            "info": "Add current filter tags with prefix and comma(, ) separator i.e Tooth Count_100, Chain Size_03B, Bore Size_14mm, Sprocket Type_A-plate"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home page Filter"
+      }
+    ]
+  }
+{% endschema %}

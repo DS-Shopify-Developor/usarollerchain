@@ -1,0 +1,84 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-product-rebuyupsell.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+<div class="section-main-product-rebuyupsell color-{{ section.settings.color_scheme }} gradient no-js-hidden mb-80">
+  
+  <div class="related-products page-width section-{{ section.id }}-padding">
+    <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+      {{ section.settings.heading }}
+    </h2>
+    {% assign rebuy_upsell_id = section.settings.rebuy_upsell_id %}
+    <div class="block__related-product-rebuyupsell">
+        {% render 'product-rebuy-recommendation', rebuy_id: rebuy_upsell_id, rebuy_type: "product" %}
+    </div>
+  </div>
+  {% if section.settings.image_shape == 'arch' %}
+    {% render 'mask-arch' %}
+  {%- endif -%}
+</div>
+
+<script>
+    function checkForElement() {
+        fetch(`${routes.cart_url}?section_id=cart-drawer`)
+            .then((response) => response.text())
+            .then((responseText) => {
+            const html = new DOMParser().parseFromString(responseText, 'text/html');
+            const cartDrawerhtml = html.querySelector('cart-drawer');
+            document.querySelector('cart-drawer').innerHTML = cartDrawerhtml.innerHTML;
+            const cartcounthtml = html.querySelector('.cart-count-bubble');
+            if(document.querySelector('.cart-count-bubble')){
+                document.querySelector('.cart-count-bubble').innerHTML = cartcounthtml.innerHTML;
+            }else{
+                document.querySelector('.cart-count-bubble').innerHTML = cartcounthtml.innerHTML;
+            }
+            document.querySelector('cart-drawer').classList.remove('is-empty');
+    
+            })
+            .catch((e) => {
+            console.error(e); 
+            });
+        document.querySelector('#cart-icon-bubble').click();
+    }
+    document.addEventListener('rebuy.add', function(event){
+        console.log('rebuy.add event');
+        setTimeout(function(){
+            checkForElement();
+        }, 1000);
+    });
+
+    
+</script>
+{% schema %}
+{
+  "name": "Product Rebuy upsell",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.related-products.settings.paragraph__1.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+        "type": "number",
+        "id": "rebuy_upsell_id",
+        "label": "Rebuy Upsell ID"
+    }
+  ],
+  "presets": [
+    {
+        "name": "Product Rebuy upsell"
+    }
+  ]
+}
+{% endschema %}

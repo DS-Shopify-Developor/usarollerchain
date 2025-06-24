@@ -1,0 +1,149 @@
+{{ 'shop-by-department.css' | asset_url | stylesheet_tag }}
+<div class="block__shop-by-department-section section_{{ section.id }}">
+    <style>
+        .section_{{ section.id }} {
+            background: {{ section.settings.background_color }};
+        }
+        .section_{{ section.id }} .listing_background {
+            background: {{ section.settings.content_background_color }};
+        }
+    </style>
+    <div class="page-width">
+        <div class="block__shop-by-department-box {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {% if section.settings.heading != blank %}
+                <h2 class="block__shop-by-department-heading center">{{ section.settings.heading }}</h2>
+            {% endif %}
+            <div class="block__shop-by-department-category">
+                <div class="block__shop-by-department-category-box">
+                {% for block in section.blocks %}
+                    {% if block.type == "shopbycategory" %}
+                        {% if block.settings.image != blank %}
+                        <div class="block__shop-by-department-category-listing">
+                            <div class="block__shop-by-department-category-list listing_background">
+                                <div class="block__shop-by-department-category-image">
+                                    <img loading="lazy" class="block__shop-by-department-category-img" src="{{ block.settings.image | img_url:"master" }}" alt="Left Iamge" width="" height="">
+                                </div>
+                                <div class="block__shop-by-department-category-content">
+                                    {% if block.settings.heading != blank %}
+                                    <p class="block__shop-by-department-category-heading medium_body">{{ block.settings.heading }}</p>
+                                    {% endif %}
+                                    <ul class="list-menu list-menu--inline block__shop-by-department-category-menu" role="list">
+                                        {%- for link in block.settings.menu.links limit:6 -%}
+                                            {% assign linktitle = link.title | handle %}
+                                            <li {% if linktitle contains 'shop-all' or linktitle contains 'read-more' %} class="block__shop-all-link"{% endif %}>
+                                                <a id="HeaderMenu-{{ link.handle }}" href="{{ link.url }}" class="block__shop-by-department-category-menu-list header__menu-item list-menu__item link link--text focus-inset" {% if link.current %} aria-current="page" {% endif %} >
+                                                    <span {%- if link.current %} class="header__active-menu-item" {% endif %} > {{- link.title | escape -}} </span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="block__shop-by-department-collection">
+                <div class="block__shop-by-department-collection-box">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'shopbycollection' %}
+                            {% if block.settings.image != blank %}
+                                <div class="block__shop-by-department-collection-listing listing_background">
+                                    <a class="block__shop-by-department-collection-list-url" href="{% if block.settings.collection.url != blank %}{{ block.settings.collection.url }} {% else %} {{ block.settings.page_url }} {% endif %}">
+                                        <div class="block__shop-by-department-collection-image">
+                                            <img class="block__shop-by-department-collection-img" src="{{ block.settings.image | img_url:"master" }}" alt="Left Iamge" width="" height="" loading="lazy">
+                                        </div>
+                                        <div class="block__shop-by-department-collection-heading medium_body"><span>{{ block.settings.heading }}</span> {% render 'icon-red-arrow' %}</div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Shop By Department",
+        "class": "section",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color"
+            },
+            {
+                "type": "color",
+                "id": "content_background_color",
+                "label": "Content Background Color"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "shopbycategory",
+                "name": "Shop by Category",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading"
+                    },
+                    {
+                        "type": "link_list",
+                        "id": "menu",
+                        "default": "main-menu",
+                        "label": "t:sections.header.settings.menu.label"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            },
+            {
+                "type": "shopbycollection",
+                "name": "Shop By Collection",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "collection"
+                    },
+                    {
+                        "type": "url",
+                        "id": "page_url",
+                        "label": "Url"
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Shop By Department"
+            }
+        ]
+    }
+{% endschema %}

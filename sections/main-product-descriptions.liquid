@@ -1,0 +1,66 @@
+{{ 'main-product-descriptions.css' | asset_url | stylesheet_tag }}
+
+<section class="block__product-description--section gradient color-{{ section.settings.color_scheme }} p-80 mb-80">
+  <div class="page-width">
+    <div class="block__product_tabwrapper">
+      <div class="block__product-tabitem">
+        <a href="javascript:void(0);" class="block__product-tabheading h5 block__product-tabactive" data-producttabhead="more-details">Description</a>
+      </div>
+      <div class="block__product-tabitem">
+        <a href="javascript:void(0);" class="block__product-tabheading h5" data-producttabhead="specification">Specification</a>
+      </div>
+    </div>
+    <div class="block__producttab-contentwrap">
+      <div class="block__producttab-txtcontent block__product-description-wrapper h6 productdetails block__product-tabcontentactive" data-producttabcontent="more-details">
+        <div class="block__product-topdesc-wrapper block__product-desc-wrapper">
+          {{ product.description }}
+        </div>
+        {% if product.metafields.custom.product_features != blank %}
+          <div class="block__product-feature-descwrapper">
+            <h4 class="block__product-description-title">Feature</h4>
+            <div class="block__product-feature-content">
+              <div class="block__product-feature">
+                {{ product.metafields.custom.product_features }}
+              </div>
+              {% if section.settings.product_warning_img != blank %}
+                <div class="block__product-feature-warningimg">
+                  <img src="{{ section.settings.product_warning_img | img_url:"master" }}" alt="Featured image" width="auto" height="auto" />
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="block__producttab-txtcontent  block__product-specification" data-producttabcontent="specification">
+        <div class="block__product-techspecification">
+          {{ product.metafields.custom.product_techspecs }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product page Description",
+    "class": "section",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_warning_img",
+        "label": "Product warning image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product page Description"
+      }
+    ]
+  }
+{% endschema %}

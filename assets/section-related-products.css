@@ -1,0 +1,15 @@
+.related-products {
+  display: block;
+}
+
+.related-products__heading {
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0 0 50px;
+  text-align: center;
+}
+@media (max-width:749px) {
+  .related-products__heading {
+    margin: 0 0 30px;
+  }
+}

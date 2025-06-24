@@ -1,0 +1,99 @@
+{{ 'section-our-mission.css' | asset_url | stylesheet_tag }}
+<div class="block__our_mission">
+  <div class="page-width">
+    <div class="block__our_mission_row">
+      {% if section.settings.img != blank %}
+        <div class="block__our_mission_img">
+          <img src="{{ section.settings.img |  img_url: 'master' }}" alt="">
+        </div>
+      {% endif %}
+      <div class="block__our_mission_info">
+        <div class="block__our_mission_info_block">
+          {% if section.settings.title != blank %}
+            <h2 class="block__our_mission_title">{{ section.settings.title }}</h2>
+          {% endif %}
+          {% if section.settings.info != blank %}
+            <div class="block__our_mission_text">
+              {{ section.settings.info }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .block__our_mission{
+      padding: {{ section.settings.py }}px 0;
+  }
+  @media (max-width:1199px){
+      .block__our_mission{
+          padding: {{ section.settings.py_t }}px 0;
+      }
+  }
+  @media (max-width:767px){
+      .block__our_mission{
+          padding: {{ section.settings.py_m }}px 0;
+      }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Our Mission",
+  "class": "our-mission",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Select Image"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "richtext",
+        "id": "info",
+        "label": "Caption"
+    },
+    {
+      "type": "range",
+      "id": "py",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "py_t",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Tablet)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "py_m",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Mobile)",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Mission"
+    }
+  ]
+}
+{% endschema %}

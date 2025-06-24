@@ -1,0 +1,52 @@
+.block__map_block iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+}
+
+.block__map_block {
+    position: relative;
+    padding-top: 30%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.block__map-main{
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+
+@media (max-width:991px) {
+    .block__map_block {
+        padding-top: 40%;
+    }
+}
+@media (max-width:767px) {
+    .block__map_block {
+        padding-top: 84.3%;
+    }
+    
+}
+@media (max-width:390px) {
+    .block__contact-info {
+        margin: 0 0 20px;
+    }
+    .block__contact-btn {
+        padding: 18px 40px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .block__contact-left-block .block__contact-block:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .block__contact-block h6 {
+        margin: 0px 0 5px;
+    }
+    .block__contact-left {
+        margin-bottom: 30px;
+    }
+}

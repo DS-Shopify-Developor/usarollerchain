@@ -1,0 +1,189 @@
+.block__home-page-filter-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+}
+.block__home-page-filter-left {
+    width: calc(100% - 130px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.block__home-page-filter-right {
+    width: 100%;
+    max-width: 120px;
+}
+.block__homepage-filtertop-leftcontent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 54px;
+    justify-content: space-between;
+}
+.block__home-page-filter-heading-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    gap: 11px;
+    padding: 0;
+    max-width: 140px;
+}
+.block__home-page-filter-heading {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18.15px;
+    color: var(--secondary-color);
+    margin: 0;
+}
+.block__home-page-filter-find-button {
+    padding: 0; 
+}
+.block__home-page-filter-button {
+    width: 118px;
+    padding: 15px 24px 15px 24px;
+    border-radius: 5px;
+    border: none;
+    background: var(--quinary-color);
+    color: var(--secondary-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    cursor: pointer;
+}
+.block__home-page-filter-listing-box {
+    width: calc(100% - 195px);
+}
+.block__home-page-filter-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+.block__home-page-filter-list {
+    width: calc(33.33% - 7.33px);
+    position: relative;
+}
+.block__home-page-filter-list-select {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 15px 24px;
+    border-radius: 5px;
+    border: 1px solid #ECECEC;
+    box-shadow: 0px 5px 10px 0px #0000000D;
+    -webkit-appearance: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    color: var(--tertiary-color);
+    font-family: var(--font-body-family);
+}
+.block__home-page-filter-list:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0849/3108/4578/files/icon-down-arrow.svg?v=1711703729);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+}
+@media (min-width:750px) {
+    .block_homepage-filter-mobarrow {
+        display: none;
+    }
+}
+@media screen and (max-width:1024px) and (min-width:750px){
+    .block__homepage-filtertop-leftcontent {
+        column-gap: 10px;
+    }
+    .block__home-page-filter-heading-box {
+        max-width: 130px;
+        gap: 7px;
+    }
+    .block__home-page-filter-heading {
+        font-size: 13px;
+    }
+    .block__home-page-filter-button {
+        width: 90px;
+    }
+    .block__home-page-filter-left {
+        width: calc(100% - 100px);
+    }
+    .block__home-page-filter-right {
+        max-width: 90px;
+    }
+    .block__home-page-filter-listing-box {
+        width: calc(100% - 140px);
+    }
+    .block__home-page-filter-list-select {
+        font-size: 12px;
+        padding: 10px;
+    }
+    .block__home-page-filter-list:after {
+        right: 8px;
+    }
+}
+
+@media screen and (max-width:749px) {
+    .header-search-filter .page-width {
+        padding: 0;
+    }
+    .block__home-page-filter-left {
+        width: 100%;
+        gap: 0;
+    }
+    .block__homepage-filtertop-leftcontent {
+        gap: 10px;
+        border: 1px solid #fff;
+        padding:20.5px 20px;
+    }
+    .block__homepage-filterbottom.block__homepage-filtertop-leftcontent {
+        border-top: none;
+    }
+    .block__home-page-filter-box {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        gap: 15px;
+        padding: 0;
+    }
+    .block__home-page-filter-heading-box,
+    .block__home-page-filter-find-button {
+        width: 100%;
+        padding: 0;
+    }
+    .block__home-page-filter-heading-box {
+        max-width: 100%;
+        justify-content: space-between;
+    }
+    .block__homepage-filtertop-leftcontent .block__home-page-filter-heading-box .header-filter-lines {
+        display: none;
+    }
+    .block__home-page-filter-listing-box,
+    .block__home-page-filter-list,
+    .block__home-page-filter-button {
+        width: 100%;
+    }
+    .block__home-page-filter-listing-box {
+        display: none;
+    }
+    .block__home-page-filter {
+        position: relative;
+        overflow: hidden;
+    }
+    .block__home-page-filter-right {
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+    .block_homepage-filter-mobarrow {
+        color: var(--secondary-color);
+        line-height: 1;
+    }
+}

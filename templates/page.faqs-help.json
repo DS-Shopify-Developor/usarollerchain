@@ -1,0 +1,333 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "",
+        "image": "shopify:\/\/shop_images\/36c30237088221f8e6294cb8705cd082.png",
+        "show_breadcrumb": true
+      }
+    },
+    "faqs_HAfpEk": {
+      "type": "faqs",
+      "blocks": {
+        "getting_started_gp7x3G": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "Has my order shipped?",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to check your orders status.<\/p>"
+          }
+        },
+        "getting_started_DCW3Ym": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "How do I change quantities or cancel an item in my order?",
+            "answer": "<p>Click the \"<a href=\"https:\/\/whttps:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to view orders you have placed. Then click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\">Change quantities \/ cancel orders<\/a>\" link to find and edit your order. Please note that once an order has begun processing or has shipped, the order is no longer editable.<\/p>"
+          }
+        },
+        "getting_started_XRfgap": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "How do I track my order?",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to track your order.<\/p>"
+          }
+        },
+        "getting_started_gMUhHP": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "My order never arrived.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to track your order status. Be sure that all of the items in your order have shipped already. If you order displays your Package Tracking Numbers, check with the shipper to confirm that your packages were delivered. If your packages each show a status of \"delivered\", please contact customer service for assistance.<\/p>"
+          }
+        },
+        "getting_started_YJDnTh": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "An item is missing from my shipment.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to track your order status. Be sure that all of the items in your order have shipped already. If you order displays your Package Tracking Numbers, check with the shipper to confirm that your packages were delivered. If your packages each show a status of \"delivered\", please contact customer service for assistance.<\/p>"
+          }
+        },
+        "getting_started_3zXUfX": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "My product is missing parts.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to track your order status. Be sure that all of the items in your order have shipped already. If you order displays your Package Tracking Numbers, check with the shipper to confirm that your packages were delivered. If your packages each show a status of \"delivered\", please contact customer service for assistance.<\/p>"
+          }
+        },
+        "getting_started_M6gMFn": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Order Status",
+            "question": "When will my backorder arrive?",
+            "answer": "<p>Backordered items are those which our suppliers are unable to predict when they will have more in stock, but as soon as they do, we will be able to ship the item to you.<\/p>"
+          }
+        },
+        "getting_started_dJtyit": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "How do I create an account?",
+            "answer": "<ol><li>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right side of our site.<\/li><li>Enter your email address.<\/li><li>Select \"I am a new customer\".<\/li><\/ol><p>Then simply follow the prompts to complete setting up your account. Your information is NEVER sold to any other company and is kept completely private. Please view our <a href=\"https:\/\/6a353a-3.myshopify.com\/pages\/privacy-policy\">Privacy Policy<\/a> for more information.<\/p>"
+          }
+        },
+        "getting_started_UzJjaq": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "How do I edit my account information?",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to edit your account information.<\/p>"
+          }
+        },
+        "getting_started_dKCEEa": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "How much is my shipping?",
+            "answer": "<p>Shipping is automatically calculated prior to submitting your payment information.  Simply add items to your cart and proceed to the Checkout page where you will be offered Shipping Method choices and their prices.<\/p>"
+          }
+        },
+        "getting_started_bmhChm": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "I forgot my password.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site. Under the login box you'll see a link that says \"Forgot your password? Click here\". That link will send an email to you with your password.<\/p>"
+          }
+        },
+        "getting_started_ziBKhk": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "How do I return my product?",
+            "answer": "<p>Please <a href=\"https:\/\/6a353a-3.myshopify.com\/pages\/return-policy\" title=\"https:\/\/6a353a-3.myshopify.com\/pages\/return-policy\">click here for more information on returning an item<\/a>.<\/p>"
+          }
+        },
+        "getting_started_9x7rqL": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "I received the wrong product.",
+            "answer": "<p>If you feel that you have received the wrong product, please contact customer service within 72 hours of receiving the product.<\/p>"
+          }
+        },
+        "getting_started_WjyYRH": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "What is your return policy?",
+            "answer": "<p>Please see our <a href=\"https:\/\/6a353a-3.myshopify.com\/pages\/terms-and-conditions\" title=\"https:\/\/6a353a-3.myshopify.com\/pages\/terms-and-conditions\">Terms & Conditions<\/a> for complete details regarding our return policy.<\/p>"
+          }
+        },
+        "getting_started_hjxHwy": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "My Account",
+            "question": "When will my order ship?",
+            "answer": "<p>Please see each individual item page for more information on the availability of each item. Also, after placing your order, you may click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to track the status of your order. You will receive a shipment confirmation when your order has shipped and tracking information within 24-48 hours of shipment.<\/p>"
+          }
+        },
+        "getting_started_LBNFQR": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "International Shipping",
+            "question": "Do you ship to my country?",
+            "answer": "<p>Please create an account by clicking the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site. During signup we'll ask for your shipping address details including country. If your country is not in the dropdown menu of available countries, unfortunately we cannot ship to your country at this time.<\/p>"
+          }
+        },
+        "getting_started_4zgMzc": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "International Shipping",
+            "question": "What are my payment choices?",
+            "answer": "<p>During the checkout process you may choose any of our current payment options and continue to place your order. Please note that we will not ship your order until we receive payment from you.<\/p>"
+          }
+        },
+        "getting_started_LDMM68": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "International Shipping",
+            "question": "When will my order ship and what are my shipping charges?",
+            "answer": "<p>Shipping is automatically calculated prior to submitting your payment information.  Simply add items to your cart and proceed to the Checkout page where you will be offered Shipping Method choices and their prices. We will ship your order shortly after we receive payment from you.<\/p>"
+          }
+        },
+        "getting_started_KdDbnV": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "International Shipping",
+            "question": "What is the return policy?",
+            "answer": "<p>Please see our <a href=\"https:\/\/6a353a-3.myshopify.com\/pages\/terms-and-conditions\" title=\"https:\/\/6a353a-3.myshopify.com\/pages\/terms-and-conditions\">Terms & Conditions<\/a> for complete details regarding our return policy.<\/p>"
+          }
+        },
+        "getting_started_RCpn7c": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Guarantees",
+            "question": "Low Price Guarantee",
+            "answer": "<p>It is our commitment to provide you with the best value, at the best price. We value your business and strive to keep our prices low, and SAVE you money!<\/p>"
+          }
+        },
+        "getting_started_jPFiNy": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Guarantees",
+            "question": "Privacy Policy",
+            "answer": "<p>We value your privacy. Please view our <a href=\"https:\/\/6a353a-3.myshopify.com\/pages\/privacy-policy\" title=\"https:\/\/6a353a-3.myshopify.com\/pages\/privacy-policy\">Privacy Policy<\/a> for complete details on how we use the information we collect.<\/p>"
+          }
+        },
+        "getting_started_VekGxr": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Guarantees",
+            "question": "Security",
+            "answer": "<p>This website is protected with SSL (secure socket layer) encryption, the highest standard in Internet security.<\/p>"
+          }
+        },
+        "getting_started_mtw4kV": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Pricing and Billing",
+            "question": "Pricing and BillingDo I have to pay sales tax?",
+            "answer": "<p>You only have to pay sales tax if you are located in the same state as our warehouse.<\/p>"
+          }
+        },
+        "getting_started_xwaffM": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Pricing and Billing",
+            "question": "I have a question on my charges.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to review your orders. You may compare your order history on our website, with your financial records. If you have further questions or concerns, please contact customer service for further assistance.<\/p>"
+          }
+        },
+        "getting_started_KAYPNT": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Pricing and Billing",
+            "question": "I need a copy of my receipt\/invoice.",
+            "answer": "<p>Click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/account\" title=\"https:\/\/6a353a-3.myshopify.com\/account\">My Account \/ Order Status<\/a>\" link at the top right hand side of our site to print invoices.<\/p>"
+          }
+        },
+        "getting_started_tXPny6": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Pricing and Billing",
+            "question": "When will my credit appear on my account?",
+            "answer": "<p>Credits usually take 7-10 business days from the time we receive your item(s).<\/p>"
+          }
+        },
+        "getting_started_zbL8eD": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Pricing and Billing",
+            "question": "When will my credit card be charged?",
+            "answer": "<p>Your credit card will be charged within 24 hours prior to shipment of your item(s).<\/p>"
+          }
+        },
+        "getting_started_4fDakb": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Buyer's Guide",
+            "question": "How do I buy\/redeem a gift certificate?",
+            "answer": "<p>To purchase a gift certificate for someone. If you are the recipient of a gift certificate and would like to redeem your gift certificate.<\/p>"
+          }
+        },
+        "getting_started_wNWYHm": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Buyer's Guide",
+            "question": "How do I find my product?",
+            "answer": "<p>To find the product(s) you're looking for, you may (1) use the navigation menus on the top, left & bottom of our website. (2) type a keyword into the SEARCH box. If you have any trouble locating a product, feel free to contact customer service for assistance.<\/p>"
+          }
+        },
+        "getting_started_fUTDQK": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Buyer's Guide",
+            "question": "How do I navigate the site?",
+            "answer": "<p>To navigate this website, simply click on a category you might be interested in. Categories are located on the top, left & bottom of our website. QUICK TIP: Place your mouse cursor over anything you think could be a clickable link. You'll notice that anytime you scroll over something that is a link, your mouse cursor will become a \"hand\". Whereas scrolling over anything that is NOT a link will leave your cursor as an \"arrow\". You may also type a keyword into the SEARCH box to quickly find a specific product. If you have any trouble locating a product, feel free to contact customer service for assistance.<\/p>"
+          }
+        },
+        "getting_started_CNWgVJ": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Buyer's Guide",
+            "question": "How do I use a coupon?",
+            "answer": "<p>After adding items to your cart, click the \"<a href=\"https:\/\/6a353a-3.myshopify.com\/cart\" title=\"https:\/\/6a353a-3.myshopify.com\/cart\">View Cart<\/a>\" link at the top of this site to view your cart. At the bottom of the shopping cart you'll see a box where you may enter your coupon code.<\/p>"
+          }
+        },
+        "getting_started_pVy9ep": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Additional Support",
+            "question": "Additional SupportInside Sales\/ Customer Support",
+            "answer": "<p><strong>Job Description:<br\/><\/strong>full time job working primarily in inside sales, processing incoming requests and orders. Provide support to management staff and outside sales staff when needed.<\/p><p><strong>Pay:<br\/><\/strong>To be discussed upon interview.<\/p><p><strong>Requirements:<\/strong><\/p><ul><li>Good Phone Skills\/ Clear Spoken<\/li><li>Good With People<\/li><li>High Quality Work Ethic<\/li><li>Intermediate Computer Skills<\/li><li>Fast Learner<\/li><li>Some power transmission knowledge would be helpful but is not required<\/li><li>Independent Transportation<\/li><\/ul><p><\/p><p><strong>Location:<br\/><\/strong>770 West Bay StWinter Garden, FL 34787<\/p><p><strong>Accommodations:<br\/><\/strong>Air conditioned office with desk and Mac computer, on-site training, break room, friendly office environment.<\/p><p><strong>Additional Notes:<br\/><\/strong>We are a rapidly growing family owned and operated business looking for long term employees. We currently have 4 open full time inside sales positions, 1 full time outside sales position, and 1 part time machinist position open, so if you know additional qualified people looking for jobs please have them inquire as well. We are expecting positions to fill in relatively quickly so please do not hesitate on inquiring.<em>A 90-day trial period is standard procedure with every new employee.<\/em><\/p><p><strong>Contact:<br\/><\/strong>If interested please contact our main office at (407) 347-3519 and ask for Christina, Angel, or Connor<br\/>Or email a resume to one of the following management team members:<br\/>Christina, <a href=\"mailto:christina@usarollerchain.com\"><em>christina@usarollerchain.com<\/em><\/a><br\/>Angel, <a href=\"mailto:angel@usarollerchain.com\"><em>angel@usarollerchain.com<\/em><\/a><br\/>Connor, <a href=\"mailto:connor@usarollerchain.com\"><em>connor@usarollerchain.com<\/em><\/a><\/p>"
+          }
+        },
+        "getting_started_idLEVR": {
+          "type": "GettingStarted",
+          "settings": {
+            "categories_name": "Additional Support",
+            "question": "How do I contact you?",
+            "answer": "<p>Please <a href=\"\/pages\/contact\" title=\"Contact\">click here<\/a> for our company contact information.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "getting_started_gp7x3G",
+        "getting_started_DCW3Ym",
+        "getting_started_XRfgap",
+        "getting_started_gMUhHP",
+        "getting_started_YJDnTh",
+        "getting_started_3zXUfX",
+        "getting_started_M6gMFn",
+        "getting_started_dJtyit",
+        "getting_started_UzJjaq",
+        "getting_started_dKCEEa",
+        "getting_started_bmhChm",
+        "getting_started_ziBKhk",
+        "getting_started_9x7rqL",
+        "getting_started_WjyYRH",
+        "getting_started_hjxHwy",
+        "getting_started_LBNFQR",
+        "getting_started_4zgMzc",
+        "getting_started_LDMM68",
+        "getting_started_KdDbnV",
+        "getting_started_RCpn7c",
+        "getting_started_jPFiNy",
+        "getting_started_VekGxr",
+        "getting_started_mtw4kV",
+        "getting_started_xwaffM",
+        "getting_started_KAYPNT",
+        "getting_started_tXPny6",
+        "getting_started_zbL8eD",
+        "getting_started_4fDakb",
+        "getting_started_wNWYHm",
+        "getting_started_fUTDQK",
+        "getting_started_CNWgVJ",
+        "getting_started_pVy9ep",
+        "getting_started_idLEVR"
+      ],
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "page_banner",
+    "faqs_HAfpEk"
+  ]
+}

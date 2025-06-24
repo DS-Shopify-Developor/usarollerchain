@@ -1,0 +1,127 @@
+.block__shop-by-application-section {
+    padding: 80px 0;
+}
+.block__shop-by-application-heading {
+    font-weight: 600;
+    text-align: center;
+    color: var(--heading-color);
+    margin: 0 0 40px;
+}
+.block__shop-by-application-listing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+.block__shop-by-application-list {
+    width: calc(20% - 9.6px);
+}
+.block__shop-by-application-list-link {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+}
+.block__shop-by-application-list-image {
+    position: relative;
+    padding-top: 48%;
+}
+.block__shop-by-application-list-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.block__shop-by-application-list-image:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.block__shop-by-application-list-image:after {
+    content: '';
+    display: block;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #FFFFFF;
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.block__shop-by-application-list-heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    color: var(--secondary-color);
+    z-index: 1;
+    text-transform: uppercase;
+    padding: 10px;
+    max-width: 84%;
+    margin: auto;
+    right: 0;
+}
+.block__shop-by-application-list-link:hover .block__shop-by-application-list-image:before {
+    background: #2a3492cc;
+}
+.block__shop-by-application-list-link:hover .block__shop-by-application-list-image::after {
+    opacity: 1;
+}
+@media (max-width:1199px) {
+    .block__shop-by-application-list-heading {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width:1024px) and (min-width:750px){
+    .block__shop-by-application-list {
+        width: calc(33.33% - 9.6px);
+    }
+    .block__shop-by-application-list-heading {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:749px){
+    .block__shop-by-application-section {
+        padding: 50px 0;
+    }
+    .block__shop-by-application-listing.slick-initialized {
+        display: block;
+    }
+    .block__shop-by-application-listing .slick-list {
+        padding: 0px 100px;
+    }
+    .block__shop-by-application-list {
+        padding: 0 6px;
+    }
+    .block__shop-by-application-section .page-width {
+        padding: 0;
+    }
+    .block__shop-by-application-list-image {
+        padding-top: 63%;
+    }
+}

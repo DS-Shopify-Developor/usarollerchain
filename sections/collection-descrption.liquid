@@ -1,0 +1,178 @@
+
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{{ 'main-collection-banner.css' | asset_url | stylesheet_tag }}
+{{ 'main-collection-banner-image.css' | asset_url | stylesheet_tag }}
+{{ 'collection-description.css' | asset_url | stylesheet_tag }}
+{{ 'section-landing-pag.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    @media screen and (max-width: 749px) {
+      .collection-hero--with-image .collection-hero__inner {
+        padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+      }
+    }
+    .template-collection{
+      position:relative;
+    }
+  {%- endstyle -%}
+
+<div class="block__collection-description-section {%  if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-landing-content block_collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    
+      <div class="block_collection-hero__text-wrapper {% if collection.image != blank %} collection-description-col2 {% else %} collection-description-col {% endif %}">
+
+        {% assign parts = collection.description | split: '<table' %}
+        {% assign before_table = parts[0] %}
+
+        {% if collection.metafields.custom.description_page != blank %}
+          {% assign page_handle = collection.metafields.custom.description_page.value.handle %}
+          {% assign linked_page = pages[page_handle] %}
+        
+          {% if linked_page and linked_page.content != blank %}
+            <div class="collection-hero__description block__collection-hero__description_split rte">
+              {{ linked_page.content }}
+            </div>
+          {% endif %}
+        {% else %}
+          {%- if section.settings.show_collection_description -%}
+            <div class="collection-hero__description block__collection-hero__description_split rte">{{ collection.description}}</div>
+          {%- endif -%}
+        {% endif %}
+        {% if collection.metafields.custom.sub_category != blank or collection.metafields.custom.sub_category_2 != blank %}
+        <div class="collection-subcategoryinfo">
+          <div class="collection-subcatlist">
+            {% if collection.metafields.custom.sub_category != blank %}
+              {% for listcategory in collection.metafields.custom.sub_category.value %}
+                {% assign collection_data = collections[listcategory.handle] %}
+                <div class="collection-category-item">
+                  <a href="{{ collection_data.url }}" class="collection-category-itemimglink">
+                    {% if collection_data.featured_image.src != blank %}
+                      <img src="{{ collection_data.featured_image.src | img_url:"master" }}" alt="category-list-{{collection_data.title}}" width="" height=""/>
+                    {% else %}
+                      <img src="{{ settings.card_placeholder_image | img_url:"master" }}" alt="category-list-{{collection_data.title}}" width="" height=""/>
+                    {% endif %}
+                  </a>
+                  <a href="{{ collection_data.url }}" class="collection-category-itemlink">
+                    {{ collection_data.title }}
+                  </a>
+                  <a href="{{ collection_data.url }}" class="collection-category-itemmorelink">
+                    {{ 'onboarding.collection_moreinfo' | t }} 
+                  </a>
+                </div>
+              {% endfor %}
+            {% endif %}
+
+            {% if collection.metafields.custom.sub_category_2 != blank %}
+              {% for listcategory2 in collection.metafields.custom.sub_category_2.value %}
+                {% assign collection_data2 = collections[listcategory2.handle] %}
+                <div class="collection-category-item">
+                  <a href="{{ collection_data2.url }}" class="collection-category-itemimglink">
+                    {% if collection_data2.featured_image.src != blank %}
+                      <img src="{{ collection_data2.featured_image.src | img_url:"master" }}" alt="category-list-{{collection_data2.title}}" width="" height=""/>
+                    {% else %}
+                      <img src="{{ settings.card_placeholder_image | img_url:"master"}}" alt="category-list-{{collection_data2.title}}" width="" height=""/>
+                    {% endif %}
+                  </a>
+                  <a href="{{ collection_data2.url }}" class="collection-category-itemlink">
+                    {{ collection_data2.title }}
+                  </a>
+                  <a href="{{ collection_data2.url }}" class="collection-category-itemmorelink">
+                    {{ 'onboarding.collection_moreinfo' | t }} 
+                  </a>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+          
+      </div>
+
+  </div>
+
+  <div id="collection-metafield" class="hidden">
+    {% if collection.metafields.custom.sub_category != blank or collection.metafields.custom.sub_category_2 != blank %}
+      <div class="collection-categories">
+        <h5 class="collection-category-heading">{{ 'onboarding.collection_category' | t }}</h5>
+        <ul class="collection-category-metafield-list">
+          {% for listcategory in collection.metafields.custom.sub_category.value %}
+            <li class="collection-category-item">
+              <a href="{{ listcategory.url }}" class="collection-category-itemlink">{{ listcategory.title }}</a>
+            </li>
+          {% endfor %}
+          {% for listcategory2 in collection.metafields.custom.sub_category_2.value %}
+            <li class="collection-category-item">
+              <a href="{{ listcategory2.url }}" class="collection-category-itemlink">{{ listcategory2.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+
+  <div id="collection-tablecontent" class="collection-tablecontent-wrapper hidden">
+    
+    <div class="collection-tablecontent-block">
+      <div class="collection-table-headingwrap"><h6 class="collection-table-heading extra_heading_size_1">{{ 'sections.collection_template.table_content' | t }}</h6></div>
+      <div class="collection-tablecontent-linkwrap">
+        {% for tablecontent in collection.metafields.custom.table_content.value %}
+          {% assign active_category = false %}
+          {% assign splitval_cat = collection.metafields.custom.nested_categories | split:' > ' %}
+          {% assign maincat_handle = tablecontent.title | handle %}
+          {% for nestedcat in splitval_cat %}
+            {% assign aa = nestedcat | handle %}
+            {% if maincat_handle == aa %}
+              {% assign active_category = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <div class="collection-tablecontent-item">
+            <a href="{{ tablecontent.url }}" class="collection-table-link{% if active_category %} collection-table-linkactive{% endif %}">{{ tablecontent.title }}</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% schema %}
+    {
+      "name": "collection descrption",
+      "class": "section",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-collection-banner.settings.paragraph.content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_collection_description",
+          "default": true,
+          "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_collection_image",
+          "default": false,
+          "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+          "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-1"
+        }
+      ],
+      "presets": [
+        {
+        "name": "collection descrption"
+        }
+    ]
+    }
+    {% endschema %}

@@ -1,0 +1,49 @@
+{{ 'main-collection-banner-image.css' | asset_url | stylesheet_tag }}
+
+
+
+{% if collection.metafields.custom.collection_banner_image_checkbox != blank %}
+    <div class="block__main-collection-banner-image section_{{ section.id }} ">
+        <div class="page-width">
+            <style>
+                
+                {% if collection.metafields.custom.collection_banner_image != blank %}
+                .section_{{ section.id }} .block__page-banner-image {
+                    background-image:url({{ collection.metafields.custom.collection_banner_image | img_url: 'master' }});
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+                {% endif %}
+            </style>
+            <div class="block__page-banner-image-box">
+                <div class="block__page-banner-image">
+                    <div class="block__main-collection-banner-content">
+                            <div class="block__page-banner-image-heading h3"><h1>{{ collection.title }}</h1></div>
+                        {% if section.settings.show_breadcrumb == true %}
+                        <div class="block__page-banner-image-breadcrumb">
+                            <div class="block__page-banner-image-breadcrumb-icon">{% render 'icon-home' %} / </div>
+                            {% if template.name == "page" %}
+                            <div class="block__page-banner-image-breadcrumb-heading">{{ page.title }}</div>
+                            {% endif %}
+                            {% if template.name == "cart" or template.name == "account" or template.name == "addresses"  or template.name == "order" %}
+                            <div class="block__page-banner-image-breadcrumb-heading">{{ template.name }}</div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+    {
+      "name": "t:sections.main-collection-banner-image.name",
+      "class": "section",
+      "settings": [
+    
+      ]
+    }
+    {% endschema %}

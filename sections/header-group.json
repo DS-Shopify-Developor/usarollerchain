@@ -1,0 +1,392 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "show_line_separator": false,
+        "menu": "announcement-bar-menu",
+        "show_social": true,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "offer_minimum_txt_first": "$300 Web Order Minimum",
+        "offer_minimum_txt_second": "Under $300? Give Us a Call!",
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu_3mNkBY": {
+          "type": "megamenu",
+          "settings": {
+            "title": "Roller Chain",
+            "placeholder_img": "shopify://shop_images/Roller_chain_pic_1.png",
+            "nav1": "Standard Roller Chains",
+            "collection1": "chain-coupling",
+            "link_list1": "standard-roller-chains",
+            "nav2": "Corrosion-Resistant Roller Chain",
+            "collection2": "corrosion-resistant-roller-chain-s-1838",
+            "link_list2": "corrosion-resistant-roller-chain",
+            "nav3": "More Roller Chain",
+            "collection3": "more-roller-chain-types-s-s-1839",
+            "link_list3": "more-roller-chains",
+            "nav4": "Shop By Brand",
+            "collection4": "roller-chain-by-brand-s-2721",
+            "link_list4": "shop-by-brand",
+            "nav5": "Roller Chain Information",
+            "collection5": "roller-chain-info-s-4992",
+            "link_list5": "roller-chain-information",
+            "nav6": "Roller Chain Accessories",
+            "collection6": "roller-chain-accessories-s-4958",
+            "link_list6": "",
+            "nav7": "Roller Chain By Size",
+            "collection7": "roller-chain-by-size-s-5038",
+            "link_list7": "roller-chain-by-size-10",
+            "nav8": "Custom Roller Chain",
+            "collection8": "custom-roller-chain-s-5976",
+            "link_list8": "",
+            "nav9": "Premier Series Premium Roller Chains",
+            "collection9": "premium-roller-chain-s-6389",
+            "link_list9": "",
+            "nav10": "",
+            "collection10": "",
+            "link_list10": "",
+            "nav11": "",
+            "collection11": "",
+            "link_list11": "",
+            "nav12": "",
+            "collection12": "",
+            "link_list12": "",
+            "nav13": "",
+            "collection13": "",
+            "link_list13": "",
+            "nav14": "",
+            "collection14": "",
+            "link_list14": "",
+            "nav15": "",
+            "collection15": "",
+            "link_list15": "",
+            "heading": "Best Sellers"
+          }
+        },
+        "megamenu_9BGz6E": {
+          "type": "megamenu",
+          "settings": {
+            "title": "Power Transmission",
+            "placeholder_img": "shopify://shop_images/card_placeholder_img-new_0c531f13-a718-4e2d-8398-970b24b7a315.png",
+            "nav1": "Sprockets",
+            "collection1": "sprockets-s-2122",
+            "link_list1": "sprockets",
+            "nav2": "Bearings",
+            "collection2": "bearing-supply-s-6235",
+            "link_list2": "bearings-1",
+            "nav3": "Miscellaneous Items",
+            "collection3": "power-transmission-misc-components-s-2474",
+            "link_list3": "miscellaneous-items",
+            "nav4": "Sprocket & Pulley Bushings",
+            "collection4": "bushings-s-3553",
+            "link_list4": "sprocket-pulley-bushings",
+            "nav5": "Shafting",
+            "collection5": "shafting-s-2123",
+            "link_list5": "shafting",
+            "nav6": "Gear Reducers For Electric Motors",
+            "collection6": "gear-reducers-for-electric-motors-s-4939",
+            "link_list6": "gear-reducers-for-electric-motors",
+            "nav7": "Electric Motors",
+            "collection7": "electric-motors-s-5767",
+            "link_list7": "electric-motors",
+            "nav8": "High-Quality V-Belts",
+            "collection8": "high-quality-v-belts-s-5414",
+            "link_list8": "high-quality-v-belts",
+            "nav9": "V-Belt Pulleys",
+            "collection9": "v-belt-pulleys-sheaves-s-5417",
+            "link_list9": "v-belt-pulleys",
+            "nav10": "Screw Conveyors & Parts",
+            "collection10": "screw-conveyors-for-bulk-material-handling-s-6440",
+            "link_list10": "screw-conveyors-parts",
+            "nav11": "Industrial Plastic Components",
+            "collection11": "industrial-plastic-components-s-6514",
+            "link_list11": "industrial-plastic-components",
+            "nav12": "Gears and Gear Racks",
+            "collection12": "gear-gear-gacks-s-6805",
+            "link_list12": "gears-and-gear-racks",
+            "nav13": "",
+            "collection13": "",
+            "link_list13": "",
+            "nav14": "",
+            "collection14": "",
+            "link_list14": "",
+            "nav15": "",
+            "collection15": "",
+            "link_list15": "",
+            "heading": "Best Sellers"
+          }
+        },
+        "megamenu_WDAEkH": {
+          "type": "megamenu",
+          "settings": {
+            "title": "Specialty Chain",
+            "placeholder_img": "shopify://shop_images/card_placeholder_img-new_0c531f13-a718-4e2d-8398-970b24b7a315.png",
+            "nav1": "Pintle Chain",
+            "collection1": "pintle-chains-s-2119",
+            "link_list1": "pintle-chain",
+            "nav2": "PIV Chain",
+            "collection2": "piv-chain-s-2117",
+            "link_list2": "piv-chain",
+            "nav3": "ANSI Leaf Chains",
+            "collection3": "leaf-chains-s-1922",
+            "link_list3": "ansi-leaf-chains",
+            "nav4": "Table Top Chain",
+            "collection4": "table-top-chain-s-2646",
+            "link_list4": "table-top-chain",
+            "nav5": "Engineering Class Chains",
+            "collection5": "engineering-class-chains-s-2870",
+            "link_list5": "engineering-class-chains",
+            "nav6": "Acetal Case Chain",
+            "collection6": "category-s-5794",
+            "link_list6": "",
+            "nav7": "Pan Conveyor Chain",
+            "collection7": "pan-conveyor-chain-s-6030",
+            "link_list7": "",
+            "nav8": "",
+            "collection8": "",
+            "link_list8": "",
+            "nav9": "",
+            "collection9": "",
+            "link_list9": "",
+            "nav10": "",
+            "collection10": "",
+            "link_list10": "",
+            "nav11": "",
+            "collection11": "",
+            "link_list11": "",
+            "nav12": "",
+            "collection12": "",
+            "link_list12": "",
+            "nav13": "",
+            "collection13": "",
+            "link_list13": "",
+            "nav14": "",
+            "collection14": "",
+            "link_list14": "",
+            "nav15": "",
+            "collection15": "",
+            "link_list15": "",
+            "heading": "Best Sellers"
+          }
+        },
+        "megamenu_84Vkip": {
+          "type": "megamenu",
+          "settings": {
+            "title": "By Application",
+            "placeholder_img": "shopify://shop_images/card_placeholder_img-new_0c531f13-a718-4e2d-8398-970b24b7a315.png",
+            "nav1": "Agricultural products",
+            "collection1": "agricultural-products-s-5024",
+            "link_list1": "agricultural-products",
+            "nav2": "Cotton module truck chains",
+            "collection2": "cotton-module-truck-chains-s-4570",
+            "link_list2": "",
+            "nav3": "Peanut Elevator Chain",
+            "collection3": "peanut-elevator-chain-s-4571",
+            "link_list3": "",
+            "nav4": "Wrench Chain for Chain Wrench - 5/8\" and 3/4\" Wrench Chain",
+            "collection4": "wrench-chain-s-4585",
+            "link_list4": "",
+            "nav5": "Wash Box Chain",
+            "collection5": "wash-box-chain-s-4586",
+            "link_list5": "",
+            "nav6": "Wastewater Products",
+            "collection6": "wastewater-products-s-4851",
+            "link_list6": "wastewater-products",
+            "nav7": "Grain Handling Products",
+            "collection7": "grain-handling-s-5382",
+            "link_list7": "",
+            "nav8": "Sawmill - Lumber Industry",
+            "collection8": "sawmill-parts-and-components-s-5703",
+            "link_list8": "sawmill-lumber-industry",
+            "nav9": "Sugar Mill Chains",
+            "collection9": "sugar-mill-chain-s-6494",
+            "link_list9": "",
+            "nav10": "Citrus industry chain",
+            "collection10": "citrus-chain-products-s-6736",
+            "link_list10": "",
+            "nav11": "Mining Chain & Sprockets",
+            "collection11": "mining-chain-s-6743",
+            "link_list11": "mining-chain-sprockets",
+            "nav12": "",
+            "collection12": "",
+            "link_list12": "",
+            "nav13": "",
+            "collection13": "",
+            "link_list13": "",
+            "nav14": "",
+            "collection14": "",
+            "link_list14": "",
+            "nav15": "",
+            "collection15": "",
+            "link_list15": "",
+            "heading": "Best Sellers"
+          }
+        },
+        "megamenu_XCYhCw": {
+          "type": "megamenu",
+          "settings": {
+            "title": "Chain MRO Parts",
+            "placeholder_img": "shopify://shop_images/USARC_Full_Logo.png",
+            "nav1": "Made in usa roller chain breakers",
+            "collection1": "stainless-steel-roller-chain",
+            "link_list1": "roller-chain-breakers",
+            "nav2": "Roller chain guides",
+            "collection2": "uhmw-roller-chain-guides-s-2430",
+            "link_list2": "roller-chain-guides",
+            "nav3": "Roller chain pullers",
+            "collection3": "roller-chain-pullers-s-2428",
+            "link_list3": "roller-chain-pullers",
+            "nav4": "Roller chain wear gauge",
+            "collection4": "ansi-roller-chain-wear-gauge-s-4998",
+            "link_list4": "",
+            "nav5": "Roller chain links",
+            "collection5": "roller-chain-links-s-2269",
+            "link_list5": "roller-chain-links",
+            "nav6": "Roller chain lubricant",
+            "collection6": "roller-chain-lubrication-s-2128",
+            "link_list6": "",
+            "nav7": "Roller chain tensioners",
+            "collection7": "roller-chain-tensioner-s-2426",
+            "link_list7": "roller-chain-tensioners",
+            "nav8": "Roller chain repair kit",
+            "collection8": "roller-chain-repair-kit-s-5353",
+            "link_list8": "",
+            "nav9": "",
+            "collection9": "",
+            "link_list9": "",
+            "nav10": "",
+            "collection10": "",
+            "link_list10": "",
+            "nav11": "",
+            "collection11": "",
+            "link_list11": "",
+            "nav12": "",
+            "collection12": "",
+            "link_list12": "",
+            "nav13": "",
+            "collection13": "",
+            "link_list13": "",
+            "nav14": "",
+            "collection14": "",
+            "link_list14": "",
+            "nav15": "",
+            "collection15": "",
+            "link_list15": "",
+            "heading": "Best Sellers"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_3mNkBY",
+        "megamenu_9BGz6E",
+        "megamenu_WDAEkH",
+        "megamenu_84Vkip",
+        "megamenu_XCYhCw"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu-1",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-5",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "top_phone_txt": "Have a question?",
+        "phone_number": "407-347-3519",
+        "phone_bottom_txt": "Se habla Español",
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "home_page_filter_xwWaLC": {
+      "type": "home-page-filter",
+      "blocks": {
+        "filter_sprocket_content_PTQJCd": {
+          "type": "filter_sprocket_content",
+          "settings": {
+            "filter_opt_label": "Chain Size",
+            "filter_opt_val": "|ANSI Standard|, \nNew_filter_chain size: 25, \nNew_filter_chain size: 35, \nNew_filter_chain size: 35-2, \nNew_filter_chain size: 35-3, \nNew_filter_chain size: 35-4, \nNew_filter_chain size: 40, \nNew_filter_chain size: 40-2, \nNew_filter_chain size: 40-3, \nNew_filter_chain size: 40-4, \nNew_filter_chain size: 41, \nNew_filter_chain size: 50, \nNew_filter_chain size: 50-2, \nNew_filter_chain size: 50-3, \nNew_filter_chain size: 50-4, \nNew_filter_chain size: 60, \nNew_filter_chain size: 60-2, \nNew_filter_chain size: 60-3, \nNew_filter_chain size: 60-4, \nNew_filter_chain size: 80, \nNew_filter_chain size: 80-2, \nNew_filter_chain size: 80-3, \nNew_filter_chain size: 80-4, \nNew_filter_chain size: 100, \nNew_filter_chain size: 100-2, \nNew_filter_chain size: 100-3, \nNew_filter_chain size: 100-4, \nNew_filter_chain size: 120, \nNew_filter_chain size: 120-2, \nNew_filter_chain size: 120-3, \nNew_filter_chain size: 120-4, \nNew_filter_chain size: 140, \nNew_filter_chain size: 140-2, \nNew_filter_chain size: 140-3, \nNew_filter_chain size: 140-4, \nNew_filter_chain size: 160, \nNew_filter_chain size: 160-2, \nNew_filter_chain size: 160-3, \nNew_filter_chain size: 160-4, \nNew_filter_chain size: 180, \nNew_filter_chain size: 200, \nNew_filter_chain size: 200-2, \nNew_filter_chain size: 200-4, \nNew_filter_chain size: 240, \n|Double-Pitch|,\nNew_filter_chain size: 2040, \nNew_filter_chain size: 2042, \nNew_filter_chain size: 2050, \nNew_filter_chain size: 2052, \nNew_filter_chain size: 2060, \nNew_filter_chain size: 2062, \nNew_filter_chain size: 2080, \nNew_filter_chain size: 2082, \n|Metric / ISO|, \nNew_filter_chain size: 03B, \nNew_filter_chain size: 04B, \nNew_filter_chain size: 05B, \nNew_filter_chain size: 06B, \nNew_filter_chain size: 06B-2, \nNew_filter_chain size: 06B-3, \nNew_filter_chain size: 081B, \nNew_filter_chain size: 083B, \nNew_filter_chain size: 085B, \nNew_filter_chain size: 08B, \nNew_filter_chain size: 08B-2, \nNew_filter_chain size: 08B-3, \nNew_filter_chain size: 10B, \nNew_filter_chain size: 10B-2, \nNew_filter_chain size: 10B-3, \nNew_filter_chain size: 12B, \nNew_filter_chain size: 12B-2, \nNew_filter_chain size: 12B-3, \nNew_filter_chain size: 16B, \nNew_filter_chain size: 16B-2, \nNew_filter_chain size: 16B-3, \nNew_filter_chain size: 20B, \nNew_filter_chain size: 20B-2, \nNew_filter_chain size: 20B-3, \nNew_filter_chain size: 24B, \nNew_filter_chain size: 24B-2, \nNew_filter_chain size: 28B, \nNew_filter_chain size: 28B-2, \nNew_filter_chain size: 32B, \nNew_filter_chain size: 32B-2"
+          }
+        },
+        "filter_sprocket_content_WFbzDB": {
+          "type": "filter_sprocket_content",
+          "settings": {
+            "filter_opt_label": "Sprocket Tooth Count",
+            "filter_opt_val": "New_filter_tooth count: 6, \nNew_filter_tooth count: 7, \nNew_filter_tooth count: 8, \nNew_filter_tooth count: 9, \nNew_filter_tooth count: 10, \nNew_filter_tooth count: 11, \nNew_filter_tooth count: 12, \nNew_filter_tooth count: 13, \nNew_filter_tooth count: 14, \nNew_filter_tooth count: 15, \nNew_filter_tooth count: 16, \nNew_filter_tooth count: 17, \nNew_filter_tooth count: 18, \nNew_filter_tooth count: 19, \nNew_filter_tooth count: 20, \nNew_filter_tooth count: 21, \nNew_filter_tooth count: 22, \nNew_filter_tooth count: 23, \nNew_filter_tooth count: 24, \nNew_filter_tooth count: 25, \nNew_filter_tooth count: 26, \nNew_filter_tooth count: 27, \nNew_filter_tooth count: 28, \nNew_filter_tooth count: 29, \nNew_filter_tooth count: 30, \nNew_filter_tooth count: 31, \nNew_filter_tooth count: 32, \nNew_filter_tooth count: 33, \nNew_filter_tooth count: 34, \nNew_filter_tooth count: 35, \nNew_filter_tooth count: 36, \nNew_filter_tooth count: 37, \nNew_filter_tooth count: 38, \nNew_filter_tooth count: 39, \nNew_filter_tooth count: 40, \nNew_filter_tooth count: 41, \nNew_filter_tooth count: 42, \nNew_filter_tooth count: 43, \nNew_filter_tooth count: 44, \nNew_filter_tooth count: 45, \nNew_filter_tooth count: 46, \nNew_filter_tooth count: 47, \nNew_filter_tooth count: 48, \nNew_filter_tooth count: 49, \nNew_filter_tooth count: 50, \nNew_filter_tooth count: 51, \nNew_filter_tooth count: 52, \nNew_filter_tooth count: 53, \nNew_filter_tooth count: 54, \nNew_filter_tooth count: 55, \nNew_filter_tooth count: 56, \nNew_filter_tooth count: 57, \nNew_filter_tooth count: 58, \nNew_filter_tooth count: 59, \nNew_filter_tooth count: 60, \nNew_filter_tooth count: 62, \nNew_filter_tooth count: 64, \nNew_filter_tooth count: 65, \nNew_filter_tooth count: 66, \nNew_filter_tooth count: 68, \nNew_filter_tooth count: 70, \nNew_filter_tooth count: 72, \nNew_filter_tooth count: 75, \nNew_filter_tooth count: 76, \nNew_filter_tooth count: 78, \nNew_filter_tooth count: 80, \nNew_filter_tooth count: 84, \nNew_filter_tooth count: 85, \nNew_filter_tooth count: 90, \nNew_filter_tooth count: 95, \nNew_filter_tooth count: 96, \nNew_filter_tooth count: 100, \nNew_filter_tooth count: 102, \nNew_filter_tooth count: 110, \nNew_filter_tooth count: 112, \nNew_filter_tooth count: 113, \nNew_filter_tooth count: 114, \nNew_filter_tooth count: 120, \nNew_filter_tooth count: 125"
+          }
+        },
+        "filter_sprocket_content_zfqbeE": {
+          "type": "filter_sprocket_content",
+          "settings": {
+            "filter_opt_label": "Sprocket Type",
+            "filter_opt_val": "New_filter_sprocket type: A-Plate, \nNew_filter_sprocket type: B-Hub, \nNew_filter_sprocket type: C-Hub, \nNew_filter_sprocket type: Bushed, \nNew_filter_sprocket type: Idler"
+          }
+        },
+        "filter_chain_content_yTnk9U": {
+          "type": "filter_chain_content",
+          "settings": {
+            "filter_opt_label": "Pitch",
+            "filter_opt_val": "New_filter_pitch: 0.188\", \nNew_filter_pitch: 0.250\", \nNew_filter_pitch: 0.315\", \nNew_filter_pitch: 0.375\", \nNew_filter_pitch: 0.500\", \nNew_filter_pitch: 0.625\", \nNew_filter_pitch: 0.750\", \nNew_filter_pitch: 1.000\", \nNew_filter_pitch: 1.250\", \nNew_filter_pitch: 1.500\", \nNew_filter_pitch: 1.630\", \nNew_filter_pitch: 1.750\", \nNew_filter_pitch: 2.000\", \nNew_filter_pitch: 2.250\", \nNew_filter_pitch: 2.500\", \nNew_filter_pitch: 3.000\", \nNew_filter_pitch: 4.000\", \nNew_filter_pitch: 5.00mm, \nNew_filter_pitch: 6.00mm, \nNew_filter_pitch: 8.00mm, \nNew_filter_pitch: 9.525mm, \nNew_filter_pitch: 12.70mm, \nNew_filter_pitch: 15.875mm, \nNew_filter_pitch: 19.05mm, \nNew_filter_pitch: 25.40mm, \nNew_filter_pitch: 31.75mm, \nNew_filter_pitch: 38.10mm, \nNew_filter_pitch: 44.45mm, \nNew_filter_pitch: 50.80mm, \nNew_filter_pitch: 63.50mm, \nNew_filter_pitch: 76.20mm, \nNew_filter_pitch: 88.90mm"
+          }
+        },
+        "filter_chain_content_Tpzxie": {
+          "type": "filter_chain_content",
+          "settings": {
+            "filter_opt_label": "Number of Strands",
+            "filter_opt_val": "New_filter_number of strands: 1, \nNew_filter_number of strands: 2, \nNew_filter_number of strands: 3, \nNew_filter_number of strands: 4, \nNew_filter_number of strands: 5, \nNew_filter_number of strands: 6, \nNew_filter_number of strands: 8, \nNew_filter_number of strands: 10, \nNew_filter_number of strands: 12"
+          }
+        },
+        "filter_chain_content_DketeE": {
+          "type": "filter_chain_content",
+          "settings": {
+            "filter_opt_label": "Pin Diameter",
+            "filter_opt_val": "New_filter_pin diameter:  0.200\", \nNew_filter_pin diameter:  0.782\", \nNew_filter_pin diameter: 0.064\", \nNew_filter_pin diameter: 0.090\", \nNew_filter_pin diameter: 0.091\", \nNew_filter_pin diameter: 0.129\", \nNew_filter_pin diameter: 0.136\", \nNew_filter_pin diameter: 0.141\", \nNew_filter_pin diameter: 0.142\", \nNew_filter_pin diameter: 0.156\", \nNew_filter_pin diameter: 0.165\", \nNew_filter_pin diameter: 0.175\", \nNew_filter_pin diameter: 0.200\", \nNew_filter_pin diameter: 0.208\", \nNew_filter_pin diameter: 0.221\", \nNew_filter_pin diameter: 0.222\", \nNew_filter_pin diameter: 0.223\", \nNew_filter_pin diameter: 0.224\", \nNew_filter_pin diameter: 0.225\", \nNew_filter_pin diameter: 0.233\", \nNew_filter_pin diameter: 0.234\", \nNew_filter_pin diameter: 0.235\", \nNew_filter_pin diameter: 0.277\", \nNew_filter_pin diameter: 0.281\", \nNew_filter_pin diameter: 0.283\", \nNew_filter_pin diameter: 0.284\", \nNew_filter_pin diameter: 0.286\", \nNew_filter_pin diameter: 0.311\", \nNew_filter_pin diameter: 0.312\", \nNew_filter_pin diameter: 0.313\", \nNew_filter_pin diameter: 0.315\", \nNew_filter_pin diameter: 0.325\", \nNew_filter_pin diameter: 0.326\", \nNew_filter_pin diameter: 0.327\", \nNew_filter_pin diameter: 0.330\", \nNew_filter_pin diameter: 0.331\", \nNew_filter_pin diameter: 0.332\", \nNew_filter_pin diameter: 0.333\", \nNew_filter_pin diameter: 0.375\", \nNew_filter_pin diameter: 0.376\", \nNew_filter_pin diameter: 0.401\", \nNew_filter_pin diameter: 0.437\", \nNew_filter_pin diameter: 0.445\", \nNew_filter_pin diameter: 0.448\", \nNew_filter_pin diameter: 0.449\", \nNew_filter_pin diameter: 0.500\", \nNew_filter_pin diameter: 0.562\", \nNew_filter_pin diameter: 0.563\", \nNew_filter_pin diameter: 0.575\", \nNew_filter_pin diameter: 0.576\", \nNew_filter_pin diameter: 0.625\", \nNew_filter_pin diameter: 0.630\", \nNew_filter_pin diameter: 0.687\", \nNew_filter_pin diameter: 0.701\", \nNew_filter_pin diameter: 0.750\", \nNew_filter_pin diameter: 0.781\", \nNew_filter_pin diameter: 0.782\", \nNew_filter_pin diameter: 0.799\", \nNew_filter_pin diameter: 0.875\", \nNew_filter_pin diameter: 0.901\", \nNew_filter_pin diameter: 0.905\", \nNew_filter_pin diameter: 0.937\", \nNew_filter_pin diameter: 1.000\", \nNew_filter_pin diameter: 1.125\", \nNew_filter_pin diameter: 1.151\", \nNew_filter_pin diameter: 1.406\", \nNew_filter_pin diameter: 1.562\", \nNew_filter_pin diameter: 1.875\", \nNew_filter_pin diameter: 1.49mm, \nNew_filter_pin diameter: 1.84mm, \nNew_filter_pin diameter: 1.85mm, \nNew_filter_pin diameter: 2.31mm, \nNew_filter_pin diameter: 3.28mm, \nNew_filter_pin diameter: 3.58mm, \nNew_filter_pin diameter: 3.66mm, \nNew_filter_pin diameter: 3.96mm, \nNew_filter_pin diameter: 3.97mm, \nNew_filter_pin diameter: 4.09mm, \nNew_filter_pin diameter: 4.44mm, \nNew_filter_pin diameter: 4.45mm, \nNew_filter_pin diameter: 5.08mm, \nNew_filter_pin diameter: 5.09mm, \nNew_filter_pin diameter: 5.56 mm, \nNew_filter_pin diameter: 5.72 mm, \nNew_filter_pin diameter: 5.72mm, \nNew_filter_pin diameter: 5.94mm, \nNew_filter_pin diameter: 5.96mm, \nNew_filter_pin diameter: 6.10mm, \nNew_filter_pin diameter: 6.28mm, \nNew_filter_pin diameter: 6.65mm, \nNew_filter_pin diameter: 7.03 mm, \nNew_filter_pin diameter: 7.92mm, \nNew_filter_pin diameter: 7.94mm, \nNew_filter_pin diameter: 8.27mm, \nNew_filter_pin diameter: 8.28mm, \nNew_filter_pin diameter: 8.35 mm, \nNew_filter_pin diameter: 8.82mm, \nNew_filter_pin diameter: 9.53mm, \nNew_filter_pin diameter: 10.16mm, \nNew_filter_pin diameter: 10.19mm, \nNew_filter_pin diameter: 11.18 mm, \nNew_filter_pin diameter: 11.61mm, \nNew_filter_pin diameter: 12.07mm, \nNew_filter_pin diameter: 12.70mm, \nNew_filter_pin diameter: 14.27mm, \nNew_filter_pin diameter: 14.63mm, \nNew_filter_pin diameter: 15.90mm, \nNew_filter_pin diameter: 17.46mm, \nNew_filter_pin diameter: 17.81mm, \nNew_filter_pin diameter: 19.85mm, \nNew_filter_pin diameter: 22.89mm, \nNew_filter_pin diameter: 23.81mm, \nNew_filter_pin diameter: 29.24mm"
+          }
+        }
+      },
+      "block_order": [
+        "filter_sprocket_content_PTQJCd",
+        "filter_sprocket_content_WFbzDB",
+        "filter_sprocket_content_zfqbeE",
+        "filter_chain_content_yTnk9U",
+        "filter_chain_content_Tpzxie",
+        "filter_chain_content_DketeE"
+      ],
+      "settings": {
+        "background_color": "#2a3492",
+        "filter_left_label1": "Sprocket Finder",
+        "filter_left_label2": "Chain Finder",
+        "filter_btn_txt": "Find",
+        "collection": "all-products"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "home_page_filter_xwWaLC"
+  ]
+}

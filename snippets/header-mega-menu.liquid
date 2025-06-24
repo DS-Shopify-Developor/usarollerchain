@@ -1,0 +1,188 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+ <div class="block_inline-menusearch">
+<div class="block__header-inlinemenu-search">
+  {%- liquid
+      render 'header-search', input_id: 'Search-In-Modal-1'
+  -%}
+</div>
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+             <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+              <a href="{{- link.url | escape -}}" class="list-menu__item_link">    
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                    {{- link.title | escape -}}
+                </span>
+                </a>
+              </summary>
+           
+
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- assign is_mega = false -%}
+                  {% assign childmenu = true %}
+                  {%- for block in section.blocks -%}
+                    {%- assign menu_item = link.title -%}
+                    {%- if block.settings.title == menu_item -%}
+                      {%- assign is_mega = true -%}
+                      <div class="block__mega-menu-row">
+                        <div class="block__mega-menu-nav">
+                          <ul class="block__mega-menu-nav-block">
+                            
+                            {%- for childlink in link.links -%}
+                            <li class="tab-link {% if forloop.index == 1 %}current{% endif %}"
+                              data-tab="{{ block.settings.title | handle }}-{{ childlink.title | handle }}" >
+                              <a href="{{ childlink.url }} " class="tab-link-a">
+                              {{ childlink.title | escape }} 
+                              <svg
+                                width="9"
+                                height="14"
+                                viewBox="0 0 9 14"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.5"/>
+                              </svg>
+                              </a>
+                            </li>
+                          {%- endfor -%} 
+
+
+                          </ul>
+                        </div>
+                        <div class="block__mega-menu-content ">
+                          <div class="block__mega-menu-content-block">
+                            
+                          {% for i in (1..15) %} 
+                              {% capture collection %}link_list{{i}}{% endcapture %}
+                              {% capture nav %}nav{{i}}{% endcapture %}
+                              {% assign collection = block.settings[collection] %}
+                              {% assign menu_link_size = linklists[collection].links | size %}
+                                <div
+                                  id="{{ block.settings.title |  handle }}-{{ block.settings[nav] | handle }}"
+                                  class="block__mega-menu-name {% if menu_link_size > 13 %}second-column {% endif %} {% if forloop.index == 1 %}current{% endif %} {% unless collection.title %} block__mega-menu-name-blank {% endunless %}"
+                                >
+                                {% if collection != blank %}
+                                   <ul>
+                                    {% for link in linklists[collection].links %}
+                                      <li > 
+                                        <a href="{{ link.url }}">{{ link.title }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul> 
+
+                                  {% else %}
+                                 <div class="block__mega-menu-no-data-available">
+                                    <div class="block__mega-menu-no-data-available-inner">
+                                      <span class="h3">{{ 'templates.nodata-available.title' | t }}</span>
+                                      <a href="{{ routes.all_products_collection_url }}" class="button nodata-available-button">
+                                        {{ 'general.continue_shopping' | t }}
+                                      </a>
+                                    </div>
+                                 </div>
+                                {% endif %}
+
+                                {% if block.settings.placeholder_img != blank %}
+                                  <div class="block__mega-menu-placeholder-image">
+                                      <img src="{{ section.settings.placeholder_img |  img_url: 'original' }}" alt="{{ shop.name }}" loading="lazy"> 
+
+                                  </div>
+                                  
+                                {% endif %}
+
+                                </div>
+
+                           
+                            {% endfor %}
+
+                          </div>
+                        </div>
+                      </div>
+                      {% assign childmenu = false %}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {% if childmenu %}
+                    {%- for childlink in link.links -%}
+                      <li>
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                        {%- if childlink.links != blank -%}
+                          <ul class="list-unstyled" role="list">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a
+                                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                  href="{{ grandchildlink.url }}"
+                                  class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                  {% if grandchildlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  {% endif %}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %} 
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+</div>

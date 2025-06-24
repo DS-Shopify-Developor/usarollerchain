@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "breadcrumb_checkbox": true,
+        "home_text": "Home",
+        "Collection_txt": "Collection",
+        "Collection_url": "https:\/\/6a353a-3.myshopify.com\/collections",
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "scheme-aeed7f29-d9d1-4e24-b6e0-6a388d168b9a"
+      }
+    },
+    "collection_descrption_XiYBr9": {
+      "type": "collection-descrption",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": ""
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "Content_checkbox": true,
+        "enable_filtering": true,
+        "filter_custom_labels": "filter_Chain Size,filter_Tooth Count,filter_Bore Size (A),filter_Bore Style,filter_Thickness (T),filter_Stock Bore (ID),filter_Pitch Diameter (PD),filter_Outside Diameter (OD),filter_Weight,filter_Sprocket Size",
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "live_chat_checkbox": true,
+        "live_chat_subtext": "Need assistance?",
+        "live_chat_text": "Live Chat",
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "get-quote-form": {
+      "type": "collection-get-quote-form",
+      "settings": {}
+    },
+    "d2764827-1416-40dc-b717-f2d3f11fe62e": {
+      "type": "apps",
+      "blocks": {
+        "a6d887dd-4e3e-4152-9507-f11251df2203": {
+          "type": "shopify:\/\/apps\/boost-ai-search-discovery\/blocks\/filter-product-list-ssr\/7fc998ae-a150-4367-bab8-505d8a4503f7",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "a6d887dd-4e3e-4152-9507-f11251df2203"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "collection_descrption_XiYBr9",
+    "product-grid",
+    "get-quote-form",
+    "d2764827-1416-40dc-b717-f2d3f11fe62e"
+  ]
+}

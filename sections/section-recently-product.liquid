@@ -1,0 +1,262 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+
+{{ 'section-recently-viewproduct.css' | asset_url | stylesheet_tag }}
+
+<section class="block__recently-view-section mb-80" style="display:none;">
+  <div class="page-width">
+    <div class="block__recently-productwrapper">
+      {% if section.settings.heading != blank %}
+        <div class="block__recently-view-headingwrap">
+          <h2 class="block__recently-heading block__featured-collection-title">{{ section.settings.heading }}</h2>
+        </div>
+      {% endif %}
+      <div class="block__recently-viewproducts">
+        <ul class="recently-viewed grid product-grid" role="list"><!-- Recently viewed products will appear here -->
+        </ul>
+        {% if section.settings.btn_txt != blank %}
+          <div class="block__recently-viewbtnwrap">
+            <a href="{{ section.settings.btn_url }}" class="block__recently-viewbtn custom_btn border_btn">{{ section.settings.btn_txt }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const localViewed = localStorage.recentlyViewedProduct;
+  function getRecentlyViewedProducts() {
+    const productData = JSON.parse(localStorage.getItem("recentlyViewedProduct"));
+    const recentlyViewedHtml = [];
+    if (productData != null) {
+      $('.block__recently-view-section').css('display', 'block');
+      productData.map(item => {
+        jQuery.getJSON('/products/' + item.productHandle + '.js', function(product) {
+          var recent_tag = false;
+          console.log(product);
+          if (item.productTags.indexOf("tag_") !== -1) {
+            recent_tag = true;
+          }
+
+          recentlyViewedHtml.unshift(`
+          <li class="recently-product-item grid__item">
+            <div class="card-wrapper product-card-wrapper underline-links-hover">
+                <div class="card card--standard card--media" style="--ratio-percent: 100%;">
+                <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
+                    <div class="card__media">
+                        <div class="media media--transparent media--hover-effect">
+                            <img srcset="${product.featured_image}&amp;width=165 165w,${product.featured_image}&amp;width=533 533w,${product.featured_image} 700w" 
+                            src="${product.featured_image}&amp;width=533" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" 
+                            alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="467">
+                            ${product.images.length > 1? `
+                                <img srcset="${product.images[1]}&amp;width=165 165w,${product.images[1]}&amp;width=360 360w,${product.images[1]}&amp;width=533 533w,${product.images[1]} 700w"
+                                src="${product.images[1]}&amp;width=533" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="" class="motion-reduce" loading="lazy" width="700" height="467">
+                            ` : `
+                                <img srcset="${product.featured_image}&amp;width=165 165w,${product.featured_image}&amp;width=533 533w,${product.featured_image} 700w"
+                                src="${product.featured_image}&amp;width=533" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" 
+                                alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="467">`
+                            }
+                        </div>
+                    </div>
+                    <div class="card__content">
+                    <div class="card__information">
+                        <h3 class="card__heading">
+                        <a
+                            href="${product.url}"
+                            id="StandardCardNoMediaLink-${product.id}"
+                            class="full-unstyled-link"
+                            aria-labelledby="StandardCardNoMediaLink-${product.id} NoMediaStandardBadge-${product.id}">
+                            ${item.productTitle}
+                        </a>
+                        </h3>
+                    </div>
+                    </div>
+
+                    ${product.available ? `
+                    <div class="card_product_labelwrap">
+                    <div class="card__badge top left">
+                        ${item.labelproducttag ?
+                            `<span
+                            id="NoMediaStandardBadge-${product.id}"
+                            class="badge badge--bottom-left block__product-new-label">
+                            ${item.labelproducttag}
+                            </span>
+                            `:``}
+                            ${ product.compare_at_price > product.price ?
+                            `<span
+                                id="NoMediaStandardBadge-${product.id}"
+                                class="badge badge--bottom-left color-scheme-a8861021-1221-4d60-b17b-08bf26b7700b">
+                                {{- 'products.product.on_sale' | t -}}
+                            </span>
+                            `:``}
+                    </div>
+                    </div>
+                    `: ``}
+                </div>
+                <div class="card__content">
+                    <div class="card__information">
+                    <h3 class="card__heading h5" id="title-${product.id}">
+                        <a
+                        href="${product.url}"
+                        id="CardLink-${product.id}"
+                        class="full-unstyled-link"
+                        aria-labelledby="CardLink-${product.id} Badge-${product.id}">
+                        ${product.title}
+                        </a>
+                    </h3>
+                    <div class="card-information">
+
+                        <div class="price ${product.compare_at_price > product.price? 'price--on-sale': ''}">
+                          ${product.price > 0 ? `
+                            <div class="price__container">
+                                <div class="price__regular">
+                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                    <span class="price-item price-item--regular">${item.productPrice}</span>
+                                </div>
+                                <div class="price__sale" bis_skin_checked="1">
+                                    <span class="visually-hidden visually-hidden--inline">Sale price</span>
+                                    <span class="price-item price-item--sale price-item--last">${item.productPrice}</span>
+                                    ${product.compare_at_price > product.price ? 
+                                    `<span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                        <span>
+                                        <s class="price-item price-item--regular compare_price">
+                                        ${item.productcomparePrice}
+                                        </s>
+                                        </span>
+                                    ` : ``}
+                                </div>
+                            </div>
+                            <div class="block__product-in-stock-label">${item.productinventorystock}</div>
+                          `:``}
+                          
+                        </div>
+                    </div>
+                    </div>
+
+                    {% if customer %}
+                        <div class="quick-add no-js-hidden ${product.price === 0 ? 'block__cardproduct_btnfull': ''}">
+                      
+                          <product-form data-section-id="${product.id}">
+                            <form method="post" action="/cart/add" id="quick-add-${product.id}" accept-charset="UTF-8"
+                                enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                                <input type="hidden" name="form_type" value="product">
+                                <input type="hidden" name="utf8" value="✓">
+
+                                <input type="hidden" data-productid="${product.id}"
+                                data-producttitle="${product.title}"
+                                data-producthandle="${product.handle}"
+                                data-productimg="${product.featured_image}"
+                                data-productprice="${item.productPrice}"
+                                data-productvariantlabel="${product.options[0].name}"
+                                data-productvarianttitle="${product.variants[0].title}"
+                                data-producturl="${product.url}"
+                                value=""
+                                class="productcontent">
+
+                                <input
+                                type="hidden"
+                                name="id"
+                                value="${product.variants[0].id}"
+                                class="product-variant-id" ${product.variants[0].available ? ``: ` disabled`}>
+                                <input type="hidden" name="quantity" value="1">
+                                  <div class="block__product-card-quote">
+                                    <button type="button" class="block__product-card-quote-btn product-requestquote-btn product-quote-btn">{{ 'products.product.add_to_quote' | t }}</button>
+                                </div>
+                                ${product.price > 0 ? `
+                                  <div class="block__product-card-add-to-cart">
+                                    <button
+                                    id="quick-add-${product.id}-submit"
+                                    type="submit"
+                                    name="add"
+                                    class="quick-add__submit button black_btn button--full-width button--secondary"
+                                    aria-haspopup="dialog"
+                                    aria-labelledby="quick-add-${product.id}-submit title-${product.id}"
+                                    aria-live="polite"
+                                    data-sold-out-message="true"
+                                    ${product.variants[0].available? ``: ` disabled`}>
+                                    <span>
+                                        ${product.variants[0].available ? 
+                                        `{{ 'products.product.add_to_cart' | t }}`
+                                        :
+                                        `{{ 'products.product.sold_out' | t }}`
+                                        }
+                                    </span>
+                                    <span class="sold-out-message hidden">
+                                        {{ 'products.product.sold_out' | t }}
+                                    </span>
+
+                                    {%- render 'loading-spinner' -%}
+                                    </button>
+                                  </div>
+                              `:``}
+
+                            </form>
+                          </product-form>
+                        </div>
+                    {% else %}
+                        <div class="card_product_loginbtnwrap small-hide">
+                            <a href="{{ routes.account_login_url }}" class="card_product_loginbtn h6 custom_btn">{{ 'products.product.loginbtn' | t}}</a>
+                        </div>
+                        <div class="card_product_loginbtnwrap lg-small-hide">
+                            <a href="${product.url}" class="card_product_loginbtn h6 custom_btn">{{ 'products.product.view_detailt' | t}}</a>
+                        </div>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+         </li>
+         `);
+          const newProductData = `${
+            recentlyViewedHtml.join("")
+          }`;
+          const fullContent = document.getElementsByClassName("recently-viewed");
+          fullContent[0].innerHTML = newProductData;
+
+
+        });
+        return;
+      });
+    } else {
+      $('.block__recently-view-section').css('display', 'none');
+    }
+
+  }
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    getRecentlyViewedProducts();
+  });
+</script>
+{% schema %}
+  {
+    "name": "Recently viewed product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }, {
+        "type": "text",
+        "id": "btn_txt",
+        "label": "Button text"
+      }, {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button url"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Recently viewed product"
+      }
+    ]
+  }
+{% endschema %}

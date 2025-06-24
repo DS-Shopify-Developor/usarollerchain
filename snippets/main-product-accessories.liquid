@@ -1,0 +1,166 @@
+{% if product_accessorie.metafields.custom.add_product_accessories != blank %}
+{% assign accessories_productlist = product_accessorie.metafields.custom.add_product_accessories.value %}
+{% assign accessorie_product_size = 0 %}
+{% for accessorie_product in accessories_productlist %}
+    {% assign accessorie_product_size = forloop.index %}
+{% endfor %}
+<div class="main-product-accessories-content">
+  <div class="main-product-accessories-wrapper">
+    <div class="rebuy-heading-wrapper">
+      <h5 class="primary-title cart-drawer--collection-heading">{{ heading_content }}</h5>
+        {% if customer %}
+            <div class="rebuy-livechat-content">
+                <a onclick="GorgiasChat.open();" href="javascript:void(0);" class="livechat-gorgias-content">
+                    <span class="rebuy-livechat-icon">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <mask
+                        id="mask0_460_4810"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="20"
+                        height="20">
+                        <rect
+                            width="20"
+                            height="20"
+                            fill="#D9D9D9" />
+                        </mask>
+                        <g mask="url(#mask0_460_4810)">
+                        <path d="M5.00033 11.6667H11.667V9.99999H5.00033V11.6667ZM5.00033 9.16666H15.0003V7.49999H5.00033V9.16666ZM5.00033 6.66666H15.0003V4.99999H5.00033V6.66666ZM1.66699 18.3333V3.33332C1.66699 2.87499 1.83019 2.48263 2.15658 2.15624C2.48296 1.82985 2.87533 1.66666 3.33366 1.66666H16.667C17.1253 1.66666 17.5177 1.82985 17.8441 2.15624C18.1705 2.48263 18.3337 2.87499 18.3337 3.33332V13.3333C18.3337 13.7917 18.1705 14.184 17.8441 14.5104C17.5177 14.8368 17.1253 15 16.667 15H5.00033L1.66699 18.3333ZM4.29199 13.3333H16.667V3.33332H3.33366V14.2708L4.29199 13.3333Z" fill="#000A63" />
+                        </g>
+                    </svg>
+                    </span>
+                    <span class="rebuy-livechat-txt">{{ 'products.product.live_chat' | t }}</span>
+                </a>
+            </div>
+        {% else %}
+            {% if accessorie_product_size > 2 %}
+                <div class="main-product-accessories-custombtn">
+                    <div class="main-product-accessories-prevbtn main-product-accessories-btn">
+                        {%  render 'icon-prev-arrow' %}
+                    </div>
+                    <div class="main-product-accessories-nextbtn main-product-accessories-btn">
+                        {%  render 'icon-next-arrow' %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    
+      <div class="main-product-accessories-grid">
+        <div class="main-product-accessories-gridwrap{% if accessorie_product_size > 2 %} main-product-accessories-gridwrapslider{% endif %}">
+          {% for accessorie_product in accessories_productlist %}
+            
+            <div class="main-product-accessories-item">
+              <div class="main-product-accessories-inneritem">
+                <div class="main-product-accessories-imgwrap">
+                  <a href="{{ accessorie_product.url }}" class="main-product-accessories-imglink">
+                    {% if accessorie_product.featured_image != blank %}
+                      <img src="{{ accessorie_product.featured_image | img_url: 'master' }}" alt="{{ accessorie_product.title }}" width="" height=""/>
+                    {% else %}
+                      {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="main-product-accessories-info">
+                  <a href="{{ accessorie_product.url }}" class="main-product-accessories-linktitle small_body">{{ accessorie_product.title }}</a>
+                    <div class="main-product-accessories-pricewrap">
+                        {% if accessorie_product.price > 0 %}
+                            <div class="main-product-accessories-price-regular main-product-accessories-price small_body">{{ accessorie_product.price | money }}</div>
+                            {% if accessorie_product.compare_at_price > accessorie_product.price %}
+                            <div class="main-product-accessories-price-compare main-product-accessories-price small_body">{{ accessorie_product.compare_at_price | money }}</div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="main-product-accessories-formwrap">
+                        {% if customer %}
+                            {%- liquid
+                            assign accessorie_product_form_id = 'quick-add-' | append: section.id | append: accessorie_product.id
+                            -%}
+                            <product-form data-section-id="{{ section.id }}">
+                                {%- form 'product',
+                                    accessorie_product,
+                                    id: accessorie_product_form_id,
+                                    class: 'form',
+                                    novalidate: 'novalidate',
+                                    data-type: 'add-to-cart-form'
+                                    -%}
+                                    <input
+                                        type="hidden"
+                                        name="id"
+                                        value="{{ accessorie_product.selected_or_first_available_variant.id }}"
+                                        class="product-variant-id"
+                                        {% if accessorie_product.selected_or_first_available_variant.available == false %}
+                                        disabled
+                                        {% endif %}>
+                                    <input
+                                        type="hidden"
+                                        name="quantity"
+                                        min="1"
+                                        value="1">
+                                    {% if accessorie_product.selected_or_first_available_variant.available and accessorie_product.price > 0 %}
+                                        <button
+                                            id="{{ accessorie_product_form_id }}-submit"
+                                            type="submit"
+                                            name="add"
+                                            class="quick-add__submit small_body custom_btn"
+                                            aria-haspopup="dialog"
+                                            aria-labelledby="{{ accessorie_product_form_id }}-submit title-{{ section.id }}-{{ accessorie_product.id }}"
+                                            aria-live="polite"
+                                            data-sold-out-message="true"
+                                            {% if accessorie_product.selected_or_first_available_variant.available == false %}
+                                            disabled
+                                            {% endif %}>
+                                            <span>
+                                                {%- if accessorie_product.selected_or_first_available_variant.available -%}
+                                                {{ 'products.product.accessories_product_btntxt' | t }}
+                                                {%- else -%}
+                                                {{ 'products.product.sold_out' | t }}
+                                                {%- endif -%}
+                                            </span>
+                                            <span class="sold-out-message hidden">
+                                                {{ 'products.product.sold_out' | t }}
+                                            </span>
+                                            {%- render 'loading-spinner' -%}
+                                        </button>
+                                    {% else %}
+                                        <div class="main-product-accessories-loginbtn">
+                                            <a href="{{ accessorie_product.url }}" class="small_body custom_btn">{{ 'products.product.view_detailt' | t }}</a>
+                                        </div>
+                                    {% endif %}
+                                {%- endform -%}
+                            </product-form>
+                        {% else %}
+                            <div class="main-product-accessories-loginbtn">
+                                <a href="{{ routes.account_login_url }}" class="small_body custom_btn">{{ 'products.product.quote_login_txt' | t }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% if customer %}
+            {% if accessorie_product_size > 2 %}
+                <div class="main-product-accessories-custombtn">
+                    <div class="main-product-accessories-prevbtn main-product-accessories-btn">
+                        {%  render 'icon-prev-arrow' %}
+                    </div>
+                    <div class="main-product-accessories-nextbtn main-product-accessories-btn">
+                        {%  render 'icon-next-arrow' %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+      </div>
+  </div>
+</div>
+{% endif %}

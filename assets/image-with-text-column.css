@@ -1,0 +1,94 @@
+.block__image-with-text-column-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 80px 0;
+}
+
+.block__image-with-text-columns {
+    width: calc(50% - 30px);
+    display: flex;
+    flex-direction: column;
+    gap: 80px;  
+}
+.block__image-bottom {
+    flex-direction: column-reverse;
+    margin: 40px 0 0;
+}
+.block__image-with-text-column-description {
+    width: 100%;
+    max-width: 665px;
+}
+.block__image-with-text-column-description p {
+    line-height: 32px;
+    color: var(--primary-color);
+    margin: 0;
+}
+.block__image-with-text-column-description h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0;
+    color: var(--primary-color);
+}
+.block__image-with-text-column-description h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0 0 20px;
+    color: #000A63;
+    font-style: italic;
+}
+
+@media (max-width:1400px){
+    .block__image-with-text-columns {
+        width: calc(50% - 30px);
+        gap: 40px;
+    }
+    .block__image-bottom {
+        margin: 20px 0 0;
+    }
+}
+@media (max-width:1199px){
+    .block__image-with-text-column-list {
+        gap: 30px;
+        margin: 70px 0;
+    }
+    .block__image-with-text-columns {
+        width: calc(50% - 15px);
+        gap: 25px;
+    }
+}
+@media (max-width:991px){
+    .block__image-with-text-column-list {
+        gap: 50px;
+        margin: 50px 0;
+    }
+    .block__image-with-text-columns {
+        width: 100%;
+        gap: 30px;
+    }
+    .block__image-bottom {
+        margin: 0;
+        flex-direction: column;
+    }
+    .block__image-with-text-column-description {
+        max-width: unset;
+    }
+    .block__image-with-text-column-description h5 {
+        margin: 0 0 15px;
+    }
+}
+@media (max-width:767px){
+    .block__image-with-text-column-description p {
+        font-size: 14px;
+        line-height: 29px;
+    }
+    .block__image-with-text-column-description h5,
+    .block__image-with-text-column-description h4 {
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0;
+    }
+}
+@media (max-width:390px){}

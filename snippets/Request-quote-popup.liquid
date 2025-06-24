@@ -1,0 +1,40 @@
+{{ 'request-quote-popup.css' | asset_url | stylesheet_tag }}
+<quote-popup class="quotepopup-section" style="display: none;">
+  <div class="page-width">
+    <div class="quotepopup-wrapper">
+      <div class="quotepopup-headingwrap">
+        <h4 class="quotepopup-heading quotepopup-heading-available extra_heading_size_1"><span class="quotepopup-headingtxt">{{ 'request_quote.quote_popup.quote_basket_heading' | t }}</span><span class="quotepopup-countproductwrap h6"><span class="quotepopup-countproduct"></span> Quote Basket</span></h4>
+        <div class="quotepopup-heading-empty" style="display:none">
+          <div class="quotepopup-empty-headingwrap">
+            <h4 class="quotepopup-heading quotepopup-heading-empty extra_heading_size_1">{{ 'request_quote.quote_popup.quote_empty_basket_heading' | t }}</h4>
+            <span class="quotepopup-empty-desc">{{ 'request_quote.quote_popup.quote_empty_basket_desc' | t }}</span>
+          </div>
+          <div class="quotepopup-empty-btnwrap">
+            <a href="/search" class="quotepopup-empty-btn custom_btn black_btn quotepopup-moreproduct">{{ 'request_quote.quote_popup.quote_empty_basket_btntxt' | t }}</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="quotepopup-closebtn">
+        {% render 'icon-close' %}
+        {% render 'icon-caret' %}
+      </div>
+      <div class="quotepopup-innerwrapper">
+        <div class="quotepopup-product-wrapper"></div>
+        <div class="quotepopup-btn-wrapper">
+          <button class="quotepopup-btntxt get_quotepopup_btn custom_btn black_btn small_body">{{ 'request_quote.quote_popup.quote_basket_btntxt' | t}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</quote-popup>
+<script>
+  let quoteProducts_avail = localStorage.getItem('quoteProduct');
+  let productsArray_length = quoteProducts_avail ? JSON.parse(quoteProducts_avail) : [];
+  console.log(productsArray_length);
+  if(productsArray_length.length == 0){
+    document.querySelector('.quotepopup-section').style.display = 'none';
+  }else{
+    document.querySelector('.quotepopup-section').style.display = 'flex';
+  }
+</script>

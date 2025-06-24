@@ -1,0 +1,260 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<div class="block__login-main">
+  <div class="block__login-row">
+
+    {% if section.settings.img != blank %}
+      <div class="block__login-img">
+        <img src="{{ section.settings.img |  img_url: 'master' }}" alt="">
+        <img
+          src="{% if section.settings.img1 != blank %}{{ section.settings.img1 |  img_url: 'master' }}{% else %}{{ section.settings.img |  img_url: 'master' }}{% endif %}"
+          alt=""
+          class="block__login-img-mobile">
+      </div>
+    {% endif %}
+
+    <div class="block__login-block section-{{ section.id }}-padding">
+      <div class="customer register">
+        <svg style="display: none">
+          <symbol id="icon-error" viewBox="0 0 13 13">
+            <circle
+              cx="6.5"
+              cy="6.50049"
+              r="5.5"
+              stroke="white"
+              stroke-width="2" />
+            <circle
+              cx="6.5"
+              cy="6.5"
+              r="5.5"
+              fill="#EB001B"
+              stroke="#EB001B"
+              stroke-width="0.7" />
+            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
+            <path
+              d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+              fill="white"
+              stroke="#EB001B"
+              stroke-width="0.7">
+          </symbol>
+        </svg>
+        <div class="block__customer-form-main">
+          {% if section.settings.logo != blank %}
+            <a href="{{ shop.url }}" class="block__customer-logo-img">
+              <img src="{{ section.settings.logo |  img_url: 'master' }}" alt="">
+            </a>
+          {% endif %}
+          {% if section.settings.add_subheading != blank %}
+            <div class="h4 block__customer-login-subheading">{{ section.settings.add_subheading }}</div>
+          {% endif %}
+          <h1 class="block__customer-form-title">
+            {% if section.settings.add_heading != blank %}
+              {{ section.settings.add_heading }}
+            {% else %}
+              {{ 'customer.register.title' | t }}
+            {% endif %}
+          </h1>
+        </div>
+        <div class="block__customer-form">
+          {% if section.settings.head != blank %}
+            <h4 class="block__customer-form-heading">
+              {{ section.settings.head }}
+            </h4>
+          {% endif %}
+          {%- form 'create_customer' -%}
+            {%- if form.errors -%}
+              <h2
+                class="form__message"
+                tabindex="-1"
+                autofocus>
+                <svg aria-hidden="true" focusable="false">
+                  <use href="#icon-error" />
+                </svg>
+                {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+              <ul>
+                {%- for field in form.errors -%}
+                  <li>
+                    {%- if field == 'form' -%}
+                      {{ form.errors.messages[field] }}
+                    {%- else -%}
+                      <a href="#RegisterForm-{{ field }}">
+                        {{ form.errors.translated_fields[field] | capitalize }}
+                        {{ form.errors.messages[field] }}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+             
+            {%- endif -%}
+            <div id="firstNameError" style="color: red; font-size: 0.9em;"></div>
+            <div class="field">
+              <input
+              type="text"
+                name="customer[first_name]"
+                id="RegisterForm-FirstName"
+                {% if form.first_name %}
+                value="{{ form.first_name }}"
+                {% endif %}
+                autocomplete="given-name"
+                placeholder="{{ 'customer.register.full-name' | t }}"
+               pattern="[A-Za-z\s]+"
+                title="Please enter a valid name"
+                required>
+              
+            {% comment %}  
+            <label for="RegisterForm-FirstName">
+            {{ 'customer.register.first_name' | t }}
+            </label>
+            {% endcomment %}
+            </div>
+            {% comment %} 
+            <div class="field">
+            <input
+            type="text"
+            name="customer[last_name]"
+            id="RegisterForm-LastName"
+            {% if form.last_name %}
+            value="{{ form.last_name }}"
+            {% endif %}
+            autocomplete="family-name"
+            placeholder="{{ 'customer.register.last_name' | t }}"
+            required
+            >
+            <label for="RegisterForm-LastName">
+            {{ 'customer.register.last_name' | t }}
+            </label>
+            </div>
+            {% endcomment %}
+            <div class="field">
+              <input
+              type="email"
+                name="customer[email]"
+                id="RegisterForm-email"
+                {% if form.email %}
+                value="{{ form.email }}"
+                {% endif %}
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="email"
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-email-error"
+                {% endif %}
+                placeholder="{{ 'customer.register.email' | t }}"
+                required>
+            {% comment %}  
+            <label for="RegisterForm-email">
+            {{ 'customer.register.email' | t }}
+            </label>
+            {% endcomment %}
+            </div>
+            {% comment %}  
+            {%- if form.errors contains 'email' -%}
+            <span id="RegisterForm-email-error" class="form__message">
+            <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+            </svg>
+            {{ form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email }}.
+            </span>
+            {%- endif -%}
+            {% endcomment %}
+            <div class="field">
+              <input
+              type="number"
+                name="customer[note][phone_number]"
+                id="RegisterForm-Phonenumber"
+                aria-required="true"
+                {% if form.errors contains 'phone-number' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-phone-number-error"
+                {% endif %}
+                placeholder="{{ 'customer.register.phone-number' | t }}"
+                required>
+            {% comment %}  
+            <label for="RegisterForm-password">
+            {{ 'customer.register.password' | t }}
+            </label>
+            {% endcomment %}
+            </div>
+            <div class="field">
+              <input
+                type="password"
+                name="customer[password]"
+                id="RegisterForm-password"
+                aria-required="true"
+                {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-password-error"
+                {% endif %}
+                placeholder="{{ 'customer.register.password' | t }}"
+                required>
+            {% comment %}  
+            <label for="RegisterForm-password">
+            {{ 'customer.register.password' | t }}
+            </label>
+            {% endcomment %}
+            </div> 
+            {%- if form.errors contains 'password' -%}
+            <span id="RegisterForm-password-error" class="form__message">
+            <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+            </svg>
+            {{ form.errors.translated_fields.password | capitalize }}
+            {{ form.errors.messages.password }}.
+            </span>
+            {%- endif -%}
+            
+            <button  class="block__customer_btn">
+              {{ 'customer.register.submit' | t }}
+            </button>
+            <p class="block__create_acc">
+              Already have an account?
+              <a href="{{ routes.account_login_url }}" class="">
+                Login
+              </a>
+            </p>
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.main-register.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Select Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "img1",
+        "label": "Select Image(Mobile)"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Select Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "head",
+        "label": "Title"
+      }, {
+        "type": "text",
+        "id": "add_subheading",
+        "label": "Add Subheading"
+      }, {
+        "type": "text",
+        "id": "add_heading",
+        "label": "Add Heading"
+      }
+    ]
+  }
+{% endschema %}

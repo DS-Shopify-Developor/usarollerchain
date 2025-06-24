@@ -1,0 +1,71 @@
+{{ 'image-with-text-column.css' | asset_url | stylesheet_tag }}
+<div class="block__image-with-text-column-section">
+    <div class="page-width">
+        <div class="block__image-with-text-column-box">
+            <div class="block__image-with-text-column-list">
+            {% for block in section.blocks %}
+                {% if block.settings.image != blank %}
+                <div class="block__image-with-text-columns block__image-{{ block.settings.image_position }}">
+                    <div class="block__image-with-text-column-image">
+                        <img src="{{ block.settings.image | img_url:"1024x1024" }}">
+                    </div>
+                    {% if block.settings.description != blank %}
+                    <div class="block__image-with-text-column-description">
+                        {{ block.settings.description }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Image with text Column",
+        "class": "section",
+        "tag": "section",
+        "settings": [
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "select",
+                        "id": "image_position",
+                        "options": [
+                          {
+                            "value": "top",
+                            "label": "Top"
+                          },
+                          {
+                            "value": "bottom",
+                            "label": "Bottom"
+                          }
+                        ],
+                        "default": "top",
+                        "label": "Image Position"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Image with text Column"
+            }
+        ]
+    }
+{% endschema %}

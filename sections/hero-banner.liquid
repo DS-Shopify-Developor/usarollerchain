@@ -1,0 +1,244 @@
+{{ 'hero-banner.css' | asset_url | stylesheet_tag }}
+<div class="block__hero-banner-section">
+    <div class="page-width">
+        <div class="block__hero-banner-wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div class="block__hero-banner-left-wrapper">
+                <div class="block__hero-banner-left-details-sliders">
+                    {% for block in section.blocks %}
+                        {% if block.settings.image != blank %}
+                        <div class="block__hero-banner-left-details-slider">
+                            <div class="block__hero-banner-left-details-slide block__{{ block.id }}">
+                                <style>
+                                    .block__{{ block.id }} .block__hero-banner-subtitle-txt {color:{{ block.settings.color_heading_label }};}
+                                    .block__{{ block.id }} .block__hero-banner-title {color:{{ block.settings.color_heading }};}
+                                    .block__{{ block.id }} .block__hero-banner-banner-btn {color:{{ block.settings.button_text_color }};background:{{ block.settings.button_bg_color }};}
+                                </style>
+                                <div class="block__hero-banner-left-image">
+                                    <img class="block__hero-banner-img block__hero-banner-img-desktop" src="{{ block.settings.image | img_url:"800x800" }}" alt="Left Iamge" loading="eager" width="" height="">
+
+                                    {% assign mobile_image = block.settings.image %}
+                                    {% if block.settings.mobile_image != blank %}
+                                        {% assign mobile_image = block.settings.mobile_image %}
+                                    {% endif %}
+
+                                    <img class="block__hero-banner-img block__hero-banner-img-mobile" src="{{ mobile_image | img_url:"800x800" }}" alt="Left Iamge" loading="eager" width="" height="">
+                                </div>
+                                <div class="block__hero-banner-content-wrap">
+                                    {% if block.settings.heading_label != blank %}
+                                        <p class="block__hero-banner-subtitle-txt medium_body">{{ block.settings.heading_label }}</p>
+                                    {% endif %}
+                                    {% if block.settings.heading != blank %}
+                                        <h3 class="block__hero-banner-title">{{ block.settings.heading }}</h3>
+                                    {% endif %}
+                                    {% if block.settings.btn_text != blank %}
+                                        <a class="block__hero-banner-banner-btn" href="{{ block.settings.btn_url }}">{{ block.settings.btn_text }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="block__hero-banner-right-wrapper">
+                <div class="block__hero-banner-right-full-height-wrap">
+                    <div class="block__hero-banner-right-full-box">
+                        <div class="block__hero-banner-right-full-image">
+                            <img class="block__hero-banner-right-full-img" src="{{ section.settings.image | img_url:"master" }}" alt="Full Height Image" width="" height="">
+                        </div>
+                        <div class="block__hero-banner-right-content-wrap">
+                            {% if section.settings.heading_label != blank %}
+                                <p class="block__hero-banner-right-subtitle-txt">{{ section.settings.heading_label }}</p>
+                            {% endif %}
+                            {% if section.settings.heading != blank %}
+                                <h3 class="block__hero-banner-right-title">{{ section.settings.heading }}</h3>
+                            {% endif %}
+                            {% if section.settings.btn_text != blank %}
+                                <a class="block__hero-banner-right-banner-btn" href="{{ section.settings.btn_url }}">{{ section.settings.btn_text }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="block__hero-banner-half-height-wrap">
+                    <div class="block__hero-banner-half-banner-box block__hero-banner-bottom">
+                        <img class="block__hero-banner-half-height-img" src="{{ section.settings.image_2 | img_url:"master" }}" alt="Half Height Image" width="" height="">
+                        <div class="block__hero-banner-half-content-wrap">
+                            {% if section.settings.heading_2 != blank %}
+                                <h3 class="block__hero-banner-half-title">{{ section.settings.heading_2 }}</h3>
+                            {% endif %}
+                            {% if section.settings.btn_text_2 != blank %}
+                                <a class="block__hero-banner-half-banner-btn" href="{{ section.settings.btn_url_2 }}"><span>{{ section.settings.btn_text_2 }}</span> {% render 'icon-btn-arrow' %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="block__hero-banner-half-banner-box block__hero-banner-top">
+                        <img class="block__hero-banner-half-height-img" src="https://cdn.shopify.com/s/files/1/0849/3108/4578/files/Frame_10730.jpg?v=1702701936" alt="Half Height Image" width="" height="">
+                        <div class="block__hero-banner-half-content-wrap">
+                        {% if section.settings.heading_3 != blank %}
+                            <h3 class="block__hero-banner-half-title">{{ section.settings.heading_3 }}</h3>
+                        {% endif %}
+                        {% if section.settings.btn_text_3 != blank %}
+                            <a class="block__hero-banner-half-banner-btn" href="{{ section.settings.btn_url_3 }}"><span>{{ section.settings.btn_text_3 }}</span> {% render 'icon-btn-arrow' %}</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Banner 1"
+        },
+        {
+            "type": "image_picker",
+            "id":"image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "heading_label",
+            "label": "Heading Label"
+        },
+        {
+            "type": "html",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button Url"
+        },
+        {
+            "type": "header",
+            "content": "Banner 2"
+        },
+        {
+            "type": "image_picker",
+            "id":"image_2",
+            "label": "Image"
+        },
+        {
+            "type": "html",
+            "id": "heading_2",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "btn_text_2",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "btn_url_2",
+            "label": "Button Url"
+        },
+        {
+            "type": "header",
+            "content": "Banner 3"
+        },
+        {
+            "type": "image_picker",
+            "id":"image_3",
+            "label": "Image"
+        },
+        {
+            "type": "html",
+            "id": "heading_3",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "btn_text_3",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "btn_url_3",
+            "label": "Button Url"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id":"image",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id":"mobile_image",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "text",
+                    "id": "heading_label",
+                    "label": "Heading Label"
+                },
+                {
+                    "type": "color",
+                    "id": "color_heading_label",
+                    "label": "Color Heading Label"
+                },
+                {
+                    "type": "html",
+                    "id": "heading",
+                    "label": "Heading"
+                },
+                {
+                    "type": "color",
+                    "id": "color_heading",
+                    "label": "Color Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button Url"
+                },
+                {
+                    "type": "color",
+                    "id": "button_bg_color",
+                    "label": "Button Background color"
+                },
+                {
+                    "type": "color",
+                    "id": "button_text_color",
+                    "label": "Button Text color"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Banner"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

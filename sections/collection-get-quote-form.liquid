@@ -1,0 +1,36 @@
+
+    {% assign collection_get_quote_form_details = collection.metafields.custom.collection_get_quote_form_details.value %}
+    {% if collection_get_quote_form_details != blank %}
+    <section class="block__block__Get-Quote_Form_section  page-width" id="{{ collection_get_quote_form_details.quote_form_main_heading |  handle }}">
+      <div class="block__Get-Quote_Form"  scroll-target="{{ collection_get_quote_form_details.quote_form_main_heading |  handle }}">
+        <div class="block__Get-Quote_Form-heading"> 
+          <h4 class="block__Get-Quote_Form-heading-main"><strong>{{ collection_get_quote_form_details.quote_form_main_heading }}</strong></h4>
+          <p class="block__Get-Quote_Form-subheading">{{ collection_get_quote_form_details.quote_form_main_subheading }}</p>
+        </div>
+        {% if collection_get_quote_form_details.form_id != blank %}
+        <div class="block__Get-Quote_Form-Contact">
+          {{ collection_get_quote_form_details.form_id }}
+            {% comment %} {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when '@app' -%}
+                     {% render block %}
+                {%- endcase -%}
+            {%- endfor -%} {% endcomment %}
+        </div>
+        {% endif %}
+      </div>
+      </section>
+    {% endif %}
+
+  {% schema %}
+  {
+    "name": "Collection Get Quote Form",
+    "class": "section",
+    "settings": [
+          {
+            "type": "header",
+            "content": "Get Quote Form"
+          }
+        ]
+  }
+  {% endschema %}

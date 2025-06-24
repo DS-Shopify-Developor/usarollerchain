@@ -1,0 +1,881 @@
+{{ 'section-meet-team.css' | asset_url | stylesheet_tag }}
+<div class="block__meet_team">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="block__meet_team_title">{{ section.settings.title }}</h2>
+    {% endif %}
+    <ul class="block__meet_team_tabs">
+      {% for block in section.blocks %}
+        {% if block.settings.nav != blank %}
+          <li
+            class="block__meet_team_tab_link {% if forloop.index == 1 %} current{% endif %}"
+            data-tab="tab-{{ forloop.index }}"
+          >
+            {{ block.settings.nav }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% for block in section.blocks %}
+      <div class="block__meet_team_content {% if forloop.index == 1 %} current{% endif %}" id="tab-{{ forloop.index }}">
+        <div class="block__meet_team_content_block">
+          {% if block.settings.text != blank %}
+            <p class="block__meet_team_text medium_body">{{ block.settings.text }}</p>
+          {% endif %}
+          <div class="block__meet_team_member_list">
+            {% for i in (1..30) %}
+              {% capture img %}img{{i}}{% endcapture %}
+              {% capture info %}info{{i}}{% endcapture %}
+              {% capture name %}name{{i}}{% endcapture %}
+              {% capture position %}position{{i}}{% endcapture %}
+              {% assign img = block.settings[img] %}
+              {% assign info = block.settings[info] %}
+              {% assign name = block.settings[name] %}
+              {% assign position = block.settings[position] %}
+              {% if img != blank %}
+                <div class="block__meet_team_member">
+                  <div class="block__meet_team_member_block">
+                    <div class="block__meet_team_member_img">
+                      <img src="{{ img |  img_url: 'master' }}">
+                      {% if info != blank %}
+                        <span class="block__meet_team_member_info">{{ info }}</span>
+                      {% endif %}
+                    </div>
+                    {% if name != blank %}
+                      <p class="block__meet_team_member_name medium_body">{{ name }}</p>
+                    {% endif %}
+                    {% if position != blank %}
+                      <span class="block__meet_team_member_position small_body">{{ position }}</span>
+                    {% endif %}
+                  </div>
+                  <div class="block__meet_team_member_pop_up">
+                    <div class="block__meet_team_member_pop_up_block">
+                      <button class="block__meet_team_member_close">
+                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.1525 5.40381C14.3588 5.61005 14.4619 5.84575 14.4619 6.11091C14.4619 6.37608 14.3588 6.61178 14.1525 6.81802L10.9706 10L14.1525 13.182C14.3588 13.3882 14.4619 13.6239 14.4619 13.8891C14.4619 14.1543 14.3588 14.39 14.1525 14.5962C13.9463 14.8024 13.7106 14.9056 13.4454 14.9056C13.1803 14.9056 12.9446 14.8024 12.7383 14.5962L9.55635 11.4142L6.37437 14.5962C6.16813 14.8024 5.93243 14.9056 5.66726 14.9056C5.4021 14.9056 5.16639 14.8024 4.96015 14.5962C4.75392 14.39 4.6508 14.1543 4.6508 13.8891C4.6508 13.6239 4.75392 13.3882 4.96015 13.182L8.14214 10L4.96015 6.81802C4.75392 6.61178 4.6508 6.37608 4.6508 6.11091C4.6508 5.84575 4.75392 5.61005 4.96015 5.40381C5.16639 5.19757 5.4021 5.09445 5.66726 5.09445C5.93243 5.09445 6.16813 5.19757 6.37437 5.40381L9.55635 8.58579L12.7383 5.40381C12.9446 5.19757 13.1803 5.09445 13.4454 5.09445C13.7106 5.09445 13.9463 5.19757 14.1525 5.40381Z" fill="black"/>
+                        </svg>
+                      </button>
+                      <img src="{{ img |  img_url: 'master' }}">
+                      {% if name != blank %}
+                        <p class="block__meet_team_member_name medium_body">{{ name }}</p>
+                      {% endif %}
+                      {% if position != blank %}
+                        <span class="block__meet_team_member_position small_body">{{ position }}</span>
+                      {% endif %}
+                      {% if info != blank %}
+                        <span class="block__meet_team_member_info_pop_up small_body">{{ info }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .block__meet_team{
+      padding: {{ section.settings.py }}px 0;
+  }
+  @media (max-width:1199px){
+      .block__meet_team{
+          padding: {{ section.settings.py_t }}px 0;
+      }
+  }
+  @media (max-width:767px){
+      .block__meet_team{
+          padding: {{ section.settings.py_m }}px 0;
+      }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Meet Team",
+  "class": "meet-team",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "range",
+      "id": "py",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "py_t",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Tablet)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "py_m",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top-Bottom(Mobile)",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Team-member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav",
+          "label": "Nav Text"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "header",
+          "content": "Member 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info1",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name1",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position1",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info2",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name2",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position2",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img3",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info3",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name3",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position3",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img4",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info4",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name4",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position4",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "img5",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info5",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name5",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position5",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "img6",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info6",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name6",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position6",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "img7",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info7",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name7",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position7",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "img8",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info8",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name8",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position8",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 9"
+        },
+        {
+          "type": "image_picker",
+          "id": "img9",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info9",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name9",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position9",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 10"
+        },
+        {
+          "type": "image_picker",
+          "id": "img10",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info10",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name10",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position10",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 11"
+        },
+        {
+          "type": "image_picker",
+          "id": "img11",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info11",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name11",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position11",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 12"
+        },
+        {
+          "type": "image_picker",
+          "id": "img12",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info12",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name12",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position12",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 13"
+        },
+        {
+          "type": "image_picker",
+          "id": "img13",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info13",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name13",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position13",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 14"
+        },
+        {
+          "type": "image_picker",
+          "id": "img14",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info14",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name14",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position14",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 15"
+        },
+        {
+          "type": "image_picker",
+          "id": "img15",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info15",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name15",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position15",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 16"
+        },
+        {
+          "type": "image_picker",
+          "id": "img16",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info16",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name16",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position16",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 17"
+        },
+        {
+          "type": "image_picker",
+          "id": "img17",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info17",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name17",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position17",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 18"
+        },
+        {
+          "type": "image_picker",
+          "id": "img18",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info18",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name18",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position18",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 19"
+        },
+        {
+          "type": "image_picker",
+          "id": "img19",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info19",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name19",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position19",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 20"
+        },
+        {
+          "type": "image_picker",
+          "id": "img20",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info20",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name20",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position20",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 21"
+        },
+        {
+          "type": "image_picker",
+          "id": "img21",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info21",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name21",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position21",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 22"
+        },
+        {
+          "type": "image_picker",
+          "id": "img22",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info22",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name22",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position22",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 23"
+        },
+        {
+          "type": "image_picker",
+          "id": "img23",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info23",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name23",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position23",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 24"
+        },
+        {
+          "type": "image_picker",
+          "id": "img24",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info24",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name24",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position24",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 25"
+        },
+        {
+          "type": "image_picker",
+          "id": "img25",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info25",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name25",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position25",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 26"
+        },
+        {
+          "type": "image_picker",
+          "id": "img26",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info26",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name26",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position26",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 27"
+        },
+        {
+          "type": "image_picker",
+          "id": "img27",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info27",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name27",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position27",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 28"
+        },
+        {
+          "type": "image_picker",
+          "id": "img28",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info28",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name28",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position28",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 29"
+        },
+        {
+          "type": "image_picker",
+          "id": "img29",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info29",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name29",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position29",
+          "label": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Member 30"
+        },
+        {
+          "type": "image_picker",
+          "id": "img30",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "info30",
+          "label": "Membaer Info"
+        },
+        {
+          "type": "text",
+          "id": "name30",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position30",
+          "label": "Position"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meet Team"
+    }
+  ]
+}
+{% endschema %}

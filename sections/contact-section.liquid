@@ -1,0 +1,190 @@
+{{ 'section-contact.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .contact-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top  }}px;
+      padding-bottom: {{ section.settings.padding_bottom  }}px;
+    }
+  
+    @media screen and (max-width: 989px) {
+      .contact-{{ section.id }}-padding {
+        padding-top: 50px;
+        padding-bottom: 0;
+      }
+    }
+  {%- endstyle -%}
+{% if page.title contains 'Contact' %}
+  <h1 style="display:none;">{{ page.title }}</h1>
+{% endif %}
+<div class="block__contact-section contact-{{ section.id }}-padding">
+    <div class="page-width">
+        <div class="block__contact-row">
+            <div class="block__contact-left">
+                <div class="block__contact-left-block">
+                    {% if section.settings.title != blank %}
+                        <h2 class="block__contact-title">{{ section.settings.title }}</h2>
+                    {% endif %}
+                    {% if section.settings.info != blank %}
+                        <p class="block__contact-info">{{ section.settings.info }}</p>
+                    {% endif %}
+                    {% if section.settings.btn != blank %}
+                        <a href="{{ section.settings.url }}" class="block__contact-btn">{{ section.settings.btn }}</a>
+                    {% endif %}
+                    {% if section.settings.call != blank %}
+                        <div class="block__contact-call block__contact-block">
+                            <h6 class="medium_body">{{ section.settings.call }}</h6>
+                            {% if section.settings.call_number != blank %}
+                               {{ section.settings.call_number }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.email_head != blank %}
+                        <div class="block__contact-email block__contact-block">
+                            <h6 class="medium_body">{{ section.settings.email_head }}</h6>
+                            {% if section.settings.email != blank %}
+                                {{ section.settings.email }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.time != blank %}
+                        <div class="block__contact-time block__contact-block">
+                            <h6 class="medium_body">{{ section.settings.time }}</h6>
+                            {% if section.settings.time_text != blank %}
+                                {{ section.settings.time_text }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.address1 != blank %}
+                        <div class="block__contact-mail-address block__contact-block">
+                            <h6 class="medium_body">{{ section.settings.address1 }}</h6>
+                            {% if section.settings.address1_text != blank %}
+                                {{ section.settings.address1_text }}
+                            {% endif %}
+                        </div>  
+                    {% endif %}
+                    {% if section.settings.address2 != blank %}
+                        <div class="block__contact-physical-address block__contact-block">
+                            <h6 class="medium_body">{{ section.settings.address2 }}</h6>
+                            {% if section.settings.address2_text != blank %}
+                                {{ section.settings.address2_text }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="block__contact-right">
+                <div class="globo-formbuilder" data-id="NDE1NjQ="></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}  
+    {
+        "name": "contact-section",
+        "class": "contact-section",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "info",
+                "label": "Caption"
+            },
+            {
+                "type": "text",
+                "id": "btn",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Button URL"
+            },
+            {
+                "type": "text",
+                "id": "call",
+                "label": "Call Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "call_number",
+                "label": "call Number"
+            },
+            {
+                "type": "text",
+                "id": "email_head",
+                "label": "Email Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "email",
+                "label": "Email Text"
+            },
+            {
+                "type": "text",
+                "id": "time",
+                "label": "Time Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "time_text",
+                "label": "Time Text"
+            },
+            {
+                "type": "text",
+                "id": "address1",
+                "label": "Mailing Address Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "address1_text",
+                "label": "Mailing Address Text"
+            },
+            {
+                "type": "text",
+                "id": "address2",
+                "label": "Physical Address Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "address2_text",
+                "label": "Physical Address Text"
+            },
+            {
+                "type": "header",
+                "content": "t:sections.all.padding.section_padding_heading"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 200,
+                "step": 2,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_top",
+                "default": 80
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 200,
+                "step": 2,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_bottom",
+                "default": 0
+            }
+        ],
+        "presets": [
+            {
+                "name": "Contact Section"
+            }
+        ]
+    }
+{% endschema %} 

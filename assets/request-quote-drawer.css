@@ -1,0 +1,689 @@
+body.body_quotedrawer_active {
+    position: relative;
+    overflow: hidden;
+}
+body.body_quotedrawer_active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+.requestquote-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    transform: translateX(600px);
+    transition: all 500ms ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.requestquote-drawer.quotedrawer_active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+.requestquote-drawer .quote-drawer {
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    overflow: hidden;
+    height: 100%;
+    color: var(--heading-color);
+}
+.requestquote-drawer .quotedrawer__header {
+    position: relative;
+    padding: 32px 30px 24px;
+    border-bottom: 1px solid #ECECEC;
+}
+.requestquote-drawer .quotedrawer-product-mainheading {
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+.requestquote-drawer .quotedrawer__close {
+    border: none;
+    background: #fff;
+    position: absolute;
+    top: 24px;
+    bottom: auto;
+    left: auto;
+    right: 24px;
+    margin: auto;
+    padding: 0;
+    line-height: 0;
+    cursor: pointer;
+    color: #000;
+}
+.requestquote-inner-drawer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100% - 85px);
+    height: 100%;
+}
+.requestquote-customerform-wrapper {
+    padding: 65px;
+    text-align: center;
+    max-height: 100%;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.requestquote-customerform-wrapper.quote-register .quote-login-loyaltyinfowrap {
+    display: none;
+}
+.requestquote-customerform-wrapper .sotp-widget .olWrapper .ol .login-header {
+    margin-top: 0;
+    display: none;
+}
+.requestquote-inner-drawer .requestquote-login-formwrap {
+    background: #fff;
+    padding: 0;
+    max-height: calc(100% - 150px);
+    overflow: hidden;
+    overflow-y: auto;
+    width: 100%;
+    margin-top: -170px;
+}
+.requestquote-inner-drawer .requestquote-customerform-wrapper.quote-register .requestquote-login-formwrap {
+    max-height: calc(100% - 20px);
+    margin-top: 0;
+}
+.requestquote-drawer .block_main_login-heading {
+    font-weight: 700;
+    text-transform: capitalize;
+    max-width: 300px;
+    margin: 0 auto 40px;
+    letter-spacing: 0 !important;
+}
+.requestquote-drawer .requestquote-customerform-wrapper .block__main_login-form {
+    padding: 5px;
+}
+.requestquote-drawer .requestquote-customerform-wrapper .block__main_login-form form {
+    margin: 0;
+}
+.requestquote-drawer .requestquote-customerform-wrapper .block__main_login-form form label {
+    display: none;
+}
+.requestquote-drawer .block__main_login-box .field .input_field:before {
+    display: none;
+}
+.requestquote-drawer .block__main_login-box .customer .field input {
+    padding-left: 24px;
+}
+.requestquote-drawer .block__main_login-box .customer .custom_btn {
+    margin: 2.4rem 0 0;
+    height: 56px;
+    line-height: 1;
+    font-size: 14px;
+    transition: all 500ms ease;
+}
+.requestquote-drawer .customer .field:not(:first-of-type) {
+    margin: 1.6rem 0 0;
+}
+.quote_guestaccount_linkblock {
+    padding: 40px 0;
+    margin: 0 0 40px;
+    border-bottom: 1px solid #ddd;
+}
+.quote_guestaccount_linkblock .quote_guestaccount_formlink,
+.quote_createaccount_btnblock .quote_createaccount_linktxt {
+    color: var(--primary-color);
+}
+.quote_createaccount_btnblock {
+    font-size: 14px;
+}
+.quote_createaccount_btnblock .quote_createaccount_txt {
+    color: rgba(0,0,0,0.6);
+}
+.quote_createaccount_btnblock .quote_createaccount_linktxt,
+.quote_createaccount_btnblock .quote_loginaccount_linktxt {
+    text-decoration: none;
+}
+.quote_createaccount_btnblock .quote_createaccount_linktxt:hover,
+.quote_createaccount_btnblock .quote_loginaccount_linktxt:hover {
+    text-decoration: underline;
+}
+.quote-login-loyaltyinfowrap {
+    background: linear-gradient(270deg, #000000 0%, #12138D 100%);
+    padding: 32px 28px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+.quote-login-loyaltyinfo {
+    background: #F4F4F4;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    gap: 8px;
+    padding: 24px 30px;
+    flex-wrap: wrap;
+}
+.quote-loginloyalty-earntxt {
+    margin: 0;
+    font-weight: 600;
+}
+.quote-loginloyalty-earnaccounttxt {
+    margin: 0;
+}
+.quote-login-loyaltysubtxt {
+    margin-top: 24px;
+}
+.requestquote-drawer .requestquote-register-formwrap {
+    background: #fff;
+    padding: 0;
+    max-height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.requestquote-inner-drawer .requestquote-login-formwrap::-webkit-scrollbar-track,
+.requestquote-drawer .requestquote-register-formwrap::-webkit-scrollbar-track,
+.requestquote-drawer .quotedrawer-product-wrapper::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+.requestquote-inner-drawer .requestquote-login-formwrap::-webkit-scrollbar,
+.requestquote-drawer .requestquote-register-formwrap::-webkit-scrollbar,
+.requestquote-drawer .quotedrawer-product-wrapper::-webkit-scrollbar {
+	width: 0;
+	background-color: #F5F5F5;
+}
+.requestquote-inner-drawer .requestquote-login-formwrap::-webkit-scrollbar-thumb,
+.requestquote-drawer .requestquote-register-formwrap::-webkit-scrollbar-thumb,
+.requestquote-drawer .quotedrawer-product-wrapper::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+.block_main_guestregister-heading {
+    margin: 0 0 32px;
+    font-weight: 700;
+}
+.block__main_register-form form {
+    margin: 0;
+}
+.requestquote-register-formwrap .block__main_register-form.customer {
+    padding: 0;
+}
+.requestquote-drawer .requestquote-register-formwrap .block__main_register-field-wrap {
+    gap: 0;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.requestquote-drawer .requestquote_register_note {
+    border: 1px solid #00000033;
+    border-radius: 10px;
+    padding: 22px 24px;
+    max-height: 120px;
+    font-family: var(--font-body-family);
+    font-size: 16px;
+}
+.requestquote-drawer .block__main_register-field-wrap .field input, 
+.requestquote-drawer .block__main_register-field-wrap .field select {
+    height: 63px;
+}
+.requestquote-register-formwrap .block__main_register-field-wrap .field {
+    width: 100%;
+}
+.requestquote-drawer .block__main_register-field-wrap .field input.requestquote_register_note {
+    height: 120px;
+}
+.requestquote-register-formwrap .customer .block__mainregister-btnwrap {
+    margin-top: 24px;
+    max-width: 100%;
+}
+.requestquote-register-formwrap .customer .block__mainregister-btnwrap .block__mainregister-btn {
+    margin: 0;
+    width: 100%;
+    min-width: auto;
+    padding: 18px 28px;
+    font-weight: 600;
+    transition: all 500ms ease-in-out;
+}
+.requestquote-register-formwrap .quote_createaccount_btnblock {
+    padding-top: 32px;
+    margin-top: 32px;
+    border-top: 1px solid #ddd;
+}
+.quote-drawer .quoteproduct-list-wrapper {
+    padding: 24px 32px 30px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    overflow-y: auto;
+    /* display: flex; */
+    justify-content: center;
+}
+.quote-drawer #quoteproduct-listform {
+    width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+}
+.quote-drawer #quoteproduct-listform::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+.quote-drawer #quoteproduct-listform::-webkit-scrollbar {
+	width: 0;
+	background-color: #F5F5F5;
+}
+.quote-drawer #quoteproduct-listform::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+.quote-drawer .quotedrawer-product-wrapper {
+    width: 100%;
+    overflow: hidden;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    height: 100%;
+}
+.quote-drawer .quotepopup-product-item {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ececec;
+}
+.quote-drawer .quotepopup-product-img {
+    max-width: 100px;
+}
+.quote-drawer .quotepopup-product-content {
+    width: calc(100% - 100px);
+    padding-left: 20px;
+}
+.quote-drawer .quotepopup-product-imglink img {
+    border-radius: 10px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+}
+.quote-drawer .quotepopup-product-title {
+    margin: 0 0 12px;
+    font-size: 14px;
+}
+.quote-drawer .quotepopup-product-price {
+    font-size: 14px;
+}
+.quote-drawer .quotepopup-product-varianttxt {
+    font-size: 14px;
+}
+.quotepopup-product-propertywrap {
+    margin-top: 16px;
+}
+.quotepopup-product-propertywrap .quotepopup-product-propertytxt span {
+    color: #00000099;
+}
+.quotepopup-product-propertywrap .quotepopup-product-propertytxt ul {
+    margin-top: 8px;
+    padding-left: 25px;
+}
+.quotepopup-product-propertywrap .quotepopup-product-propertytxt ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+.quote-drawer .quotepopup-product-qtycontent .quantity {
+    min-height: 40px;
+    width: 100px;
+}
+.quote-drawer .quotepopup-product-qtycontent .quantity .quantity__button {
+    width: 24px;
+}
+.quote-drawer .quotepopup-product-qtycontent .quantity .quantity__button .icon {
+    width: 14px;
+}
+.quote-drawer .quotepopup-product-qtycontent .quantity__input {
+    font-size: 16px;
+}
+.quote-drawer .quotepopup-product-removecontent .quotepopup-product-removelink {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #22202E;
+    line-height: 1;
+}
+.quote-drawer .quotepopup-product-removecontent .quotepopup-product-removetxt {
+    font-size: 11px;
+}
+.quotedrawer-product-submitbtnwrap {
+    background: #fff;
+    padding: 15px 0 34px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.quotedrawer-product-submitbtn {
+    width: 100%;
+    height: 59px;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+}
+.quotedrawer-product-submit-topcotent {
+    text-align: center;
+}
+.quotedrawer-product-successicon {
+    line-height: 0;
+    text-align: center;
+}
+.quotedrawer-product-successmessage {
+    margin: 32px 0 40px;
+}
+.quotedrawer-product-success-heading {
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--heading-color);
+}
+.quotedrawer-product-success-desc {
+    color: #000000B2;
+    margin: 0 0 40px;
+}
+.quotedrawer-product-quoteidcontent {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--primary-color);
+}
+.quotedrawer-product-quoteprefix {
+    color: #000000B2;
+}
+.quotedrawer-successproduct-btnwrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 17px;
+}
+.quotedrawer-successproduct-btn {
+    padding: 15px 41px;
+    color: var(--primary-color);
+    border:1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: transparent;
+}
+.quotedrawer-successproduct-btn:hover{
+    border-color: var(--quinary-color);
+}
+.quotedrawer-successproduct-reviewbtn {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--primary-color);
+}
+.quotedrawer-succesproduct-listwrapper {
+    display: block;
+    border-top: 1px solid #00000014;
+    margin: 0 0 40px;
+}
+.quotedrawer-product-submittedcontent {
+    display: none;
+}
+.requestquote-drawer .requestquote-customerform-wrapper .form__message {
+    justify-content: center;
+}
+.quotedrawer-product-submitbtn .quotedrawer-product-submitbtn-loading {
+    width: 20px;
+    height: 20px;
+}
+.quotedrawer-product-submitbtn .quotedrawer-product-submitbtn-loading .spinner .path {
+    stroke: #fff;
+}
+.quotedrawer-product-submitbtn:hover .quotedrawer-product-submitbtn-loading .spinner .path {
+    stroke: #000;
+}
+.quote-drawer #quoteproduct-listform .quotepopup-product-moreitem {
+    display: none;
+}
+.requestquote-customerform-wrapper .existing-customer-text {
+    margin-top: 10px;
+    display: block;
+}
+.requestquote-customerform-wrapper.quote-register .quote_createaccount_btnblock {
+    display: none;
+}
+.quotepopup-product-note {
+    min-height: 100px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    border-color: #ddd;
+}
+.requestquote-drawer .quotepopup-product-notewrap {
+    line-height: 0;
+    margin-bottom: 20px;
+}
+.requestquote-drawer .quotepopup-product-shippingnote {
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+    background: #F7F7F7;
+    padding: 12.5px 30px;
+    border-radius: 5px;
+    border: 1px solid #0000000F;
+    font-weight: 400;
+    color: #000000B2;
+    margin-top: 24px;
+}
+.quotepopup-product-shippingnote span {
+    font-weight: 500;
+    color: #000000E5;
+}
+@media (max-height:500px){
+    .requestquote-drawer .quotedrawer__header {
+        padding: 20px 30px;
+    }
+    .requestquote-customerform-wrapper {
+        padding: 35px 65px 35px 65px;
+    }
+    .requestquote-inner-drawer {
+        max-height: calc(100% - 40px);
+    }
+    .requestquote-inner-drawer .requestquote-login-formwrap {
+        max-height: calc(100% - 50px);
+    }
+}
+@media (max-width:749px) {
+    .requestquote-customerform-wrapper {
+        padding: 70px 20px;
+    }
+    .requestquote-inner-drawer {
+        max-height: calc(100% - 40px);
+    }
+    .requestquote-drawer .block_main_login-heading {
+        max-width: 230px;
+        margin: 0 auto 42px;
+    }
+    .requestquote-drawer .requestquote-customerform-wrapper .block__main_login-form {
+        max-width: 100%;
+        padding: 0 2px;
+    }
+    .requestquote-drawer .block__main_login-box .customer .field input {
+        padding-left: 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        height: 50px;
+    }
+    .requestquote-drawer .block__main_login-box .customer .custom_btn {
+        margin: 2.2rem 0 0;
+        height: 50px;
+        font-size: 16px;
+    }
+    .quote_guestaccount_linkblock {
+        padding: 16px 0 30px;
+        margin: 0 0 30px;
+    }
+    .quote-login-loyaltyinfowrap {
+        padding: 20px 20px;
+    }
+    .quote-login-loyaltyinfo {
+        border-radius: 8px;
+        padding: 13px 10px;
+    }
+    .quote-login-loyaltysubtxt {
+        margin-top: 16px;
+    }
+    .requestquote-drawer .quote-drawer {
+        max-width: 100%;
+    }
+    .requestquote-drawer .quotedrawer__header {
+        padding: 20px 20px;
+    }
+    .requestquote-drawer .quotedrawer__close {
+        top: 20px;
+        right: 20px;
+    }
+    .requestquote-register-formwrap .block__main_register-form.customer {
+        max-width: 100%;
+    }
+    .requestquote-drawer .block__main_register-field-wrap .field input, 
+    .requestquote-drawer .block__main_register-field-wrap .field select {
+        height: 50px;
+    }
+    .requestquote-drawer .requestquote_register_note {
+        border-radius: 8px;
+        padding: 16px;
+        font-size: 14px;
+    }
+    .requestquote-register-formwrap .quote_createaccount_btnblock {
+        padding-top: 30px;
+        margin-top: 30px;
+    }
+    .requestquote-register-formwrap .customer .block__mainregister-btnwrap .block__mainregister-btn {
+        padding: 15px 28px;
+    }
+    .quote-drawer .quoteproduct-list-wrapper {
+        padding: 20px;
+    }
+    .quote-drawer .quotepopup-product-item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        padding-left: 3.5px;
+        padding-right: 3.5px;
+    }
+    .quote-drawer .quotepopup-product-img {
+        max-width: 80px;
+    }
+    .quote-drawer .quotepopup-product-imglink img {
+        width: calc(100% - 15px);
+        height: calc(100% - 15px);
+    }
+    .quote-drawer .quotepopup-product-content {
+        width: calc(100% - 80px);
+        padding-left: 16px;
+    }
+    .quotepopup-product-variantcontent {
+        margin: 0 0 20px;
+    }
+    .quote-drawer .quotedrawer-product-wrapper {
+        max-height: calc(100vh - 190px);
+    }
+    .quotepopup-product-note {
+        min-height: 80px;
+    }
+}
+
+
+
+/* cart drawer in the quote order section */
+.quotedrawer-productlist-submitted{
+    padding-bottom: 16px;
+}
+.quote-drawer .main__quotepopup-product-item {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.quote-drawer .main__quotepopup-product-item:first-child{
+    border-top: 1px solid #ececec;
+    padding-top: 16px;
+}
+.quote-drawer .main__quotepopup-product-img {
+    max-width: 72px;
+    width: 100%;
+    line-height: 0;
+}
+.main__quotepopup-product-imglink {
+    display: block;
+    border-radius: 6px;
+    background: #fff;
+    position: relative;
+    padding-top: 98%;
+    border: 1px solid #ddd;
+}
+.main__quotepopup-product-imglink img {
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    object-fit: contain;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+}
+.quote-drawer .main__quotepopup-product-imglink img {
+    border-radius: 10px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+}
+.quote-drawer .main__quotepopup-product-content {
+    width: calc(100% - 72px);
+    padding-left: 20px;
+}
+.main__quotepopup-product-titlecontent{
+    margin-bottom: 10px;
+}
+.main__quotepopup-product-titlecontent a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.main__productquote-qty{
+    font-size: 12px;
+    line-height: 18px;
+}
+.main__productquote-qty span{
+    color: #000000CC;
+}

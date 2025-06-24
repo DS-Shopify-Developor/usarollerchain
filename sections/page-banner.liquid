@@ -1,0 +1,77 @@
+{{ 'page-banner.css' | asset_url | stylesheet_tag }}
+<div class="block__page-banner-section section_{{ section.id }}">
+    <div class="page-width">
+        <style>
+            {% if section.settings.image != blank %}
+            .section_{{ section.id }} .block__page-banner-image {
+                background-image:url({{ section.settings.image | img_url: 'master' }});
+            }
+            {% endif %}
+        </style>
+        <div class="block__page-banner-box">
+            <div class="block__page-banner-image">
+                <div class="block__page-banner-content">
+                    {% if template.name == "page" %}
+                      {% if page.title contains 'FAQs & Help' or page.title contains 'About Us'  %}
+                        <h1 class="block__page-banner-heading setting-headingdd">
+                            {% if section.settings.heading != blank %}{{ section.settings.heading }}{% else %}{{ page.title }}{% endif %}
+                        </h1>
+                        {% else %}
+                        <div class="block__page-banner-heading setting-headingdd">
+                            {% if section.settings.heading != blank %}{{ section.settings.heading }}{% else %}{{ page.title }}{% endif %}
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                    {% comment %} {% if template.name == "page" %}
+                        <div class="block__page-banner-heading gdh">{{ page.title }}</div>
+                    {% endif %} {% endcomment %}
+                    {% if template.name == "cart" or template.name == "account" or template.name == "addresses" or template.name == "order" or  template.name == "quote-order" %} 
+                    <div class="block__page-banner-heading setting-heading"> {% if section.settings.heading != blank %}{{ section.settings.heading }}{% else %}Your {{ template.name }}{% endif %}</div>
+                    {% endif %}
+                    {% if section.settings.show_breadcrumb == true %}
+                    <div class="block__page-banner-breadcrumb">
+                        <div class="block__page-banner-breadcrumb-icon"><a href="{{ shop.url }}" class="block__page-banner-homelink">{% render 'icon-home' %}</a> / </div>
+                        {% if template.name == "page" %}
+                        <div class="block__page-banner-breadcrumb-heading">{{ page.title }}</div>
+                        {% endif %}
+                        {% if template.name == "cart" or template.name == "account" or template.name == "addresses"  or template.name == "order" %}
+                        <div class="block__page-banner-breadcrumb-heading">{{ template.name }}</div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Page Banner",
+        "class": "section",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Page Heading"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_breadcrumb",
+                "label": "Show Breadcrumb",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "name":"Page Banner"
+            }
+        ]
+    }
+{% endschema %}

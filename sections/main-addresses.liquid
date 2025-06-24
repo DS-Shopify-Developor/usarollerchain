@@ -1,0 +1,242 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="customer addresses block__account-row page-width section-{{ section.id }}-padding" data-customer-addresses>
+  {% render "account-tab" %}
+  <div class="block__account-info">
+{%- paginate customer.addresses by 5 -%}
+    <div class="block__account-address-header">
+      {% assign account-nav = settings[account-nav] %}
+      <div class="block__account-address-title">
+        <h1 class="block__account-content-title h4">{% if section.settings.heading != blank%}{{ section.settings.heading }}{% else  %}{{ 'customer.addresses.title' | t }}{% endif %}</h1>
+        <a href="{{ routes.account_url }}">
+          {{ 'customer.account.return' | t }}
+        </a>
+      </div>
+      <div class="block__account-new-address-add" data-address>
+        <button type="button" aria-expanded="false" aria-controls="AddAddress" class="block__account-address-add-btn">
+          {{ 'customer.addresses.add_new' | t }}
+        </button>
+        <div id="AddAddress" class="block__account-address-add-form">
+          <div class="block__account-address-add-form-block">
+            <h2 id="AddressNewHeading" class="extra_heading_size_1">{{ 'customer.addresses.add_new' | t }}</h2>
+            {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressFirstNameNew"
+                  name="address[first_name]"
+                  value="{{ form.first_name }}"
+                  autocomplete="given-name"
+                  placeholder="{{ 'customer.addresses.first_name' | t }}"
+                >
+                <label for="AddressFirstNameNew" style="display: none;">{{ 'customer.addresses.first_name' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressLastNameNew"
+                  name="address[last_name]"
+                  value="{{ form.last_name }}"
+                  autocomplete="family-name"
+                  placeholder="{{ 'customer.addresses.last_name' | t }}"
+                >
+                <label for="AddressLastNameNew" style="display: none;">{{ 'customer.addresses.last_name' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressCompanyNew"
+                  name="address[company]"
+                  value="{{ form.company }}"
+                  autocomplete="organization"
+                  placeholder="{{ 'customer.addresses.company' | t }}"
+                >
+                <label for="AddressCompanyNew" style="display: none;">{{ 'customer.addresses.company' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressAddress1New"
+                  name="address[address1]"
+                  value="{{ form.address1 }}"
+                  autocomplete="address-line1"
+                  placeholder="{{ 'customer.addresses.address1' | t }}"
+                >
+                <label for="AddressAddress1New" style="display: none;">{{ 'customer.addresses.address1' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressAddress2New"
+                  name="address[address2]"
+                  value="{{ form.address2 }}"
+                  autocomplete="address-line2"
+                  placeholder="{{ 'customer.addresses.address2' | t }}"
+                >
+                <label for="AddressAddress2New" style="display: none;">{{ 'customer.addresses.address2' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  class="block__account-address_input"
+                  id="AddressCityNew"
+                  name="address[city]"
+                  value="{{ form.city }}"
+                  autocomplete="address-level2"
+                  placeholder="{{ 'customer.addresses.city' | t }}"
+                >
+                <label for="AddressCityNew" style="display: none;">{{ 'customer.addresses.city' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+                  <select
+                    id="AddressCountryNew"
+                    class="block__account-address_input"
+                    name="address[country]"
+                    data-default="{{ form.country }}"
+                    autocomplete="country"
+                  >
+                    {{ all_country_option_tags }}
+                  </select>
+              </div>
+              <div id="AddressProvinceContainerNew" class="block__account-address-field" style="display: none">
+                <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+                  <select
+                    id="AddressProvinceNew"
+                    class="block__account-address_input"
+                    name="address[province]"
+                    data-default="{{ form.province }}"
+                    autocomplete="address-level1"
+                  ></select>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="text"
+                  id="AddressZipNew"
+                  class="block__account-address_input"
+                  name="address[zip]"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters"
+                  autocomplete="postal-code"
+                  placeholder="{{ 'customer.addresses.zip' | t }}"
+                >
+                <label for="AddressZipNew" style="display: none;">{{ 'customer.addresses.zip' | t }}</label>
+              </div>
+              <div class="block__account-address-field">
+                <input
+                  type="tel"
+                  id="AddressPhoneNew"
+                  class="block__account-address_input"
+                  name="address[phone]"
+                  value="{{ form.phone }}"
+                  autocomplete="tel"
+                  placeholder="{{ 'customer.addresses.phone' | t }}"
+                >
+                <label for="AddressPhoneNew" style="display: none;">{{ 'customer.addresses.phone' | t }}</label>
+              </div>
+              <div class="block__account-address-checkbox">
+                {{ form.set_as_default_checkbox }}
+                <span></span>
+                <label for="address_default_address_new">
+                  {{ 'customer.addresses.set_default' | t }}</label>
+              </div>
+              <div class="block__account-address-list-item-btn">
+                <button class="block__account-address-edit-btn">{{ 'customer.addresses.add' | t }}</button>
+                <button class="block__account-address-delete-btn" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+              </div>
+            {%- endform -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block__customer-avatar-div">
+      <div class="customer-avatar">
+          {% if customer.avatar %}
+              <img src="{{ customer.avatar.src | img_url: '100x100' }}" alt="{{ customer.first_name }}'s Avatar" class="customer-avatar-image" />
+          {% else %}
+              <div class="customer-initials-avatar">
+                  {% assign first_initial = customer.first_name | slice: 0, 1 | upcase %}
+                  {% assign last_initial = customer.last_name | slice: 0, 1 | upcase %}
+                  <div class="customer-initials">
+                      {{ first_initial }}{{ last_initial }}
+                  </div>
+              </div>
+          {% endif %}
+      </div>
+      <div class="block__customer-avatar-details">
+          <h3 class="extra_heading_size_1">{{ customer.first_name }} {{ customer.last_name }}</h3>
+      </div>
+  </div>
+
+ <div class="customer_form">
+  <div class="globo-formbuilder" data-id="NjUzMTE="></div>
+</div>  
+
+  {%- endpaginate -%}
+</div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-addresses.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page Heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

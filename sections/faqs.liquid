@@ -1,0 +1,156 @@
+{{ 'section-faqs.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top  }}px;
+    padding-bottom: {{ section.settings.padding_bottom  }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+{%- endstyle -%}
+<div class="block__faq_list_section section-{{ section.id }}-padding">
+  <div class="block__faq_list {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+
+    {%-for block in section.blocks-%}
+      {%- assign faq_title = block.settings.categories_name | append:','  -%}
+      {%- assign cattitle = cattitle | append:faq_title -%}
+    {% endfor %}
+    {%- assign faq_cat = cattitle | split:',' | uniq -%}
+    <div class="page-width">
+      <div class="block__mobile_faq_type  {% if customer %}block__faq_type_list_cust{% endif %}">
+        <div class="block__faq_type_list">
+            {% if customer %}
+                <h4 class="block__mobile_faq_type_title">Hello, {{ customer.first_name }}</h4>
+            {% endif %}
+          <div class="block__mobile_faq_type_dropdown_block">
+            <p class="block__mobile_faq_type_dropdown_head">
+            {%-for categoris in faq_cat limit:1 -%}<span class="{%if forloop.first%}active{% endif %}" data_id="{{categoris | handle}}">{{categoris}}</span>
+            {% endfor %}
+            {%  render 'down_arrow' %} 
+            </p>
+          <ul class="block__mobile_faq_type_dropdown">
+            {%-for categoris in faq_cat -%}
+            <li class="block__faq_type block__js_faq_heading {%if forloop.first%}active{% endif %}" data_id="{{categoris | handle}}">{{categoris}}</li>
+            {% endfor %}
+            </ul>
+         </div>
+        </div>
+      </div>
+      <div class="block__faq_content">
+        <div class="block__faq_content_box block__slider_main_containar">
+            <div class="block__right_content">
+              <ul class="block__faq_type_list_inner">
+                {%-for categoris in faq_cat -%}
+                  <li class="block__faq_type block__js_faq_heading {%if forloop.first%}active{% endif %}" data_id="{{categoris | handle}}">{{categoris}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          <div class="block__left_content">
+            <div class="block__faq_slider">
+              <div class="block__product_details">
+
+                {%-for categoris in faq_cat -%}
+                <div class="block__faq_list_block" id="{{categoris | handle}}">
+                    <div class="block__faq_data_header">
+                      <h4 class="block__faq_type_heading">{{ categoris }}</h4>
+                    </div>
+
+                  {%- assign cattitle = categoris | handle -%}
+                  {% for block in section.blocks %}
+                    {%- assign blocktitle = block.settings.categories_name | handle -%}
+                    {%- if cattitle == blocktitle -%}
+                      {% if block.settings.answer != blank %}
+                        <div class="block__slide {% if forloop.first %}block__change_icon{% endif %}">
+                          <div class="block__slider_box">
+                            <div class="block__tabs_title">
+                              <button class="block__accordion h6">{{ block.settings.question }}</button>
+                               {%  render 'down_arrow' %}                               
+                            </div>
+                            <div
+                              class="block__panel"
+                              {% if forloop.first %}
+                                style="display:block;"
+                              {% endif %}
+                            >
+                              {{ block.settings.answer }}
+                            </div>
+                          </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                  {%- endfor -%}
+                </div>
+                {% endfor %}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "FAQ list",
+  "class": "section-faqs",
+  "tag": "section",
+  "settings": [
+   {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "GettingStarted",
+      "name": "Faqs",
+      "settings": [
+        {
+          "type":"text",
+          "id":"categories_name",
+          "label":"Categories Name"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        }, {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ list"
+    }
+  ]
+}
+{% endschema %}

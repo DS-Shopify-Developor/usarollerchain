@@ -1,0 +1,108 @@
+<div class="block__account-tab">
+  <div class="block__account-main-mobile">
+    <div class="block__account-tab-name-block">
+      <h2 class="block__account-tab-name">Hello, {{ customer.name }}</h2>
+    </div>
+    <div class="block__account-tab-nav-list-dropdown">
+      <p>
+        {% for i in (1..10) %}
+          {% capture account-nav %}account-nav{{i}}{% endcapture %}
+          {% capture account-nav-url %}account-nav-url{{i}}{% endcapture %}
+          {% assign account-nav = settings[account-nav] %}
+          {% assign account-nav-url = settings[account-nav-url] %}
+          {% if account-nav != blank %}
+            {% assign account_url = request.path %}
+            {% if account-nav-url == account_url %}
+              {{ account-nav }}
+            {% elsif account-nav == 'Orders' and account_url contains '/account/orders' %}
+              {{ account-nav }}
+            {% elsif account-nav == 'Orders' and account_url contains '/account/addresses' %}
+              {{ account-nav }}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.285156 1.46484L5.50781 6.46875C5.6901 6.61458 5.85417 6.6875 6 6.6875C6.16406 6.6875 6.31901 6.6237 6.46484 6.49609L11.7148 1.46484C11.8424 1.33724 11.9062 1.18229 11.9062 1C11.9062 0.817708 11.8424 0.66276 11.7148 0.535156C11.4232 0.279948 11.1133 0.279947 10.7852 0.535156L6 5.12891L1.21484 0.535155C0.886718 0.279947 0.576822 0.289061 0.285156 0.562499C0.157551 0.671874 0.0937493 0.817707 0.0937493 0.999999C0.0937493 1.18229 0.157551 1.33724 0.285156 1.46484Z" fill="currentColor"></path> 
+        </svg>
+      </p>
+      <ul class="block__account-tab-nav-list block__account-tab-nav-list-dropdown">
+        {% for i in (1..10) %}
+          {% capture account-nav %}account-nav{{i}}{% endcapture %}
+          {% capture account-nav-url %}account-nav-url{{i}}{% endcapture %}
+          {% assign account-nav = settings[account-nav] %}
+          {% assign account-nav-url = settings[account-nav-url] %}
+          {% if account-nav != blank %}
+
+            {% comment %} {% assign account_url = request.path %}
+            {%  capture 'addrress_class' %} 
+              {% if account-nav == 'Orders' %} 
+                  {% if account_url == '/account/addresses' or account_url contains '/account/orders' %}
+                      block__account-tab-nav-current
+                  {% endif %}
+              {% endif %}
+            {% endcapture %} 
+            {% assign account_url = request.path %}
+            {% assign address_class = "" %} {% endcomment %}
+            
+            {% if account_nav_url == '/account/addresses' %}
+              {% if account_url == '/account/addresses' %}
+                {% assign address_class = 'block__account-tab-nav-current' %}
+              {% endif %}
+            {% endif %}
+
+            <li class="block__account-tab-nav-item {% if account-nav-url == account_url %}block__account-tab-nav-current{% endif %} {{ addrress_class }}">
+              <a href="{{ account-nav-url }}">{{ account-nav }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        <li class="block__account-tab-nav-item">
+          <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block__account-tab-nav">
+    <div class="block__account-tab-name-block">
+      <h2 class="block__account-tab-name">Hello, {{ customer.name }}</h2>
+    </div>
+    <ul class="block__account-tab-nav-list">
+      {% for i in (1..10) %}
+      {% capture account_nav %}account-nav{{i}}{% endcapture %}
+      {% capture account_nav_url %}account-nav-url{{i}}{% endcapture %}
+      {% assign account_nav = settings[account_nav] %}
+      {% assign account_nav_url = settings[account_nav_url] %}
+      
+      {% if account_nav != blank %}
+        {% assign account_url = request.path %}
+        {% assign address_class = "" %}
+        
+        {% if account_nav_url == '/account/addresses' %}
+          {% if account_url == '/account/addresses' %}
+            {% assign address_class = 'block__account-tab-nav-current' %}
+          {% endif %}
+        {% endif %}
+        
+        <li class="block__account-tab-nav-item {{ account_nav |  handle }} {% if account_nav_url == account_url %}block__account-tab-nav-current{% endif %} {{ address_class }}">
+          <a href="{{ account_nav_url }}">{{ account_nav }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+      <li class="block__account-tab-nav-item">
+        <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="block__account-question">
+    <h4 class="medium_body block__account-question-title">{{ settings['account-qus-title'] }}</h4>
+    <p class="body_heading block__account-question-text">{{ settings['account-qus-text'] }}</p>
+    <div class="block__account-question-img">
+      <img src="{{ settings.account-qus-img |  img_url: 'master' }}">
+    </div>
+    <h6 class="body_heading block__account-question-name">{{ settings['account-qus-name'] }}</h6>
+    <p class="small_body block__account-question-post">{{ settings['account-qus-post'] }}</p>
+    <a href="javascript:void(0);" onclick="GorgiasChat.open();" class="block__account-question-btn">
+      {{- settings['account-chat-text'] -}}
+    </a>
+  </div>
+</div>

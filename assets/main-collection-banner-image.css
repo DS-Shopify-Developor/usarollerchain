@@ -1,0 +1,87 @@
+.block__main-collection-banner-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 40px 0 0;
+}
+.block__page-banner-image-box{
+    border-radius: 8px;
+    overflow: hidden;
+}
+.block__main-collection-banner-content {
+    background: #000000B2;
+    padding: 138px 20px;
+    text-align: center;
+}
+.block__page-banner-image-heading {
+    /* font-size: 36px; */
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+    margin: 0;
+}
+.block__page-banner-image-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 18px 0 0;
+}
+.block__page-banner-image-breadcrumb-icon svg path {
+    fill: #FFFFFF99;
+    fill-opacity: 1;
+}
+.block__page-banner-image-breadcrumb-icon {
+    color: #FFFFFF99;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15.73px;
+}
+.block__page-banner-image-breadcrumb-icon svg {
+    vertical-align: top;
+}
+.block__page-banner-image-breadcrumb-heading {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15.73px;
+    color: var(--secondary-color);
+}
+
+.block__main-collection-banner-image .block_breadcrumbs{
+    width: 100%;
+    padding-top: 36px;
+}
+@media (max-width: 749px) {
+    .block__page-banner-image-box{
+        border-radius: 0;
+    }
+    .block__main-collection-banner-image .page-width{
+        padding:0;
+    }
+    .block__main-collection-banner-content{
+        padding: 100px 20px;
+    }
+    .block__main-collection-banner-image .block_breadcrumbs{
+        display: none;
+    }
+}
+@media (max-width:575px){
+    .block__page-banner-section .page-width {
+        padding: 0;
+    }
+    .block__main-collection-banner-image {
+        border-radius: 0;
+        margin: 0;
+    }
+    .block__page-banner-image-heading{
+        font-size: 28px;
+    }
+    /* .block__main-collection-banner-content {
+        padding: 90px 20px;
+    } */
+    .block__page-banner-image-breadcrumb {
+        margin: 30px 0 0;
+    }
+}
