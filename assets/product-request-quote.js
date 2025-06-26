@@ -1,4 +1,3 @@
-
     function setrequestQuoteProducts(productform_content) {
         let product_id = $(productform_content).find('input.productcontent').attr('data-productid'),
         product_title = $(productform_content).find('input.productcontent').attr('data-producttitle'),
@@ -464,8 +463,24 @@ $('.quotedrawer-product-submitbtn').unbind().click(function(e){
     $(this).find('.quotedrawer-product-submitbtn-txt').addClass('hidden');
     $(this).find('.quotedrawer-product-submitbtn-loading').removeClass('hidden');
     var formElement = document.querySelector('#quoteproduct-listform');
-      var submittoAdd = new FormData(formElement);
-      console.log(formElement);
+
+    if (formElement) {
+        if (!formElement.querySelector('[name="phone_number"]')) {
+            var phoneInput = document.createElement('input');
+            phoneInput.type = 'hidden';
+            phoneInput.name = 'phone_number';
+            phoneInput.value = '';
+            formElement.appendChild(phoneInput);
+        }
+        if (!formElement.querySelector('[name="companyname"]')) {
+            var companyInput = document.createElement('input');
+            companyInput.type = 'hidden';
+            companyInput.name = 'companyname';
+            companyInput.value = '';
+            formElement.appendChild(companyInput);
+        }
+    }
+    var submittoAdd = new FormData(formElement);
     function moveAlong(){
             let params = {
                 type: 'POST',
