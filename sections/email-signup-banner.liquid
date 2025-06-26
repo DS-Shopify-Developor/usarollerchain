@@ -136,6 +136,23 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let form = document.querySelector('.newsletter-form');
+    if (form) {
+      form.addEventListener('submit', function () {
+        let emailInput = form.querySelector('input[type="email"]');
+        let email = emailInput ? emailInput.value : '';
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'newsletter',
+          email: email
+        });
+      }, {once: true});
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.email-signup-banner.name",
