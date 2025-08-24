@@ -436,7 +436,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     let form = document.querySelector('.footer__newsletter.newsletter-form');
     if (form) {
-      form.addEventListener('submit', function () {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
         let emailInput = form.querySelector('input[type="email"]');
         let email = emailInput ? emailInput.value : '';
         window.dataLayer = window.dataLayer || [];

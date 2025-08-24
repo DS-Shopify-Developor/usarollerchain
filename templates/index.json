@@ -9,49 +9,6 @@
  */
 {
   "sections": {
-    "rich_text_wzENMi": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_MEqGyz": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>WELCOME!</strong>",
-            "heading_size": "h2"
-          }
-        },
-        "text_KMAfc7": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We’ve upgraded our site to make shopping with us <em><strong>faster, easier, and better</strong></em> than ever! </p><p><em>Please contact us if you need any help with setting up your account. </em></p><p><strong>We are excited to hear your feedback!</strong></p><p><em>-The USA Roller Chain Family</em></p>"
-          }
-        },
-        "button_bcPRMU": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_MEqGyz",
-        "text_KMAfc7",
-        "button_bcPRMU"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-e010447d-d37c-4917-82d7-5c2ef7486a96",
-        "full_width": false,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
     "hero_banner_aDmprQ": {
       "type": "hero-banner",
       "blocks": {
@@ -560,7 +517,6 @@
     }
   },
   "order": [
-    "rich_text_wzENMi",
     "hero_banner_aDmprQ",
     "image_with_icon_dX3cW6",
     "featured_collection",
